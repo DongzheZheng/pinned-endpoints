@@ -1,0 +1,258 @@
+{
+  "schema_version": 1,
+  "scope": "narrow-band physical entropy-Galerkin spectral memory",
+  "baseline_policy": "Tracked numerics/results and figures are recorded baselines; recomputation writes to generated directories or explicit output paths.",
+  "files": [
+    {
+      "path": "numerics/results/ritz_spectra.csv",
+      "sha256": "f98539c0ef5309c10708f3ae2216e1f2e3750492807c6ddfbaa5c1114d1a0fa6",
+      "transformation": "Retain six narrow-band configurations d in {0.004,0.008,0.016,0.032,0.064,0.1}, M=14,n=768, convention=ALS_q_entropy; preserve numerical cell strings.",
+      "source_path": "numerics/results/ritz_spectra.csv",
+      "source_sha256": "d26a4e4c0aa0e0f7f1765c99f8524c802175a29d25df435022a8c35f67bc53ba",
+      "source_rows": 3624,
+      "rows": 162,
+      "columns": [
+        "d",
+        "epsilon",
+        "M",
+        "n",
+        "convention",
+        "eigen_index",
+        "ritz",
+        "energy_residual"
+      ]
+    },
+    {
+      "path": "numerics/results/trial_quotients.csv",
+      "sha256": "1fcbd33b145a5097489a88f94834353380e3457e3e9039b451e8c06672b201c3",
+      "transformation": "Retain six narrow-band configurations d in {0.004,0.008,0.016,0.032,0.064,0.1}, M=14,n=768, convention=ALS_q_entropy; preserve numerical cell strings.",
+      "source_path": "numerics/results/trial_quotients.csv",
+      "source_sha256": "7253ab58a95ddbfbd39b4ddf4d49468aef96dd83976d037d57ce3bee7433c1b5",
+      "source_rows": 534,
+      "rows": 18,
+      "columns": [
+        "d",
+        "epsilon",
+        "M",
+        "n",
+        "trial",
+        "convention",
+        "quotient"
+      ]
+    },
+    {
+      "path": "numerics/results/linear_response_times.csv",
+      "sha256": "535fe48603a0bd07b929a8a730fba63291586442cee823ed3549320817af82d1",
+      "transformation": "Retain all eight narrow-band configurations and all rows; remove C11 columns; preserve numerical cell strings.",
+      "source_path": "numerics/results/linear_response_times.csv",
+      "source_sha256": "92be246a328d21ec6dd46d7b88f61561cbed0d00254d509c5fad639cf17c8ca8",
+      "source_rows": 4184,
+      "rows": 4184,
+      "columns": [
+        "d",
+        "M",
+        "n",
+        "time_grid",
+        "t",
+        "tau",
+        "u",
+        "C2_normalized"
+      ]
+    },
+    {
+      "path": "numerics/results/linear_response_spectral_weights.csv",
+      "sha256": "063026c89da399832ba8fccc0f5de39aee3fd7ad403178603a505d7cbc0e2b13",
+      "transformation": "Retain all eight narrow-band configurations and all rows; remove C11 columns; preserve numerical cell strings.",
+      "source_path": "numerics/results/linear_response_spectral_weights.csv",
+      "source_sha256": "88206ea38860cd1f02484bc39e1ddd8de042c5b7be6d3c7d47fa9eaa3a9d774b",
+      "source_rows": 216,
+      "rows": 216,
+      "columns": [
+        "d",
+        "M",
+        "n",
+        "eigen_index",
+        "rate",
+        "rate_over_d",
+        "C2_normalized_weight",
+        "C2_raw_weight",
+        "mirror_antisymmetric_G_norm"
+      ]
+    },
+    {
+      "path": "numerics/results/metadata.json",
+      "sha256": "8d8b6c782b3ca4f37ae3198ea7c0ea91dc51179e8f1a20bb817f05e8618884d0",
+      "transformation": "Retain metadata for six narrow-band physical-form configurations only; remove full-plan runtime and other conventions.",
+      "source_path": "numerics/results/metadata.json",
+      "source_sha256": "ec8e58809fd46d0ec222fa41abac895f2266978d608f9abbdcb2c6145a6d8397"
+    },
+    {
+      "path": "numerics/results/linear_response_metadata.json",
+      "sha256": "9d6f82ff208565479a66858ccdd2c180a3a2b1c96b5009dc2fe1ea6bbc665df8",
+      "transformation": "Retain eight configurations and unchanged C2 quantities; delete energy-current quantities and comparisons.",
+      "source_path": "numerics/results/linear_response_metadata.json",
+      "source_sha256": "81d815d5d6b4dbc82414c3062d4ba0e60a43736788f967d4dd41007d0d360a29"
+    },
+    {
+      "path": "numerics/results/preparation_memory_galerkin.npz",
+      "sha256": "58641d26308e1c155fdc312b1a3e06c466d0f94f47042de42d0dd9e41042dc6c",
+      "transformation": "unchanged copy",
+      "source_path": "numerics/results/preparation_memory_galerkin.npz",
+      "source_sha256": "58641d26308e1c155fdc312b1a3e06c466d0f94f47042de42d0dd9e41042dc6c"
+    },
+    {
+      "path": "numerics/results/preparation_memory_metadata.json",
+      "sha256": "b40d581ca51e0138e2eb978645409fce385cfdbed2c0a290209ff1c94306ea56",
+      "transformation": "Preserve original reconstruction quantities and checks; distinguish historical original-source hashes from extracted file hashes.",
+      "source_path": "numerics/results/preparation_memory_metadata.json",
+      "source_sha256": "e123d953aa081ba3e81fa2b8675f2008e0b54a27ba066ac6db37e5197edb407a"
+    },
+    {
+      "path": "numerics/results/linear_response_notes.md",
+      "sha256": "e556e1febf5166ea8b85de6279c8a49961a92f7ce0c2d1a9bc488f06e8c31c2a",
+      "transformation": "Rewrite notes to retain only spectral-memory interpretation and C2 cutoff/quadrature comparisons.",
+      "source_path": "numerics/results/linear_response_notes.md",
+      "source_sha256": "4747e6b39e3041acf023f03aa8db4e5a971d955c2a52accfc7f219d8fc072bd2"
+    },
+    {
+      "path": "numerics/results/preparation_memory_notes.md",
+      "sha256": "9a8b931d646f865399897cfab6d17216b54ee05bc3a74202cb8dd7864d2af999",
+      "transformation": "Update portable commands and describe isolated regeneration directories.",
+      "source_path": "numerics/results/preparation_memory_notes.md",
+      "source_sha256": "9d8340bc318940f9140bd67a249915f055c94127bc7cafe9dd53b53e7e5ef8a7"
+    },
+    {
+      "path": "figures/collision_memory_picture.pdf",
+      "sha256": "1ae83cc82c577b13d8387f7181f2751af26baffb8d0388ac43270164bf98eb45",
+      "transformation": "unchanged copy",
+      "source_path": "figures/collision_memory_picture.pdf",
+      "source_sha256": "1ae83cc82c577b13d8387f7181f2751af26baffb8d0388ac43270164bf98eb45"
+    },
+    {
+      "path": "figures/collision_memory_picture.png",
+      "sha256": "af558310f62b50de888ad0a181b5a9882e379ee117f52bb0c39f21bd3c77bb86",
+      "transformation": "unchanged copy",
+      "source_path": "figures/collision_memory_picture.png",
+      "source_sha256": "af558310f62b50de888ad0a181b5a9882e379ee117f52bb0c39f21bd3c77bb86"
+    },
+    {
+      "path": "figures/resonance_geometry_3d.pdf",
+      "sha256": "de17b3f2adc525d4c84be6a848eb9ca6971c8d496fee7cce3d0fb965464f7d86",
+      "transformation": "unchanged copy",
+      "source_path": "figures/resonance_geometry_3d.pdf",
+      "source_sha256": "de17b3f2adc525d4c84be6a848eb9ca6971c8d496fee7cce3d0fb965464f7d86"
+    },
+    {
+      "path": "figures/resonance_geometry_3d.png",
+      "sha256": "34a11862c2deec0742ff49378704d19e92c070fc5a96165a799575628b13e360",
+      "transformation": "unchanged copy",
+      "source_path": "figures/resonance_geometry_3d.png",
+      "source_sha256": "34a11862c2deec0742ff49378704d19e92c070fc5a96165a799575628b13e360"
+    },
+    {
+      "path": "figures/preparation_memory_3d.pdf",
+      "sha256": "eed273d0944b21aec1d2a8b85ad5310c6950f8fc706afa30195ca4bf848c0f6b",
+      "transformation": "unchanged copy",
+      "source_path": "figures/preparation_memory_3d.pdf",
+      "source_sha256": "eed273d0944b21aec1d2a8b85ad5310c6950f8fc706afa30195ca4bf848c0f6b"
+    },
+    {
+      "path": "figures/preparation_memory_3d.png",
+      "sha256": "604d52a307b97d0c1398c8cb0f352707c0bb8617821b2f756fd08774d83183bc",
+      "transformation": "unchanged copy",
+      "source_path": "figures/preparation_memory_3d.png",
+      "source_sha256": "604d52a307b97d0c1398c8cb0f352707c0bb8617821b2f756fd08774d83183bc"
+    },
+    {
+      "path": "figures/weak_time_response.pdf",
+      "sha256": "b57df4a432f4e914f32ab032f8164d1eff67228ce8f76bc4eabffc3d5e886972",
+      "transformation": "unchanged copy",
+      "source_path": "figures/weak_time_response.pdf",
+      "source_sha256": "b57df4a432f4e914f32ab032f8164d1eff67228ce8f76bc4eabffc3d5e886972"
+    },
+    {
+      "path": "figures/weak_time_response.png",
+      "sha256": "aaa6fffb27d3c20dcb8ac2811ad784b68004d4b57696dbd2697313aa0a929b34",
+      "transformation": "unchanged copy",
+      "source_path": "figures/weak_time_response.png",
+      "source_sha256": "aaa6fffb27d3c20dcb8ac2811ad784b68004d4b57696dbd2697313aa0a929b34"
+    },
+    {
+      "path": "figures/weak_physical_memory.pdf",
+      "sha256": "6063ef8f6f29903c108abfe1c90469b173b1c1d8eb083307fbc4c3cc6831b77e",
+      "transformation": "unchanged copy",
+      "source_path": "figures/weak_physical_memory.pdf",
+      "source_sha256": "6063ef8f6f29903c108abfe1c90469b173b1c1d8eb083307fbc4c3cc6831b77e"
+    },
+    {
+      "path": "figures/weak_physical_memory.png",
+      "sha256": "90873e1b772b8f2225b5997d1b24d0bee37604a8af7e34274e9a39a72edd6e77",
+      "transformation": "unchanged copy",
+      "source_path": "figures/weak_physical_memory.png",
+      "source_sha256": "90873e1b772b8f2225b5997d1b24d0bee37604a8af7e34274e9a39a72edd6e77"
+    },
+    {
+      "path": "numerics/endpoint_spectrum.py",
+      "sha256": "9bb9ac0e9a6799ecaa54e99acb07b704552e14fe8c96c2f45087b47e9eac294f",
+      "transformation": "Focused extraction; preserve the original collision form, mass projection, C2 weights and shape reconstruction, and configure isolated output paths.",
+      "source_path": "numerics/endpoint_spectrum.py",
+      "source_sha256": "99b84d857f0ca84bda9cbf85dacad4e7a727a0f52516644dff841c9842fc5917"
+    },
+    {
+      "path": "numerics/linear_response.py",
+      "sha256": "b4b2e860c7f0a3f379e6929fbee2c0b39242c852ec6f759049f777c07dea04c8",
+      "transformation": "Focused extraction; preserve the original collision form, mass projection, C2 weights and shape reconstruction, and configure isolated output paths.",
+      "source_path": "numerics/linear_response.py",
+      "source_sha256": "6112e87ef7e061bde42edcf1af94485c673ba982a8de4e4ca4b29d830d951d70"
+    },
+    {
+      "path": "scripts/preparation_memory.py",
+      "sha256": "74bdfd0ee9eb10946b208a7fe854edd964b3b1d320905ee665b7aa784814084b",
+      "transformation": "Focused extraction; preserve the original collision form, mass projection, C2 weights and shape reconstruction, and configure isolated output paths.",
+      "source_path": "scripts/preparation_memory.py",
+      "source_sha256": "94622b8f3997c637e4845f9e2b66f2cf92623099c149a11376c74ab34279bd92"
+    },
+    {
+      "path": "scripts/manuscript_figures.py",
+      "sha256": "3e1b3ec937888062cdfcbe170e4c0d2839295aac5ecbac1439b00040f834467d",
+      "transformation": "Focused extraction; preserve the original collision form, mass projection, C2 weights and shape reconstruction, and configure isolated output paths.",
+      "source_path": "scripts/manuscript_figures.py",
+      "source_sha256": "38b41781500d056eabe3619a5353d21a91e9d8751ec37dda69f04b9363a2cd09"
+    },
+    {
+      "path": "scripts/three_d_resonance.py",
+      "sha256": "688806854c02aeed00e8d7d9b38b4876045eb85560cfa376b9f7776f5df70145",
+      "transformation": "Focused extraction; preserve the original collision form, mass projection, C2 weights and shape reconstruction, and configure isolated output paths.",
+      "source_path": "scripts/three_d_resonance.py",
+      "source_sha256": "0c9c5f6e3e58791d65c9c62b1547dfac99457ee35da3193427707e8a4f8b53b6"
+    },
+    {
+      "path": "numerics/requirements.txt",
+      "sha256": "f1c9a14a99352487c536bdb34f3dcf05fb591de89c05fc2bdf34619b5cc9c59e",
+      "transformation": "unchanged copy",
+      "source_path": "numerics/requirements.txt",
+      "source_sha256": "f1c9a14a99352487c536bdb34f3dcf05fb591de89c05fc2bdf34619b5cc9c59e"
+    },
+    {
+      "path": "numerics/output_paths.py",
+      "sha256": "f48743d97f054079ad030b3904e729077e3074268a45fa4bfb2867d2747bd393",
+      "transformation": "New output-path utility; never write to tracked numerical or figure baselines."
+    },
+    {
+      "path": "scripts/run_numerics.py",
+      "sha256": "4048cd051fcb6bf0d134c6565921da16a4969143ac3a7d316e1d7eb6e0cf26b3",
+      "transformation": "New focused reproducibility utility or numerical documentation."
+    },
+    {
+      "path": "scripts/check_numerics.py",
+      "sha256": "0a7f4fb7f7f69d6c8a652dd100bbf583a488d4967ff589978248fec1e55527a6",
+      "transformation": "New focused reproducibility utility or numerical documentation."
+    },
+    {
+      "path": "docs/numerics.md",
+      "sha256": "59f02fab8e9b180a5998041284eaad1a529edbcb72bdbaf1b28adeff475bfb2d",
+      "transformation": "English reproduction documentation; numerical definitions, configurations and commands preserved.",
+      "previous_documentation_sha256": "3e9292945e91b1d143437dda766efe1244deb102ca3d8cb1cec0ece458ffafec"
+    }
+  ]
+}

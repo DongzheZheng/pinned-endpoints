@@ -1,0 +1,7 @@
+import Resonance
+
+#print axioms Resonance.PinnedClassificationFinal.euclidean_coarea_classification_unique
+#print axioms Resonance.PinnedClassificationFinal.euclidean_coarea_unique_smooth_representative
+#print axioms Resonance.PinnedClassificationFinal.euclidean_coarea_classification_real
+#print axioms Resonance.PinnedClassificationFinal.affine_representative_all_resonances
+#print axioms Resonance.PinnedClassificationFinal.affine_representative_euclidean_invariant

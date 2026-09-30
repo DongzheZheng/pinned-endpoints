@@ -1,0 +1,30 @@
+Result: SOURCE_EQUIVALENCE_ONLY; evidence: /home/dzheng/remote_builds/pinned_collision_only_20260930_020551/formal/.verification-runs/20260930T020528.129821Z
+test_generated_roots_are_covered (test_verify.ConeTests.test_generated_roots_are_covered) ... ok
+test_missing_or_duplicate_roots_rejected (test_verify.ConeTests.test_missing_or_duplicate_roots_rejected) ... ok
+test_no_unsafe_partial_or_axiom_exceptions (test_verify.ConeTests.test_no_unsafe_partial_or_axiom_exceptions) ... ok
+test_allowed_axioms_cannot_be_widened (test_verify.FrozenSourceTests.test_allowed_axioms_cannot_be_widened) ... ok
+test_exact_frozen_package (test_verify.FrozenSourceTests.test_exact_frozen_package) ... ok
+test_historical_counts_are_not_runtime_authority (test_verify.FrozenSourceTests.test_historical_counts_are_not_runtime_authority) ... ok
+test_omitted_theorem_is_rejected (test_verify.FrozenSourceTests.test_omitted_theorem_is_rejected) ... ok
+test_one_changed_byte_is_rejected (test_verify.FrozenSourceTests.test_one_changed_byte_is_rejected) ... ok
+test_rehashed_axiom_cannot_bypass_source_gate (test_verify.FrozenSourceTests.test_rehashed_axiom_cannot_bypass_source_gate) ... ok
+test_unlisted_source_is_rejected (test_verify.FrozenSourceTests.test_unlisted_source_is_rejected) ... ok
+test_actual_private_name_resolution (test_verify.ScannerTests.test_actual_private_name_resolution) ... ok
+test_nested_comments_and_strings (test_verify.ScannerTests.test_nested_comments_and_strings) ... ok
+test_private_attribute_and_missed_declaration (test_verify.ScannerTests.test_private_attribute_and_missed_declaration) ... ok
+test_authorized_linux_server_is_allowed (test_verify.ServerGuardTests.test_authorized_linux_server_is_allowed) ... ok
+test_local_or_unopted_execution_is_rejected (test_verify.ServerGuardTests.test_local_or_unopted_execution_is_rejected) ... ok
+
+----------------------------------------------------------------------
+Ran 15 tests in 0.217s
+
+OK
+Running: lake env lean --version
+Running: git -C /home/dzheng/remote_builds/brezis-op6-lean-release-20260927/.lake/packages/mathlib rev-parse HEAD
+Running: git -C /home/dzheng/remote_builds/brezis-op6-lean-release-20260927/.lake/packages/mathlib status --porcelain --untracked-files=no
+Running: lake build Resonance
+Running: lake env lean PrivateInventory.lean
+Running: lake env lean CheckTypes.lean
+Running: lake env lean CheckAxioms.lean
+Running: lake env lean MainAxioms.lean
+Result: PASS_FOR_FROZEN_DECLARATIONS_ONLY; evidence: /home/dzheng/remote_builds/pinned_collision_only_20260930_020551/formal/.verification-runs/server-20260930T020528Z

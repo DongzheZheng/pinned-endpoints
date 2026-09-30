@@ -1,0 +1,1898 @@
+Resonance.PinnedGeometry.signed_radicand_pos {d : Real} (hdL : LT.lt.{0} (Neg.neg.{0} (1 / 2)) d)
+  (hdU : LT.lt.{0} d (1 / 2)) (x : Real) :
+  LT.lt.{0} 0 (HSub.hSub.{0, 0, 0} 1 (HMul.hMul.{0, 0, 0} (HMul.hMul.{0, 0, 0} 2 d) (Real.cos x)))
+Resonance.PinnedGeometry.signed_omega_pos {d : Real} (hdL : LT.lt.{0} (Neg.neg.{0} (1 / 2)) d)
+  (hdU : LT.lt.{0} d (1 / 2)) (x : Real) : LT.lt.{0} 0 (Resonance.PinnedGeometry.omega d x)
+Resonance.PinnedGeometry.omega_sq {d : Real} (hdL : LT.lt.{0} (Neg.neg.{0} (1 / 2)) d) (hdU : LT.lt.{0} d (1 / 2))
+  (x : Real) :
+  Eq.{1} (HPow.hPow.{0, 0, 0} (Resonance.PinnedGeometry.omega d x) 2)
+    (HSub.hSub.{0, 0, 0} 1 (HMul.hMul.{0, 0, 0} (HMul.hMul.{0, 0, 0} 2 d) (Real.cos x)))
+Resonance.PinnedGeometry.omega_hasDerivAt {d : Real} (hdL : LT.lt.{0} (Neg.neg.{0} (1 / 2)) d)
+  (hdU : LT.lt.{0} d (1 / 2)) (x : Real) :
+  HasDerivAt.{0, 0} (Resonance.PinnedGeometry.omega d) (Resonance.PinnedGeometry.velocity d x) x
+Resonance.PinnedGeometry.omega_deriv {d : Real} (hdL : LT.lt.{0} (Neg.neg.{0} (1 / 2)) d) (hdU : LT.lt.{0} d (1 / 2))
+  (x : Real) : Eq.{1} (deriv.{0, 0} (Resonance.PinnedGeometry.omega d) x) (Resonance.PinnedGeometry.velocity d x)
+Resonance.PinnedGeometry.omega_neg (d x : Real) :
+  Eq.{1} (Resonance.PinnedGeometry.omega d (Neg.neg.{0} x)) (Resonance.PinnedGeometry.omega d x)
+Resonance.PinnedGeometry.omega_pi_sub (d x : Real) :
+  Eq.{1} (Resonance.PinnedGeometry.omega d (HSub.hSub.{0, 0, 0} Real.pi x))
+    (Resonance.PinnedGeometry.omega (Neg.neg.{0} d) x)
+Resonance.PinnedGeometry.omega_add_pi (d x : Real) :
+  Eq.{1} (Resonance.PinnedGeometry.omega d (HAdd.hAdd.{0, 0, 0} x Real.pi))
+    (Resonance.PinnedGeometry.omega (Neg.neg.{0} d) x)
+Resonance.PinnedGeometry.velocity_neg (d x : Real) :
+  Eq.{1} (Resonance.PinnedGeometry.velocity d (Neg.neg.{0} x)) (Neg.neg.{0} (Resonance.PinnedGeometry.velocity d x))
+Resonance.PinnedGeometry.velocity_pi_sub (d x : Real) :
+  Eq.{1} (Resonance.PinnedGeometry.velocity d (HSub.hSub.{0, 0, 0} Real.pi x))
+    (HDiv.hDiv.{0, 0, 0} (HMul.hMul.{0, 0, 0} d (Real.sin x))
+      (Resonance.PinnedGeometry.omega d (HSub.hSub.{0, 0, 0} Real.pi x)))
+Resonance.PinnedGeometry.velocity_pi_add (d x : Real) :
+  Eq.{1} (Resonance.PinnedGeometry.velocity d (HAdd.hAdd.{0, 0, 0} Real.pi x))
+    (Neg.neg.{0} (Resonance.PinnedGeometry.velocity d (HSub.hSub.{0, 0, 0} Real.pi x)))
+Resonance.PinnedGeometry.omega_signed_shift (d x : Real) :
+  Eq.{1} (Resonance.PinnedGeometry.omega d (HAdd.hAdd.{0, 0, 0} x Real.pi))
+    (Resonance.PinnedGeometry.omega (Neg.neg.{0} d) x)
+Resonance.PinnedGeometry.velocity_signed_shift (d x : Real) :
+  Eq.{1} (Resonance.PinnedGeometry.velocity d (HAdd.hAdd.{0, 0, 0} x Real.pi))
+    (Resonance.PinnedGeometry.velocity (Neg.neg.{0} d) x)
+Resonance.PinnedGeometry.symmetric_resonance (d x : Real) :
+  Eq.{1} (Resonance.PinnedGeometry.energyDefect d x (HSub.hSub.{0, 0, 0} Real.pi x) (Neg.neg.{0} x)) 0
+Resonance.PinnedGeometry.symmetric_velocity_nondegenerate {d x : Real} (hd0 : LT.lt.{0} 0 d) (hdU : LT.lt.{0} d (1 / 2))
+  (hs : Ne.{1} (Real.sin x) 0) (hc : Ne.{1} (Real.cos x) 0) :
+  And
+    (Ne.{1} (Resonance.PinnedGeometry.velocity d (HSub.hSub.{0, 0, 0} Real.pi x))
+      (Resonance.PinnedGeometry.velocity d (Neg.neg.{0} x)))
+    (And
+      (Ne.{1} (Resonance.PinnedGeometry.velocity d (HSub.hSub.{0, 0, 0} Real.pi x))
+        (Resonance.PinnedGeometry.velocity d (HAdd.hAdd.{0, 0, 0} Real.pi x)))
+      (Ne.{1} (Resonance.PinnedGeometry.velocity d (Neg.neg.{0} x))
+        (Resonance.PinnedGeometry.velocity d (HAdd.hAdd.{0, 0, 0} Real.pi x))))
+Resonance.PinnedGeometry.exists_angle_of_sq_add {a b : Real}
+  (h : Eq.{1} (HAdd.hAdd.{0, 0, 0} (HPow.hPow.{0, 0, 0} a 2) (HPow.hPow.{0, 0, 0} b 2)) 1) :
+  ∃ y, And (Eq.{1} (Real.cos y) a) (Eq.{1} (Real.sin y) b)
+Resonance.PinnedGeometry.specialC_data {d : Real} (hdL : LT.lt.{0} (Neg.neg.{0} (1 / 2)) d) (hdU : LT.lt.{0} d (1 / 2))
+  (hd : Ne.{1} d 0) :
+  And (LT.lt.{0} (Neg.neg.{0} (1 / 2)) (Resonance.PinnedGeometry.specialC d))
+    (And (LT.lt.{0} (Resonance.PinnedGeometry.specialC d) 1)
+      (And (Ne.{1} (Resonance.PinnedGeometry.specialC d) 0)
+        (Eq.{1}
+          (HMul.hMul.{0, 0, 0} (Resonance.PinnedGeometry.specialC d)
+            (HSub.hSub.{0, 0, 0} 2 (Resonance.PinnedGeometry.specialC d)))
+          (HMul.hMul.{0, 0, 0} 2 d))))
+Resonance.PinnedGeometry.specialQ_data {c : Real} (hcL : LT.lt.{0} (Neg.neg.{0} (1 / 2)) c) (hcU : LT.lt.{0} c 1) :
+  And (LT.lt.{0} 0 (Resonance.PinnedGeometry.specialQ c))
+    (And
+      (Eq.{1} (HPow.hPow.{0, 0, 0} (Resonance.PinnedGeometry.specialQ c) 2)
+        (HSub.hSub.{0, 0, 0} (HAdd.hAdd.{0, 0, 0} 4 (HMul.hMul.{0, 0, 0} 4 c))
+          (HMul.hMul.{0, 0, 0} 7 (HPow.hPow.{0, 0, 0} c 2))))
+      (LT.lt.{0} (abs.{0} c) (Resonance.PinnedGeometry.specialQ c)))
+Resonance.PinnedGeometry.special_AB_data {c : Real} (hcL : LT.lt.{0} (Neg.neg.{0} (1 / 2)) c) (hcU : LT.lt.{0} c 1)
+  (hc : Ne.{1} c 0) :
+  And (LT.lt.{0} 0 (Resonance.PinnedGeometry.specialA c))
+    (And (LT.lt.{0} 0 (Resonance.PinnedGeometry.specialB c))
+      (And (LT.lt.{0} (Resonance.PinnedGeometry.specialB c) 1)
+        (And
+          (Eq.{1} (HSub.hSub.{0, 0, 0} (Resonance.PinnedGeometry.specialA c) (Resonance.PinnedGeometry.specialB c)) c)
+          (And
+            (Eq.{1} (HMul.hMul.{0, 0, 0} (Resonance.PinnedGeometry.specialA c) (Resonance.PinnedGeometry.specialB c))
+              (HMul.hMul.{0, 0, 0} (HSub.hSub.{0, 0, 0} 1 c) (HAdd.hAdd.{0, 0, 0} 1 (HMul.hMul.{0, 0, 0} 2 c))))
+            (Eq.{1}
+              (HAdd.hAdd.{0, 0, 0} (HPow.hPow.{0, 0, 0} (Resonance.PinnedGeometry.specialA c) 2)
+                (HPow.hPow.{0, 0, 0} (Resonance.PinnedGeometry.specialB c) 2))
+              (HSub.hSub.{0, 0, 0} (HAdd.hAdd.{0, 0, 0} 2 (HMul.hMul.{0, 0, 0} 2 c))
+                (HMul.hMul.{0, 0, 0} 3 (HPow.hPow.{0, 0, 0} c 2))))))))
+Resonance.PinnedGeometry.special_unit_circle {c : Real} (hcL : LT.lt.{0} (Neg.neg.{0} (1 / 2)) c) (hcU : LT.lt.{0} c 1)
+  (hc : Ne.{1} c 0) :
+  Eq.{1}
+    (HAdd.hAdd.{0, 0, 0}
+      (HPow.hPow.{0, 0, 0} (HSub.hSub.{0, 0, 0} 1 (HPow.hPow.{0, 0, 0} (Resonance.PinnedGeometry.specialA c) 2)) 2)
+      (HPow.hPow.{0, 0, 0} (HSub.hSub.{0, 0, 0} 1 (HPow.hPow.{0, 0, 0} (Resonance.PinnedGeometry.specialB c) 2)) 2))
+    (HPow.hPow.{0, 0, 0} (HMul.hMul.{0, 0, 0} c (HSub.hSub.{0, 0, 0} 2 c)) 2)
+Resonance.PinnedGeometry.special_velocity_differences {c : Real} (hcL : LT.lt.{0} (Neg.neg.{0} (1 / 2)) c)
+  (hcU : LT.lt.{0} c 1) (hc : Ne.{1} c 0) :
+  have A := Resonance.PinnedGeometry.specialA c;
+  have B := Resonance.PinnedGeometry.specialB c;
+  have d := HDiv.hDiv.{0, 0, 0} (HMul.hMul.{0, 0, 0} c (HSub.hSub.{0, 0, 0} 2 c)) 2;
+  And
+    (Eq.{1}
+      (HSub.hSub.{0, 0, 0}
+        (HDiv.hDiv.{0, 0, 0} (HSub.hSub.{0, 0, 0} 1 (HPow.hPow.{0, 0, 0} B 2)) (HMul.hMul.{0, 0, 0} 2 A))
+        (HDiv.hDiv.{0, 0, 0} (HSub.hSub.{0, 0, 0} (HPow.hPow.{0, 0, 0} A 2) 1) (HMul.hMul.{0, 0, 0} 2 B)))
+      (HDiv.hDiv.{0, 0, 0}
+        (HMul.hMul.{0, 0, 0} (HMul.hMul.{0, 0, 0} (Neg.neg.{0} c) (HSub.hSub.{0, 0, 0} 1 c)) (HAdd.hAdd.{0, 0, 0} A B))
+        (HMul.hMul.{0, 0, 0} (HMul.hMul.{0, 0, 0} 2 A) B)))
+    (And
+      (Eq.{1}
+        (HSub.hSub.{0, 0, 0}
+          (HDiv.hDiv.{0, 0, 0} (HSub.hSub.{0, 0, 0} 1 (HPow.hPow.{0, 0, 0} B 2)) (HMul.hMul.{0, 0, 0} 2 A)) d)
+        (HDiv.hDiv.{0, 0, 0}
+          (HMul.hMul.{0, 0, 0} (HMul.hMul.{0, 0, 0} (Neg.neg.{0} c) (HSub.hSub.{0, 0, 0} 1 c))
+            (HAdd.hAdd.{0, 0, 0} A 1))
+          (HMul.hMul.{0, 0, 0} 2 A)))
+      (Eq.{1}
+        (HSub.hSub.{0, 0, 0}
+          (HDiv.hDiv.{0, 0, 0} (HSub.hSub.{0, 0, 0} (HPow.hPow.{0, 0, 0} A 2) 1) (HMul.hMul.{0, 0, 0} 2 B)) d)
+        (HDiv.hDiv.{0, 0, 0}
+          (HMul.hMul.{0, 0, 0} (HMul.hMul.{0, 0, 0} c (HSub.hSub.{0, 0, 0} 1 c)) (HSub.hSub.{0, 0, 0} 1 B))
+          (HMul.hMul.{0, 0, 0} 2 B))))
+Resonance.PinnedGeometry.exists_signed_special_resonance {d : Real} (hdL : LT.lt.{0} (Neg.neg.{0} (1 / 2)) d)
+  (hdU : LT.lt.{0} d (1 / 2)) (hd : Ne.{1} d 0) :
+  ∃ y,
+    And (Eq.{1} (Resonance.PinnedGeometry.energyDefect d 0 y (HDiv.hDiv.{0, 0, 0} Real.pi 2)) 0)
+      (And (Ne.{1} (Resonance.PinnedGeometry.velocity d y) d)
+        (And (Ne.{1} (Resonance.PinnedGeometry.velocity d (HSub.hSub.{0, 0, 0} y (HDiv.hDiv.{0, 0, 0} Real.pi 2))) d)
+          (And
+            (Ne.{1} (Resonance.PinnedGeometry.velocity d y)
+              (Resonance.PinnedGeometry.velocity d (HSub.hSub.{0, 0, 0} y (HDiv.hDiv.{0, 0, 0} Real.pi 2))))
+            (And (Ne.{1} (Resonance.PinnedGeometry.velocity d y) 0)
+              (Ne.{1} (Resonance.PinnedGeometry.velocity d (HSub.hSub.{0, 0, 0} y (HDiv.hDiv.{0, 0, 0} Real.pi 2)))
+                0)))))
+Resonance.PinnedGeometry.nondegenerateAt_symmetric {d x : Real} (hd0 : LT.lt.{0} 0 d) (hdU : LT.lt.{0} d (1 / 2))
+  (hs : Ne.{1} (Real.sin x) 0) (hc : Ne.{1} (Real.cos x) 0) : Resonance.PinnedGeometry.NondegenerateAt d x
+Resonance.PinnedGeometry.nondegenerateAt_neg {d x : Real} (h : Resonance.PinnedGeometry.NondegenerateAt d x) :
+  Resonance.PinnedGeometry.NondegenerateAt d (Neg.neg.{0} x)
+Resonance.PinnedGeometry.nondegenerateAt_pi_shift {d x : Real}
+  (h : Resonance.PinnedGeometry.NondegenerateAt (Neg.neg.{0} d) x) :
+  Resonance.PinnedGeometry.NondegenerateAt d (HAdd.hAdd.{0, 0, 0} x Real.pi)
+Resonance.PinnedGeometry.nondegenerateAt_two_pi_shift {d x : Real} (h : Resonance.PinnedGeometry.NondegenerateAt d x) :
+  Resonance.PinnedGeometry.NondegenerateAt d (HAdd.hAdd.{0, 0, 0} x (HMul.hMul.{0, 0, 0} 2 Real.pi))
+Resonance.PinnedGeometry.velocity_zero (d : Real) : Eq.{1} (Resonance.PinnedGeometry.velocity d 0) 0
+Resonance.PinnedGeometry.velocity_half_pi (d : Real) :
+  Eq.{1} (Resonance.PinnedGeometry.velocity d (HDiv.hDiv.{0, 0, 0} Real.pi 2)) d
+Resonance.PinnedGeometry.nondegenerateAt_zero {d : Real} (hdL : LT.lt.{0} (Neg.neg.{0} (1 / 2)) d)
+  (hdU : LT.lt.{0} d (1 / 2)) (hd : Ne.{1} d 0) : Resonance.PinnedGeometry.NondegenerateAt d 0
+Resonance.PinnedGeometry.nondegenerateAt_half_pi {d : Real} (hdL : LT.lt.{0} (Neg.neg.{0} (1 / 2)) d)
+  (hdU : LT.lt.{0} d (1 / 2)) (hd : Ne.{1} d 0) :
+  Resonance.PinnedGeometry.NondegenerateAt d (HDiv.hDiv.{0, 0, 0} Real.pi 2)
+Resonance.PinnedGeometry.nondegenerateAt_pi {d : Real} (hd0 : LT.lt.{0} 0 d) (hdU : LT.lt.{0} d (1 / 2)) :
+  Resonance.PinnedGeometry.NondegenerateAt d Real.pi
+Resonance.PinnedGeometry.nondegenerateAt_three_half_pi {d : Real} (hd0 : LT.lt.{0} 0 d) (hdU : LT.lt.{0} d (1 / 2)) :
+  Resonance.PinnedGeometry.NondegenerateAt d (HDiv.hDiv.{0, 0, 0} (HMul.hMul.{0, 0, 0} 3 Real.pi) 2)
+Resonance.PinnedGeometry.nondegenerateAt_on_period {d x : Real} (hd0 : LT.lt.{0} 0 d) (hdU : LT.lt.{0} d (1 / 2))
+  (hx0 : LE.le.{0} 0 x) (hxT : LE.le.{0} x (HMul.hMul.{0, 0, 0} 2 Real.pi)) :
+  Resonance.PinnedGeometry.NondegenerateAt d x
+Resonance.PinnedGeometry.nondegenerateAt_periodic (d : Real) :
+  Function.Periodic.{0, 0} (Resonance.PinnedGeometry.NondegenerateAt d) (HMul.hMul.{0, 0, 0} 2 Real.pi)
+Resonance.PinnedGeometry.nondegenerateAt_every_target {d : Real} (hd0 : LT.lt.{0} 0 d) (hdU : LT.lt.{0} d (1 / 2))
+  (x : Real) : Resonance.PinnedGeometry.NondegenerateAt d x
+Resonance.PinnedCharts.signed_omega_contDiff {d : Real} (hdL : LT.lt.{0} (Neg.neg.{0} (1 / 2)) d)
+  (hdU : LT.lt.{0} d (1 / 2)) (n : WithTop.{0} ENat) : ContDiff.{0, 0, 0} Real n (Resonance.PinnedGeometry.omega d)
+Resonance.PinnedCharts.chartFunction_contDiff {d : Real} (hdL : LT.lt.{0} (Neg.neg.{0} (1 / 2)) d)
+  (hdU : LT.lt.{0} d (1 / 2)) (n : WithTop.{0} ENat) :
+  ContDiff.{0, 0, 0} Real n (Resonance.PinnedCharts.chartFunction d)
+Resonance.PinnedCharts.chartFunction_hasFDerivAt {d : Real} (hdL : LT.lt.{0} (Neg.neg.{0} (1 / 2)) d)
+  (hdU : LT.lt.{0} d (1 / 2)) (p : Resonance.PinnedCharts.ChartInput) :
+  HasFDerivAt.{0, 0, 0} (Resonance.PinnedCharts.chartFunction d) (Resonance.PinnedCharts.chartDerivative d p) p
+Resonance.PinnedCharts.chartFunction_fderiv {d : Real} (hdL : LT.lt.{0} (Neg.neg.{0} (1 / 2)) d)
+  (hdU : LT.lt.{0} d (1 / 2)) (p : Resonance.PinnedCharts.ChartInput) :
+  Eq.{1} (fderiv.{0, 0, 0} Real (Resonance.PinnedCharts.chartFunction d) p) (Resonance.PinnedCharts.chartDerivative d p)
+Resonance.PinnedCharts.partial_y_apply (d : Real) (p : Resonance.PinnedCharts.ChartInput) (b : Real) :
+  Eq.{1}
+    ((ContinuousLinearMap.comp.{0, 0, 0, 0, 0, 0} (Resonance.PinnedCharts.chartDerivative d p)
+        (ContinuousLinearMap.inr.{0, 0, 0} Real (Prod.{0, 0} Real Real) Real))
+      b)
+    (HMul.hMul.{0, 0, 0}
+      (HSub.hSub.{0, 0, 0} (Resonance.PinnedGeometry.velocity d p.2)
+        (Resonance.PinnedGeometry.velocity d (HSub.hSub.{0, 0, 0} (HAdd.hAdd.{0, 0, 0} p.1.1 p.2) p.1.2)))
+      b)
+Resonance.PinnedCharts.partial_y_invertible {d : Real} (hdL : LT.lt.{0} (Neg.neg.{0} (1 / 2)) d)
+  (hdU : LT.lt.{0} d (1 / 2)) (p : Resonance.PinnedCharts.ChartInput)
+  (h :
+    Ne.{1} (Resonance.PinnedGeometry.velocity d p.2)
+      (Resonance.PinnedGeometry.velocity d (HSub.hSub.{0, 0, 0} (HAdd.hAdd.{0, 0, 0} p.1.1 p.2) p.1.2))) :
+  ContinuousLinearMap.IsInvertible.{0, 0, 0}
+    (ContinuousLinearMap.comp.{0, 0, 0, 0, 0, 0} (fderiv.{0, 0, 0} Real (Resonance.PinnedCharts.chartFunction d) p)
+      (ContinuousLinearMap.inr.{0, 0, 0} Real (Prod.{0, 0} Real Real) Real))
+Resonance.PinnedCharts.exists_analytic_resonance_branch {d x y z : Real} (hdL : LT.lt.{0} (Neg.neg.{0} (1 / 2)) d)
+  (hdU : LT.lt.{0} d (1 / 2)) (he : Eq.{1} (Resonance.PinnedGeometry.energyDefect d x y z) 0)
+  (hy :
+    Ne.{1} (Resonance.PinnedGeometry.velocity d y)
+      (Resonance.PinnedGeometry.velocity d (HSub.hSub.{0, 0, 0} (HAdd.hAdd.{0, 0, 0} x y) z))) :
+  ∃ H,
+    And (Eq.{1} (H (Prod.mk.{0, 0} x z)) y)
+      (And (ContDiffAt.{0, 0, 0} Real Top.top.{0} H (Prod.mk.{0, 0} x z))
+        (∀ᶠ (p : Prod.{0, 0} Real Real) in nhds.{0} (Prod.mk.{0, 0} x z),
+          Eq.{1} (Resonance.PinnedGeometry.energyDefect d p.1 (H p) p.2) 0))
+Resonance.PinnedCharts.branch_z_derivative {d x y z : Real} {H : Prod.{0, 0} Real Real → Real}
+  (hdL : LT.lt.{0} (Neg.neg.{0} (1 / 2)) d) (hdU : LT.lt.{0} d (1 / 2)) (hbase : Eq.{1} (H (Prod.mk.{0, 0} x z)) y)
+  (hH : ContDiffAt.{0, 0, 0} Real Top.top.{0} H (Prod.mk.{0, 0} x z))
+  (hres :
+    ∀ᶠ (p : Prod.{0, 0} Real Real) in nhds.{0} (Prod.mk.{0, 0} x z),
+      Eq.{1} (Resonance.PinnedGeometry.energyDefect d p.1 (H p) p.2) 0)
+  (hy :
+    Ne.{1} (Resonance.PinnedGeometry.velocity d y)
+      (Resonance.PinnedGeometry.velocity d (HSub.hSub.{0, 0, 0} (HAdd.hAdd.{0, 0, 0} x y) z))) :
+  Eq.{1} (deriv.{0, 0} (fun t => H (Prod.mk.{0, 0} x t)) z)
+    (HDiv.hDiv.{0, 0, 0}
+      (HSub.hSub.{0, 0, 0} (Resonance.PinnedGeometry.velocity d z)
+        (Resonance.PinnedGeometry.velocity d (HSub.hSub.{0, 0, 0} (HAdd.hAdd.{0, 0, 0} x y) z)))
+      (HSub.hSub.{0, 0, 0} (Resonance.PinnedGeometry.velocity d y)
+        (Resonance.PinnedGeometry.velocity d (HSub.hSub.{0, 0, 0} (HAdd.hAdd.{0, 0, 0} x y) z))))
+Resonance.PinnedCharts.branch_w_derivative {x z : Real} {H : Prod.{0, 0} Real Real → Real}
+  (hH : ContDiffAt.{0, 0, 0} Real Top.top.{0} H (Prod.mk.{0, 0} x z)) :
+  Eq.{1} (deriv.{0, 0} (fun t => HSub.hSub.{0, 0, 0} (HAdd.hAdd.{0, 0, 0} x (H (Prod.mk.{0, 0} x t))) t) z)
+    (HSub.hSub.{0, 0, 0} (deriv.{0, 0} (fun t => H (Prod.mk.{0, 0} x t)) z) 1)
+Resonance.PinnedCharts.every_target_analytic_branch {d : Real} (hd0 : LT.lt.{0} 0 d) (hdU : LT.lt.{0} d (1 / 2))
+  (x : Real) :
+  ∃ y z H,
+    And (Eq.{1} (H (Prod.mk.{0, 0} x z)) y)
+      (And (ContDiffAt.{0, 0, 0} Real Top.top.{0} H (Prod.mk.{0, 0} x z))
+        (And
+          (∀ᶠ (p : Prod.{0, 0} Real Real) in nhds.{0} (Prod.mk.{0, 0} x z),
+            Eq.{1} (Resonance.PinnedGeometry.energyDefect d p.1 (H p) p.2) 0)
+          (And
+            (Ne.{1} (Resonance.PinnedGeometry.velocity d y)
+              (Resonance.PinnedGeometry.velocity d (HSub.hSub.{0, 0, 0} (HAdd.hAdd.{0, 0, 0} x y) z)))
+            (And (Ne.{1} (deriv.{0, 0} (fun t => H (Prod.mk.{0, 0} x t)) z) 0)
+              (Ne.{1} (deriv.{0, 0} (fun t => HSub.hSub.{0, 0, 0} (HAdd.hAdd.{0, 0, 0} x (H (Prod.mk.{0, 0} x t))) t) z)
+                0)))))
+Resonance.PinnedCharts.zDifferential_eq_deriv {H : Prod.{0, 0} Real Real → Real} {x z : Real}
+  (hH : DifferentiableAt.{0, 0, 0} Real H (Prod.mk.{0, 0} x z)) :
+  Eq.{1} (Resonance.PinnedCharts.zDifferential H (Prod.mk.{0, 0} x z))
+    (deriv.{0, 0} (fun t => H (Prod.mk.{0, 0} x t)) z)
+Resonance.PinnedCharts.zDifferential_continuousAt {H : Prod.{0, 0} Real Real → Real} {p : Prod.{0, 0} Real Real}
+  (hH : ContDiffAt.{0, 0, 0} Real Top.top.{0} H p) : ContinuousAt.{0, 0} (Resonance.PinnedCharts.zDifferential H) p
+Resonance.PinnedCharts.velocity_continuous {d : Real} (hdL : LT.lt.{0} (Neg.neg.{0} (1 / 2)) d)
+  (hdU : LT.lt.{0} d (1 / 2)) : Continuous.{0, 0} (Resonance.PinnedGeometry.velocity d)
+Resonance.PinnedCharts.eventually_abs_lower.{u_1} {α : Type u_1} [TopologicalSpace.{u_1} α] {f : α → Real} {a : α}
+  (hf : ContinuousAt.{u_1, 0} f a) (ha : Ne.{1} (f a) 0) :
+  ∀ᶠ (x : α) in nhds.{u_1} a, LT.lt.{0} (HDiv.hDiv.{0, 0, 0} (abs.{0} (f a)) 2) (abs.{0} (f x))
+Resonance.PinnedCharts.every_target_uniform_chart {d : Real} (hd0 : LT.lt.{0} 0 d) (hdU : LT.lt.{0} d (1 / 2))
+  (x : Real) :
+  ∃ y z H r κ,
+    And (LT.lt.{0} 0 r)
+      (And (LT.lt.{0} 0 κ)
+        (And (Eq.{1} (H (Prod.mk.{0, 0} x z)) y)
+          (And
+            (ContDiffOn.{0, 0, 0} Real (↑Top.top.{0}) H
+              (SProd.sprod.{0, 0, 0} (Metric.ball.{0} x r) (Metric.ball.{0} z r)))
+            (∀ (p : Prod.{0, 0} Real Real),
+              Membership.mem.{0, 0} (SProd.sprod.{0, 0, 0} (Metric.ball.{0} x r) (Metric.ball.{0} z r)) p →
+                And (Eq.{1} (Resonance.PinnedGeometry.energyDefect d p.1 (H p) p.2) 0)
+                  (And
+                    (LE.le.{0} κ
+                      (abs.{0}
+                        (HSub.hSub.{0, 0, 0} (Resonance.PinnedGeometry.velocity d (H p))
+                          (Resonance.PinnedGeometry.velocity d
+                            (HSub.hSub.{0, 0, 0} (HAdd.hAdd.{0, 0, 0} p.1 (H p)) p.2)))))
+                    (And (LE.le.{0} κ (abs.{0} (Resonance.PinnedCharts.zDifferential H p)))
+                      (LE.le.{0} κ (abs.{0} (HSub.hSub.{0, 0, 0} (Resonance.PinnedCharts.zDifferential H p) 1)))))))))
+Resonance.PinnedMeasure.liftedEnergy_continuous {d : Real} (hd0 : LT.lt.{0} 0 d) (hdU : LT.lt.{0} d (1 / 2)) :
+  Continuous.{0, 0} (Resonance.PinnedMeasure.liftedEnergy d)
+Resonance.PinnedMeasure.energyGradient_continuous {d : Real} (hd0 : LT.lt.{0} 0 d) (hdU : LT.lt.{0} d (1 / 2)) :
+  Continuous.{0, 0} (Resonance.PinnedMeasure.energyGradient d)
+Resonance.PinnedMeasure.regularSurface_measurable {d : Real} (hd0 : LT.lt.{0} 0 d) (hdU : LT.lt.{0} d (1 / 2)) :
+  MeasurableSet.{0} (Resonance.PinnedMeasure.regularSurface d)
+Resonance.PinnedMeasure.coareaWeight_measurable {d : Real} (hd0 : LT.lt.{0} 0 d) (hdU : LT.lt.{0} d (1 / 2)) :
+  Measurable.{0, 0} (Resonance.PinnedMeasure.coareaWeight d)
+Resonance.PinnedMeasure.coareaWeight_pos {d : Real} {k : Resonance.PinnedMeasure.Ambient}
+  (hk : Membership.mem.{0, 0} (Resonance.PinnedMeasure.regularSurface d) k) :
+  LT.lt.{0} 0 (Resonance.PinnedMeasure.coareaWeight d k)
+Resonance.PinnedMeasure.regularHausdorff_absolutelyContinuous {d : Real} (hd0 : LT.lt.{0} 0 d)
+  (hdU : LT.lt.{0} d (1 / 2)) :
+  MeasureTheory.Measure.AbsolutelyContinuous.{0}
+    (MeasureTheory.Measure.restrict.{0} (MeasureTheory.Measure.hausdorffMeasure.{0} 2)
+      (Resonance.PinnedMeasure.regularSurface d))
+    (Resonance.PinnedMeasure.liftedRegularCoarea d)
+Resonance.PinnedMeasure.targetProjection_graph (H : Prod.{0, 0} Real Real → Real) (p : Prod.{0, 0} Real Real) :
+  Eq.{1} (Resonance.PinnedMeasure.targetProjection (Resonance.PinnedMeasure.graph H p)) p
+Resonance.PinnedMeasure.graph_regular {d : Real} {H : Prod.{0, 0} Real Real → Real} {p : Prod.{0, 0} Real Real}
+  (he : Eq.{1} (Resonance.PinnedGeometry.energyDefect d p.1 (H p) p.2) 0)
+  (hv :
+    Ne.{1} (Resonance.PinnedGeometry.velocity d (H p))
+      (Resonance.PinnedGeometry.velocity d (HSub.hSub.{0, 0, 0} (HAdd.hAdd.{0, 0, 0} p.1 (H p)) p.2))) :
+  Membership.mem.{0, 0} (Resonance.PinnedMeasure.regularSurface d) (Resonance.PinnedMeasure.graph H p)
+Resonance.PinnedMeasure.graph_preimage_null {d : Real} (hd0 : LT.lt.{0} 0 d) (hdU : LT.lt.{0} d (1 / 2))
+  (H : Prod.{0, 0} Real Real → Real) {S : Set.{0} (Prod.{0, 0} Real Real)} (hS : MeasurableSet.{0} S)
+  (hreg :
+    ∀ (p : Prod.{0, 0} Real Real),
+      Membership.mem.{0, 0} S p →
+        Membership.mem.{0, 0} (Resonance.PinnedMeasure.regularSurface d) (Resonance.PinnedMeasure.graph H p))
+  {A : Set.{0} Resonance.PinnedMeasure.Ambient} (hA : Eq.{1} ((Resonance.PinnedMeasure.liftedRegularCoarea d) A) 0) :
+  Eq.{1}
+    ((MeasureTheory.Measure.restrict.{0} MeasureTheory.MeasureSpace.volume.{0} S)
+      (Set.preimage.{0, 0} (Resonance.PinnedMeasure.graph H) A))
+    0
+Resonance.PinnedMeasure.liftedEnergy_hasFDerivAt {d : Real} (hd0 : LT.lt.{0} 0 d) (hdU : LT.lt.{0} d (1 / 2))
+  (k : Resonance.PinnedMeasure.Ambient) :
+  HasFDerivAt.{0, 0, 0} (Resonance.PinnedMeasure.liftedEnergy d)
+    ((innerSL.{0, 0} Real) (Resonance.PinnedMeasure.energyGradient d k)) k
+Resonance.PinnedMeasure.liftedEnergy_derivative_norm {d : Real} (hd0 : LT.lt.{0} 0 d) (hdU : LT.lt.{0} d (1 / 2))
+  (k : Resonance.PinnedMeasure.Ambient) :
+  Eq.{1} (Norm.norm.{0} (fderiv.{0, 0, 0} Real (Resonance.PinnedMeasure.liftedEnergy d) k))
+    (Norm.norm.{0} (Resonance.PinnedMeasure.energyGradient d k))
+Resonance.PinnedMeasure.regularSurface_iff_derivative {d : Real} (hd0 : LT.lt.{0} 0 d) (hdU : LT.lt.{0} d (1 / 2))
+  (k : Resonance.PinnedMeasure.Ambient) :
+  Iff (Membership.mem.{0, 0} (Resonance.PinnedMeasure.regularSurface d) k)
+    (And (Eq.{1} (Resonance.PinnedMeasure.liftedEnergy d k) 0)
+      (Ne.{1} (fderiv.{0, 0, 0} Real (Resonance.PinnedMeasure.liftedEnergy d) k) 0))
+Resonance.PinnedMeasure.coareaWeight_eq_derivative {d : Real} (hd0 : LT.lt.{0} 0 d) (hdU : LT.lt.{0} d (1 / 2))
+  (k : Resonance.PinnedMeasure.Ambient) :
+  Eq.{1} (Resonance.PinnedMeasure.coareaWeight d k)
+    (ENNReal.ofReal
+      (HPow.hPow.{0, 0, 0}
+        (HMul.hMul.{0, 0, 0} (HPow.hPow.{0, 0, 0} (HMul.hMul.{0, 0, 0} 2 Real.pi) 3)
+          (Norm.norm.{0} (fderiv.{0, 0, 0} Real (Resonance.PinnedMeasure.liftedEnergy d) k)))
+        (-1)))
+Resonance.PinnedMeasure.graph_invariant_ae {d : Real} (hd0 : LT.lt.{0} 0 d) (hdU : LT.lt.{0} d (1 / 2))
+  {φ : Real → Complex} (hφ : Resonance.PinnedMeasure.liftedInvariant d φ) (H : Prod.{0, 0} Real Real → Real)
+  {S : Set.{0} (Prod.{0, 0} Real Real)} (hS : MeasurableSet.{0} S)
+  (hreg :
+    ∀ (p : Prod.{0, 0} Real Real),
+      Membership.mem.{0, 0} S p →
+        Membership.mem.{0, 0} (Resonance.PinnedMeasure.regularSurface d) (Resonance.PinnedMeasure.graph H p)) :
+  ∀ᵐ (p : Prod.{0, 0} Real Real) ∂MeasureTheory.Measure.restrict.{0} MeasureTheory.MeasureSpace.volume.{0} S,
+    Eq.{1} (HAdd.hAdd.{0, 0, 0} (φ p.1) (φ (H p)))
+      (HAdd.hAdd.{0, 0, 0} (φ p.2) (φ (HSub.hSub.{0, 0, 0} (HAdd.hAdd.{0, 0, 0} p.1 (H p)) p.2)))
+Resonance.PinnedMeasure.every_target_invariant_chart {d : Real} (hd0 : LT.lt.{0} 0 d) (hdU : LT.lt.{0} d (1 / 2))
+  {φ : Real → Complex} (hφ : Resonance.PinnedMeasure.liftedInvariant d φ) (x : Real) :
+  ∃ y z H r κ,
+    And (LT.lt.{0} 0 r)
+      (And (LT.lt.{0} 0 κ)
+        (And (Eq.{1} (H (Prod.mk.{0, 0} x z)) y)
+          (And
+            (ContDiffOn.{0, 0, 0} Real (↑Top.top.{0}) H
+              (SProd.sprod.{0, 0, 0} (Metric.ball.{0} x r) (Metric.ball.{0} z r)))
+            (And
+              (∀ (p : Prod.{0, 0} Real Real),
+                Membership.mem.{0, 0} (SProd.sprod.{0, 0, 0} (Metric.ball.{0} x r) (Metric.ball.{0} z r)) p →
+                  And (Eq.{1} (Resonance.PinnedGeometry.energyDefect d p.1 (H p) p.2) 0)
+                    (And
+                      (LE.le.{0} κ
+                        (abs.{0}
+                          (HSub.hSub.{0, 0, 0} (Resonance.PinnedGeometry.velocity d (H p))
+                            (Resonance.PinnedGeometry.velocity d
+                              (HSub.hSub.{0, 0, 0} (HAdd.hAdd.{0, 0, 0} p.1 (H p)) p.2)))))
+                      (And (LE.le.{0} κ (abs.{0} (Resonance.PinnedCharts.zDifferential H p)))
+                        (LE.le.{0} κ (abs.{0} (HSub.hSub.{0, 0, 0} (Resonance.PinnedCharts.zDifferential H p) 1))))))
+              (∀ᵐ (p :
+                Prod.{0, 0} Real
+                  Real) ∂MeasureTheory.Measure.restrict.{0} MeasureTheory.MeasureSpace.volume.{0}
+                  (SProd.sprod.{0, 0, 0} (Metric.ball.{0} x r) (Metric.ball.{0} z r)),
+                Eq.{1} (HAdd.hAdd.{0, 0, 0} (φ p.1) (φ (H p)))
+                  (HAdd.hAdd.{0, 0, 0} (φ p.2) (φ (HSub.hSub.{0, 0, 0} (HAdd.hAdd.{0, 0, 0} p.1 (H p)) p.2))))))))
+Resonance.PinnedJacobian.abs_image_sub_lower {f : Real → Real} {D : Set.{0} Real} (hD : Convex.{0, 0} Real D)
+  (hc : ContinuousOn.{0, 0} f D) (hf : DifferentiableOn.{0, 0, 0} Real f D) {κ : Real} (_hκ : LT.lt.{0} 0 κ)
+  (hb : ∀ (x : Real), Membership.mem.{0, 0} D x → LE.le.{0} κ (abs.{0} (deriv.{0, 0} f x))) {a b : Real}
+  (ha : Membership.mem.{0, 0} D a) (hbD : Membership.mem.{0, 0} D b) :
+  LE.le.{0} (HMul.hMul.{0, 0, 0} κ (abs.{0} (HSub.hSub.{0, 0, 0} b a))) (abs.{0} (HSub.hSub.{0, 0, 0} (f b) (f a)))
+Resonance.PinnedJacobian.injectiveOn_of_abs_deriv_lower {f : Real → Real} {D : Set.{0} Real} (hD : Convex.{0, 0} Real D)
+  (hc : ContinuousOn.{0, 0} f D) (hf : DifferentiableOn.{0, 0, 0} Real f D) {κ : Real} (hκ : LT.lt.{0} 0 κ)
+  (hb : ∀ (x : Real), Membership.mem.{0, 0} D x → LE.le.{0} κ (abs.{0} (deriv.{0, 0} f x))) : Set.InjOn.{0, 0} f D
+Resonance.PinnedJacobian.measurable_preimage_inter {f : Real → Real} {D E : Set.{0} Real} (hD : MeasurableSet.{0} D)
+  (hc : ContinuousOn.{0, 0} f D) (hE : MeasurableSet.{0} E) :
+  MeasurableSet.{0} (Inter.inter.{0} (Set.preimage.{0, 0} f E) D)
+Resonance.PinnedJacobian.preimage_measure_lower_jacobian {f : Real → Real} {D E : Set.{0} Real} (hD : IsOpen.{0} D)
+  (hconv : Convex.{0, 0} Real D) (hc : ContinuousOn.{0, 0} f D) (hf : DifferentiableOn.{0, 0, 0} Real f D) {κ : Real}
+  (hκ : LT.lt.{0} 0 κ) (hb : ∀ (x : Real), Membership.mem.{0, 0} D x → LE.le.{0} κ (abs.{0} (deriv.{0, 0} f x)))
+  (hE : MeasurableSet.{0} E) :
+  LE.le.{0}
+    (HMul.hMul.{0, 0, 0} (ENNReal.ofReal κ)
+      ((MeasureTheory.Measure.restrict.{0} MeasureTheory.MeasureSpace.volume.{0} D) (Set.preimage.{0, 0} f E)))
+    (MeasureTheory.MeasureSpace.volume.{0} E)
+Resonance.PinnedJacobian.averaging_legs_measure_bound {H : Prod.{0, 0} Real Real → Real} {x z r κ : Real}
+  (hκ : LT.lt.{0} 0 κ)
+  (hs : ContDiffOn.{0, 0, 0} Real (↑Top.top.{0}) H (SProd.sprod.{0, 0, 0} (Metric.ball.{0} x r) (Metric.ball.{0} z r)))
+  (hb :
+    ∀ (p : Prod.{0, 0} Real Real),
+      Membership.mem.{0, 0} (SProd.sprod.{0, 0, 0} (Metric.ball.{0} x r) (Metric.ball.{0} z r)) p →
+        And (LE.le.{0} κ (abs.{0} (Resonance.PinnedCharts.zDifferential H p)))
+          (LE.le.{0} κ (abs.{0} (HSub.hSub.{0, 0, 0} (Resonance.PinnedCharts.zDifferential H p) 1))))
+  (a : Real) :
+  Membership.mem.{0, 0} (Metric.ball.{0} x r) a →
+    ∀ (E : Set.{0} Real),
+      MeasurableSet.{0} E →
+        And
+          (LE.le.{0}
+            (HMul.hMul.{0, 0, 0} (ENNReal.ofReal κ)
+              ((MeasureTheory.Measure.restrict.{0} MeasureTheory.MeasureSpace.volume.{0} (Metric.ball.{0} z r))
+                (Set.preimage.{0, 0} (fun t => H (Prod.mk.{0, 0} a t)) E)))
+            (MeasureTheory.MeasureSpace.volume.{0} E))
+          (LE.le.{0}
+            (HMul.hMul.{0, 0, 0} (ENNReal.ofReal κ)
+              ((MeasureTheory.Measure.restrict.{0} MeasureTheory.MeasureSpace.volume.{0} (Metric.ball.{0} z r))
+                (Set.preimage.{0, 0} (fun t => HSub.hSub.{0, 0, 0} (HAdd.hAdd.{0, 0, 0} a (H (Prod.mk.{0, 0} a t))) t)
+                  E)))
+            (MeasureTheory.MeasureSpace.volume.{0} E))
+Resonance.PinnedPeriodicity.period_pos : LT.lt.{0} 0 Resonance.PinnedPeriodicity.period
+Resonance.PinnedPeriodicity.fundamentalCell_measurable : MeasurableSet.{0} Resonance.PinnedPeriodicity.fundamentalCell
+Resonance.PinnedPeriodicity.omega_periodic (d : Real) :
+  Function.Periodic.{0, 0} (Resonance.PinnedGeometry.omega d) Resonance.PinnedPeriodicity.period
+Resonance.PinnedPeriodicity.velocity_periodic (d : Real) :
+  Function.Periodic.{0, 0} (Resonance.PinnedGeometry.velocity d) Resonance.PinnedPeriodicity.period
+Resonance.PinnedPeriodicity.periodic_coordinate.{u_1} {β : Type u_1} {f : Real → β}
+  (hf : Function.Periodic.{0, u_1} f Resonance.PinnedPeriodicity.period) (n : Fin 3 → Int)
+  (k : Resonance.PinnedMeasure.Ambient) (i : Fin 3) :
+  Eq.{u_1 + 1} (f (WithLp.ofLp.{0} (HAdd.hAdd.{0, 0, 0} k (Resonance.PinnedPeriodicity.latticeShift n)) i))
+    (f (WithLp.ofLp.{0} k i))
+Resonance.PinnedPeriodicity.periodic_fourth.{u_1} {β : Type u_1} {f : Real → β}
+  (hf : Function.Periodic.{0, u_1} f Resonance.PinnedPeriodicity.period) (n : Fin 3 → Int)
+  (k : Resonance.PinnedMeasure.Ambient) :
+  Eq.{u_1 + 1}
+    (f
+      (HSub.hSub.{0, 0, 0}
+        (HAdd.hAdd.{0, 0, 0} (WithLp.ofLp.{0} (HAdd.hAdd.{0, 0, 0} k (Resonance.PinnedPeriodicity.latticeShift n)) 0)
+          (WithLp.ofLp.{0} (HAdd.hAdd.{0, 0, 0} k (Resonance.PinnedPeriodicity.latticeShift n)) 1))
+        (WithLp.ofLp.{0} (HAdd.hAdd.{0, 0, 0} k (Resonance.PinnedPeriodicity.latticeShift n)) 2)))
+    (f (HSub.hSub.{0, 0, 0} (HAdd.hAdd.{0, 0, 0} (WithLp.ofLp.{0} k 0) (WithLp.ofLp.{0} k 1)) (WithLp.ofLp.{0} k 2)))
+Resonance.PinnedPeriodicity.liftedEnergy_lattice (d : Real) (n : Fin 3 → Int) (k : Resonance.PinnedMeasure.Ambient) :
+  Eq.{1} (Resonance.PinnedMeasure.liftedEnergy d (HAdd.hAdd.{0, 0, 0} k (Resonance.PinnedPeriodicity.latticeShift n)))
+    (Resonance.PinnedMeasure.liftedEnergy d k)
+Resonance.PinnedPeriodicity.energyGradient_lattice (d : Real) (n : Fin 3 → Int) (k : Resonance.PinnedMeasure.Ambient) :
+  Eq.{1} (Resonance.PinnedMeasure.energyGradient d (HAdd.hAdd.{0, 0, 0} k (Resonance.PinnedPeriodicity.latticeShift n)))
+    (Resonance.PinnedMeasure.energyGradient d k)
+Resonance.PinnedPeriodicity.regularSurface_lattice (d : Real) (n : Fin 3 → Int) (k : Resonance.PinnedMeasure.Ambient) :
+  Iff
+    (Membership.mem.{0, 0} (Resonance.PinnedMeasure.regularSurface d)
+      (HAdd.hAdd.{0, 0, 0} k (Resonance.PinnedPeriodicity.latticeShift n)))
+    (Membership.mem.{0, 0} (Resonance.PinnedMeasure.regularSurface d) k)
+Resonance.PinnedPeriodicity.invariantRelation_lattice {φ : Real → Complex}
+  (hp : Function.Periodic.{0, 0} φ Resonance.PinnedPeriodicity.period) (n : Fin 3 → Int)
+  (k : Resonance.PinnedMeasure.Ambient) :
+  Iff (Resonance.PinnedMeasure.invariantRelation φ (HAdd.hAdd.{0, 0, 0} k (Resonance.PinnedPeriodicity.latticeShift n)))
+    (Resonance.PinnedMeasure.invariantRelation φ k)
+Resonance.PinnedPeriodicity.exists_cell_representative (k : Resonance.PinnedMeasure.Ambient) :
+  ∃ n q,
+    And (Membership.mem.{0, 0} Resonance.PinnedPeriodicity.fundamentalCell q)
+      (Eq.{1} k (HAdd.hAdd.{0, 0, 0} q (Resonance.PinnedPeriodicity.latticeShift n)))
+Resonance.PinnedPeriodicity.periodic_null_of_cell_null {d : Real} (hd0 : LT.lt.{0} 0 d) (hdU : LT.lt.{0} d (1 / 2))
+  {A : Set.{0} Resonance.PinnedMeasure.Ambient}
+  (hper :
+    ∀ (n : Fin 3 → Int) (k : Resonance.PinnedMeasure.Ambient),
+      Iff (Membership.mem.{0, 0} A (HAdd.hAdd.{0, 0, 0} k (Resonance.PinnedPeriodicity.latticeShift n)))
+        (Membership.mem.{0, 0} A k))
+  (hA : Eq.{1} ((Resonance.PinnedPeriodicity.cellCoarea d) A) 0) :
+  Eq.{1} ((Resonance.PinnedMeasure.liftedRegularCoarea d) A) 0
+Resonance.PinnedPeriodicity.invariant_cell_iff_lifted {d : Real} (hd0 : LT.lt.{0} 0 d) (hdU : LT.lt.{0} d (1 / 2))
+  {φ : Real → Complex} (hp : Function.Periodic.{0, 0} φ Resonance.PinnedPeriodicity.period) :
+  Iff
+    (∀ᵐ (k : Resonance.PinnedMeasure.Ambient) ∂ Resonance.PinnedPeriodicity.cellCoarea d,
+      Resonance.PinnedMeasure.invariantRelation φ k)
+    (Resonance.PinnedMeasure.liftedInvariant d φ)
+Resonance.PinnedPeriodicity.quotientCoordinates_continuous :
+  Continuous.{0, 0} Resonance.PinnedPeriodicity.quotientCoordinates
+Resonance.PinnedPeriodicity.periodicLift_periodic (φ : Resonance.PinnedPeriodicity.Circle → Complex) :
+  Function.Periodic.{0, 0} (Resonance.PinnedPeriodicity.periodicLift φ) Resonance.PinnedPeriodicity.period
+Resonance.PinnedPeriodicity.circleInvariant_lifted {d : Real} (hd0 : LT.lt.{0} 0 d) (hdU : LT.lt.{0} d (1 / 2))
+  {φ : Resonance.PinnedPeriodicity.Circle → Complex} (hφ : Resonance.PinnedPeriodicity.circleInvariant d φ) :
+  Resonance.PinnedMeasure.liftedInvariant d (Resonance.PinnedPeriodicity.periodicLift φ)
+Resonance.PinnedPeriodicity.circleInvariant_every_target_chart {d : Real} (hd0 : LT.lt.{0} 0 d)
+  (hdU : LT.lt.{0} d (1 / 2)) {φ : Resonance.PinnedPeriodicity.Circle → Complex}
+  (hφ : Resonance.PinnedPeriodicity.circleInvariant d φ) (x : Real) :
+  ∃ y z H r κ,
+    And (LT.lt.{0} 0 r)
+      (And (LT.lt.{0} 0 κ)
+        (And (Eq.{1} (H (Prod.mk.{0, 0} x z)) y)
+          (And
+            (ContDiffOn.{0, 0, 0} Real (↑Top.top.{0}) H
+              (SProd.sprod.{0, 0, 0} (Metric.ball.{0} x r) (Metric.ball.{0} z r)))
+            (And
+              (∀ (p : Prod.{0, 0} Real Real),
+                Membership.mem.{0, 0} (SProd.sprod.{0, 0, 0} (Metric.ball.{0} x r) (Metric.ball.{0} z r)) p →
+                  And (Eq.{1} (Resonance.PinnedGeometry.energyDefect d p.1 (H p) p.2) 0)
+                    (And
+                      (LE.le.{0} κ
+                        (abs.{0}
+                          (HSub.hSub.{0, 0, 0} (Resonance.PinnedGeometry.velocity d (H p))
+                            (Resonance.PinnedGeometry.velocity d
+                              (HSub.hSub.{0, 0, 0} (HAdd.hAdd.{0, 0, 0} p.1 (H p)) p.2)))))
+                      (And (LE.le.{0} κ (abs.{0} (Resonance.PinnedCharts.zDifferential H p)))
+                        (LE.le.{0} κ (abs.{0} (HSub.hSub.{0, 0, 0} (Resonance.PinnedCharts.zDifferential H p) 1))))))
+              (∀ᵐ (p :
+                Prod.{0, 0} Real
+                  Real) ∂MeasureTheory.Measure.restrict.{0} MeasureTheory.MeasureSpace.volume.{0}
+                  (SProd.sprod.{0, 0, 0} (Metric.ball.{0} x r) (Metric.ball.{0} z r)),
+                Eq.{1}
+                  (HAdd.hAdd.{0, 0, 0} (Resonance.PinnedPeriodicity.periodicLift φ p.1)
+                    (Resonance.PinnedPeriodicity.periodicLift φ (H p)))
+                  (HAdd.hAdd.{0, 0, 0} (Resonance.PinnedPeriodicity.periodicLift φ p.2)
+                    (Resonance.PinnedPeriodicity.periodicLift φ
+                      (HSub.hSub.{0, 0, 0} (HAdd.hAdd.{0, 0, 0} p.1 (H p)) p.2))))))))
+Resonance.PinnedMeasurable.finite_value_levelsets_vanish.{u_1, u_2} {E : Type u_1} [NormedAddCommGroup.{u_1} E]
+  [MeasurableSpace.{u_1} E] [BorelSpace.{u_1} E] {Y : Type u_2} [MeasurableSpace.{u_2} Y]
+  (ν : MeasureTheory.Measure.{u_2} Y) [MeasureTheory.IsFiniteMeasure.{u_2} ν] (f : Y → E)
+  (hf : Measurable.{u_2, u_1} f) :
+  Filter.Tendsto.{0, 0} (fun n => ν (setOf.{u_2} fun y => LT.lt.{0} (↑n) (Norm.norm.{u_1} (f y)))) Filter.atTop.{0}
+    (nhds.{0} 0)
+Resonance.PinnedMeasurable.exists_common_level_bound.{u_1, u_2} {E : Type u_1} [NormedAddCommGroup.{u_1} E]
+  [MeasurableSpace.{u_1} E] [BorelSpace.{u_1} E] {Y : Type u_2} [MeasurableSpace.{u_2} Y]
+  (ν : MeasureTheory.Measure.{u_2} Y) [MeasureTheory.IsFiniteMeasure.{u_2} ν] (f : Y → E) (hf : Measurable.{u_2, u_1} f)
+  (C a : ENNReal) (hC : Ne.{1} C Top.top.{0}) (ha : LT.lt.{0} 0 a) :
+  ∃ n,
+    LT.lt.{0}
+      (HMul.hMul.{0, 0, 0} (HMul.hMul.{0, 0, 0} 3 C) (ν (setOf.{u_2} fun y => LT.lt.{0} (↑n) (Norm.norm.{u_1} (f y)))))
+      a
+Resonance.PinnedMeasurable.three_pullbacks_point_bound.{u_1, u_2, u_3} {E : Type u_1} [NormedAddCommGroup.{u_1} E]
+  [MeasurableSpace.{u_1} E] [BorelSpace.{u_1} E] {Z : Type u_2} {Y : Type u_3} [MeasurableSpace.{u_2} Z]
+  [MeasurableSpace.{u_3} Y] (ζ : MeasureTheory.Measure.{u_2} Z) (ν : MeasureTheory.Measure.{u_3} Y) (f : Y → E)
+  (hf : Measurable.{u_3, u_1} f) (T : Fin 3 → Z → Y) (hT : ∀ (i : Fin 3), AEMeasurable.{u_2, u_3} (T i) ζ) (C : ENNReal)
+  (hdom : ∀ (i : Fin 3), LE.le.{u_3} (MeasureTheory.Measure.map.{u_2, u_3} (T i) ζ) (HSMul.hSMul.{0, u_3, u_3} C ν))
+  (n : Nat)
+  (hsmall :
+    LT.lt.{0}
+      (HMul.hMul.{0, 0, 0} (HMul.hMul.{0, 0, 0} 3 C) (ν (setOf.{u_3} fun y => LT.lt.{0} (↑n) (Norm.norm.{u_1} (f y)))))
+      (ζ Set.univ.{u_2}))
+  (a : E)
+  (ha :
+    ∀ᵐ (z : Z) ∂ζ,
+      Eq.{u_1 + 1} a (HSub.hSub.{u_1, u_1, u_1} (HAdd.hAdd.{u_1, u_1, u_1} (f (T 0 z)) (f (T 1 z))) (f (T 2 z)))) :
+  LE.le.{0} (Norm.norm.{u_1} a) (HMul.hMul.{0, 0, 0} 3 ↑n)
+Resonance.PinnedMeasurable.uniform_three_pullbacks_essential_bound.{u_1, u_2, u_3, u_4} {E : Type u_1}
+  [NormedAddCommGroup.{u_1} E] [MeasurableSpace.{u_1} E] [BorelSpace.{u_1} E] {X : Type u_2} {Z : Type u_3}
+  {Y : Type u_4} [MeasurableSpace.{u_2} X] [MeasurableSpace.{u_3} Z] [MeasurableSpace.{u_4} Y]
+  (μ : MeasureTheory.Measure.{u_2} X) (ζ : MeasureTheory.Measure.{u_3} Z) (ν : MeasureTheory.Measure.{u_4} Y)
+  [MeasureTheory.IsFiniteMeasure.{u_4} ν] (hζ : LT.lt.{0} 0 (ζ Set.univ.{u_3})) (f : Y → E)
+  (hf : Measurable.{u_4, u_1} f) (T : Fin 3 → X → Z → Y) (C : ENNReal) (hC : Ne.{1} C Top.top.{0})
+  (hdom :
+    ∀ᵐ (x : X) ∂μ,
+      ∀ (i : Fin 3),
+        And (AEMeasurable.{u_3, u_4} (T i x) ζ)
+          (LE.le.{u_4} (MeasureTheory.Measure.map.{u_3, u_4} (T i x) ζ) (HSMul.hSMul.{0, u_4, u_4} C ν)))
+  (F : X → E)
+  (hidentity :
+    ∀ᵐ (x : X) ∂μ,
+      ∀ᵐ (z : Z) ∂ζ,
+        Eq.{u_1 + 1} (F x)
+          (HSub.hSub.{u_1, u_1, u_1} (HAdd.hAdd.{u_1, u_1, u_1} (f (T 0 x z)) (f (T 1 x z))) (f (T 2 x z)))) :
+  ∃ M, And (LE.le.{0} 0 M) (∀ᵐ (x : X) ∂μ, LE.le.{0} (Norm.norm.{u_1} (F x)) M)
+Resonance.PinnedMeasurable.product_three_pullbacks_essential_bound.{u_1, u_2, u_3, u_4} {E : Type u_1}
+  [NormedAddCommGroup.{u_1} E] [MeasurableSpace.{u_1} E] [BorelSpace.{u_1} E] {X : Type u_2} {Z : Type u_3}
+  {Y : Type u_4} [MeasurableSpace.{u_2} X] [MeasurableSpace.{u_3} Z] [MeasurableSpace.{u_4} Y]
+  (μ : MeasureTheory.Measure.{u_2} X) (ζ : MeasureTheory.Measure.{u_3} Z) [MeasureTheory.SFinite.{u_3} ζ]
+  (ν : MeasureTheory.Measure.{u_4} Y) [MeasureTheory.IsFiniteMeasure.{u_4} ν] (hζ : LT.lt.{0} 0 (ζ Set.univ.{u_3}))
+  (f : Y → E) (hf : Measurable.{u_4, u_1} f) (T : Fin 3 → X → Z → Y) (C : ENNReal) (hC : Ne.{1} C Top.top.{0})
+  (hdom :
+    ∀ᵐ (x : X) ∂μ,
+      ∀ (i : Fin 3),
+        And (AEMeasurable.{u_3, u_4} (T i x) ζ)
+          (LE.le.{u_4} (MeasureTheory.Measure.map.{u_3, u_4} (T i x) ζ) (HSMul.hSMul.{0, u_4, u_4} C ν)))
+  (F : X → E)
+  (hidentity :
+    ∀ᵐ (p : Prod.{u_2, u_3} X Z) ∂MeasureTheory.Measure.prod.{u_2, u_3} μ ζ,
+      Eq.{u_1 + 1} (F p.1)
+        (HSub.hSub.{u_1, u_1, u_1} (HAdd.hAdd.{u_1, u_1, u_1} (f (T 0 p.1 p.2)) (f (T 1 p.1 p.2))) (f (T 2 p.1 p.2)))) :
+  ∃ M, And (LE.le.{0} 0 M) (∀ᵐ (x : X) ∂μ, LE.le.{0} (Norm.norm.{u_1} (F x)) M)
+Resonance.PinnedMeasurable.map_domination_of_lower_jacobian.{u_2} {Z : Type u_2} [MeasurableSpace.{u_2} Z]
+  (ζ : MeasureTheory.Measure.{u_2} Z) (g : Z → Real) (hg : AEMeasurable.{u_2, 0} g ζ) (κ : Real) (hκ : LT.lt.{0} 0 κ)
+  (hb :
+    ∀ (S : Set.{0} Real),
+      MeasurableSet.{0} S →
+        LE.le.{0} (HMul.hMul.{0, 0, 0} (ENNReal.ofReal κ) (ζ (Set.preimage.{u_2, 0} g S)))
+          (MeasureTheory.MeasureSpace.volume.{0} S)) :
+  LE.le.{0} (MeasureTheory.Measure.map.{u_2, 0} g ζ)
+    (HSMul.hSMul.{0, 0, 0} (Inv.inv.{0} (ENNReal.ofReal κ)) MeasureTheory.MeasureSpace.volume.{0})
+Resonance.PinnedMeasurable.map_domination_restrict_range.{u_2} {Z : Type u_2} [MeasurableSpace.{u_2} Z]
+  (ζ : MeasureTheory.Measure.{u_2} Z) (g : Z → Real) (hg : AEMeasurable.{u_2, 0} g ζ) (C : ENNReal)
+  (hdom :
+    LE.le.{0} (MeasureTheory.Measure.map.{u_2, 0} g ζ) (HSMul.hSMul.{0, 0, 0} C MeasureTheory.MeasureSpace.volume.{0}))
+  (J : Set.{0} Real) (hJ : MeasurableSet.{0} J) (himage : ∀ᵐ (z : Z) ∂ζ, Membership.mem.{0, 0} J (g z)) :
+  LE.le.{0} (MeasureTheory.Measure.map.{u_2, 0} g ζ)
+    (HSMul.hSMul.{0, 0, 0} C (MeasureTheory.Measure.restrict.{0} MeasureTheory.MeasureSpace.volume.{0} J))
+Resonance.PinnedMeasurable.chart_source_compact_bound (H : Prod.{0, 0} Real Real → Real) (x z r : Real)
+  (hr : LT.lt.{0} 0 r)
+  (hs :
+    ContDiffOn.{0, 0, 0} Real (↑Top.top.{0}) H (SProd.sprod.{0, 0, 0} (Metric.ball.{0} x r) (Metric.ball.{0} z r))) :
+  ∃ L,
+    And (LT.lt.{0} 0 L)
+      (∀ (a : Real),
+        Membership.mem.{0, 0} (Metric.ball.{0} x (HDiv.hDiv.{0, 0, 0} r 2)) a →
+          ∀ (t : Real),
+            Membership.mem.{0, 0} (Metric.ball.{0} z (HDiv.hDiv.{0, 0, 0} r 2)) t →
+              ∀ (i : Fin 3), LE.le.{0} (abs.{0} (Resonance.PinnedMeasurable.sourceLeg H i a t)) L)
+Resonance.PinnedMeasurable.chart_source_measurable (H : Prod.{0, 0} Real Real → Real) (x z r : Real)
+  (hs : ContDiffOn.{0, 0, 0} Real (↑Top.top.{0}) H (SProd.sprod.{0, 0, 0} (Metric.ball.{0} x r) (Metric.ball.{0} z r)))
+  (a : Real) (ha : Membership.mem.{0, 0} (Metric.ball.{0} x r) a) (i : Fin 3) :
+  AEMeasurable.{0, 0} (Resonance.PinnedMeasurable.sourceLeg H i a)
+    (MeasureTheory.Measure.restrict.{0} MeasureTheory.MeasureSpace.volume.{0} (Metric.ball.{0} z r))
+Resonance.PinnedMeasurable.chart_source_jacobian (H : Prod.{0, 0} Real Real → Real) (x z r κ : Real)
+  (hκ : LT.lt.{0} 0 κ)
+  (hs : ContDiffOn.{0, 0, 0} Real (↑Top.top.{0}) H (SProd.sprod.{0, 0, 0} (Metric.ball.{0} x r) (Metric.ball.{0} z r)))
+  (hb :
+    ∀ (p : Prod.{0, 0} Real Real),
+      Membership.mem.{0, 0} (SProd.sprod.{0, 0, 0} (Metric.ball.{0} x r) (Metric.ball.{0} z r)) p →
+        And (LE.le.{0} κ (abs.{0} (Resonance.PinnedCharts.zDifferential H p)))
+          (LE.le.{0} κ (abs.{0} (HSub.hSub.{0, 0, 0} (Resonance.PinnedCharts.zDifferential H p) 1))))
+  (a : Real) (ha : Membership.mem.{0, 0} (Metric.ball.{0} x r) a) (i : Fin 3) (S : Set.{0} Real) :
+  MeasurableSet.{0} S →
+    LE.le.{0}
+      (HMul.hMul.{0, 0, 0} (ENNReal.ofReal (Min.min.{0} κ 1))
+        ((MeasureTheory.Measure.restrict.{0} MeasureTheory.MeasureSpace.volume.{0} (Metric.ball.{0} z r))
+          (Set.preimage.{0, 0} (Resonance.PinnedMeasurable.sourceLeg H i a) S)))
+      (MeasureTheory.MeasureSpace.volume.{0} S)
+Resonance.PinnedMeasurable.invariant_chart_essential_bound.{u_1} {E : Type u_1} [NormedAddCommGroup.{u_1} E]
+  [MeasurableSpace.{u_1} E] [BorelSpace.{u_1} E] (H : Prod.{0, 0} Real Real → Real) (x z r κ : Real)
+  (hr : LT.lt.{0} 0 r) (hκ : LT.lt.{0} 0 κ)
+  (hs : ContDiffOn.{0, 0, 0} Real (↑Top.top.{0}) H (SProd.sprod.{0, 0, 0} (Metric.ball.{0} x r) (Metric.ball.{0} z r)))
+  (hb :
+    ∀ (p : Prod.{0, 0} Real Real),
+      Membership.mem.{0, 0} (SProd.sprod.{0, 0, 0} (Metric.ball.{0} x r) (Metric.ball.{0} z r)) p →
+        And (LE.le.{0} κ (abs.{0} (Resonance.PinnedCharts.zDifferential H p)))
+          (LE.le.{0} κ (abs.{0} (HSub.hSub.{0, 0, 0} (Resonance.PinnedCharts.zDifferential H p) 1))))
+  (φ : Real → E) (hφ : Measurable.{0, u_1} φ)
+  (hi :
+    ∀ᵐ (p :
+      Prod.{0, 0} Real
+        Real) ∂MeasureTheory.Measure.restrict.{0} MeasureTheory.MeasureSpace.volume.{0}
+        (SProd.sprod.{0, 0, 0} (Metric.ball.{0} x r) (Metric.ball.{0} z r)),
+      Eq.{u_1 + 1} (HAdd.hAdd.{u_1, u_1, u_1} (φ p.1) (φ (H p)))
+        (HAdd.hAdd.{u_1, u_1, u_1} (φ p.2) (φ (HSub.hSub.{0, 0, 0} (HAdd.hAdd.{0, 0, 0} p.1 (H p)) p.2)))) :
+  ∃ M,
+    And (LE.le.{0} 0 M)
+      (∀ᵐ (a :
+        Real) ∂MeasureTheory.Measure.restrict.{0} MeasureTheory.MeasureSpace.volume.{0}
+          (Metric.ball.{0} x (HDiv.hDiv.{0, 0, 0} r 2)),
+        LE.le.{0} (Norm.norm.{u_1} (φ a)) M)
+Resonance.PinnedMeasurable.liftedInvariant_locally_essentially_bounded {d : Real} (hd0 : LT.lt.{0} 0 d)
+  (hdU : LT.lt.{0} d (1 / 2)) (φ : Real → Complex) (hφ : Measurable.{0, 0} φ)
+  (hinv : Resonance.PinnedMeasure.liftedInvariant d φ) (x : Real) :
+  ∃ r M,
+    And (LT.lt.{0} 0 r)
+      (And (LE.le.{0} 0 M)
+        (∀ᵐ (a : Real) ∂MeasureTheory.Measure.restrict.{0} MeasureTheory.MeasureSpace.volume.{0} (Metric.ball.{0} x r),
+          LE.le.{0} (Norm.norm.{0} (φ a)) M))
+Resonance.PinnedMeasurable.circleInvariant_lift_locally_essentially_bounded {d : Real} (hd0 : LT.lt.{0} 0 d)
+  (hdU : LT.lt.{0} d (1 / 2)) (φ : Resonance.PinnedPeriodicity.Circle → Complex) (hφ : Measurable.{0, 0} φ)
+  (hinv : Resonance.PinnedPeriodicity.circleInvariant d φ) (x : Real) :
+  ∃ r M,
+    And (LT.lt.{0} 0 r)
+      (And (LE.le.{0} 0 M)
+        (∀ᵐ (a : Real) ∂MeasureTheory.Measure.restrict.{0} MeasureTheory.MeasureSpace.volume.{0} (Metric.ball.{0} x r),
+          LE.le.{0} (Norm.norm.{0} (Resonance.PinnedPeriodicity.periodicLift φ a)) M))
+Resonance.PinnedMeasurable.locallyIntegrable_of_local_essential_bound (f : Real → Complex) (hf : Measurable.{0, 0} f)
+  (hb :
+    ∀ (x : Real),
+      ∃ r M,
+        And (LT.lt.{0} 0 r)
+          (And (LE.le.{0} 0 M)
+            (∀ᵐ (a :
+              Real) ∂MeasureTheory.Measure.restrict.{0} MeasureTheory.MeasureSpace.volume.{0} (Metric.ball.{0} x r),
+              LE.le.{0} (Norm.norm.{0} (f a)) M))) :
+  MeasureTheory.LocallyIntegrable.{0, 0} f MeasureTheory.MeasureSpace.volume.{0}
+Resonance.PinnedMeasurable.liftedInvariant_locallyIntegrable {d : Real} (hd0 : LT.lt.{0} 0 d)
+  (hdU : LT.lt.{0} d (1 / 2)) (φ : Real → Complex) (hφ : Measurable.{0, 0} φ)
+  (hinv : Resonance.PinnedMeasure.liftedInvariant d φ) :
+  MeasureTheory.LocallyIntegrable.{0, 0} φ MeasureTheory.MeasureSpace.volume.{0}
+Resonance.PinnedMeasurable.circleInvariant_lift_locallyIntegrable {d : Real} (hd0 : LT.lt.{0} 0 d)
+  (hdU : LT.lt.{0} d (1 / 2)) (φ : Resonance.PinnedPeriodicity.Circle → Complex) (hφ : Measurable.{0, 0} φ)
+  (hinv : Resonance.PinnedPeriodicity.circleInvariant d φ) :
+  MeasureTheory.LocallyIntegrable.{0, 0} (Resonance.PinnedPeriodicity.periodicLift φ)
+    MeasureTheory.MeasureSpace.volume.{0}
+Resonance.PinnedElimination.same_branch_third_elimination (a b ca cb da db α β γ q q₁ q₂ : Real) (hb : Ne.{1} b 0)
+  (hα : Eq.{1} (HMul.hMul.{0, 0, 0} (HMul.hMul.{0, 0, 0} 2 b) α) (HSub.hSub.{0, 0, 0} b a))
+  (hβ :
+    Eq.{1} (HMul.hMul.{0, 0, 0} (HMul.hMul.{0, 0, 0} 2 b) β)
+      (HAdd.hAdd.{0, 0, 0} ca (HMul.hMul.{0, 0, 0} (HSub.hSub.{0, 0, 0} 1 (HMul.hMul.{0, 0, 0} 2 α)) cb)))
+  (hω :
+    Eq.{1}
+      (HAdd.hAdd.{0, 0, 0}
+        (HAdd.hAdd.{0, 0, 0}
+          (HAdd.hAdd.{0, 0, 0}
+            (HMul.hMul.{0, 0, 0}
+              (HAdd.hAdd.{0, 0, 0} (HPow.hPow.{0, 0, 0} α 3) (HPow.hPow.{0, 0, 0} (HSub.hSub.{0, 0, 0} α 1) 3)) db)
+            (HMul.hMul.{0, 0, 0} (HMul.hMul.{0, 0, 0} 3 β) cb))
+          (HMul.hMul.{0, 0, 0} (HMul.hMul.{0, 0, 0} 2 γ) b))
+        da)
+      0)
+  (hφ :
+    Eq.{1}
+      (HAdd.hAdd.{0, 0, 0}
+        (HAdd.hAdd.{0, 0, 0}
+          (HAdd.hAdd.{0, 0, 0}
+            (HAdd.hAdd.{0, 0, 0}
+              (HAdd.hAdd.{0, 0, 0}
+                (HMul.hMul.{0, 0, 0}
+                  (HAdd.hAdd.{0, 0, 0} (HPow.hPow.{0, 0, 0} α 3) (HPow.hPow.{0, 0, 0} (HSub.hSub.{0, 0, 0} α 1) 3))
+                  (HAdd.hAdd.{0, 0, 0}
+                    (HSub.hSub.{0, 0, 0} (HMul.hMul.{0, 0, 0} db q) (HMul.hMul.{0, 0, 0} (HMul.hMul.{0, 0, 0} 2 cb) q₁))
+                    (HMul.hMul.{0, 0, 0} b q₂)))
+                (HMul.hMul.{0, 0, 0} (HMul.hMul.{0, 0, 0} 3 β)
+                  (HSub.hSub.{0, 0, 0} (HMul.hMul.{0, 0, 0} cb q) (HMul.hMul.{0, 0, 0} b q₁))))
+              (HMul.hMul.{0, 0, 0} (HMul.hMul.{0, 0, 0} (HMul.hMul.{0, 0, 0} 2 γ) b) q))
+            (HMul.hMul.{0, 0, 0} da q))
+          (HMul.hMul.{0, 0, 0} (HMul.hMul.{0, 0, 0} 2 ca) q₁))
+        (HMul.hMul.{0, 0, 0} a q₂))
+      0) :
+  Eq.{1}
+    (HAdd.hAdd.{0, 0, 0}
+      (HMul.hMul.{0, 0, 0}
+        (HMul.hMul.{0, 0, 0} (HMul.hMul.{0, 0, 0} a b)
+          (HSub.hSub.{0, 0, 0} (HPow.hPow.{0, 0, 0} b 2) (HPow.hPow.{0, 0, 0} a 2)))
+        q₂)
+      (HMul.hMul.{0, 0, 0}
+        (HMul.hMul.{0, 0, 0} 2
+          (HAdd.hAdd.{0, 0, 0} (HMul.hMul.{0, 0, 0} ca (HPow.hPow.{0, 0, 0} b 3))
+            (HMul.hMul.{0, 0, 0} (HPow.hPow.{0, 0, 0} a 3) cb)))
+        q₁))
+    0
+Resonance.PinnedElimination.pinned_coefficient_reduction (d s c A B u v : Real) (hd : Ne.{1} d 0) (hs : Ne.{1} s 0)
+  (hA : Ne.{1} A 0) (hB : Ne.{1} B 0)
+  (hAsq : Eq.{1} (HPow.hPow.{0, 0, 0} A 2) (HSub.hSub.{0, 0, 0} 1 (HMul.hMul.{0, 0, 0} (HMul.hMul.{0, 0, 0} 2 d) c)))
+  (hBsq : Eq.{1} (HPow.hPow.{0, 0, 0} B 2) (HAdd.hAdd.{0, 0, 0} 1 (HMul.hMul.{0, 0, 0} (HMul.hMul.{0, 0, 0} 2 d) c)))
+  (hcirc : Eq.{1} (HAdd.hAdd.{0, 0, 0} (HPow.hPow.{0, 0, 0} s 2) (HPow.hPow.{0, 0, 0} c 2)) 1)
+  (h :
+    Eq.{1}
+      (HAdd.hAdd.{0, 0, 0}
+        (HMul.hMul.{0, 0, 0}
+          (HMul.hMul.{0, 0, 0}
+            (HMul.hMul.{0, 0, 0} (HDiv.hDiv.{0, 0, 0} (HMul.hMul.{0, 0, 0} d s) A)
+              (HDiv.hDiv.{0, 0, 0} (HMul.hMul.{0, 0, 0} d s) B))
+            (HSub.hSub.{0, 0, 0} (HPow.hPow.{0, 0, 0} (HDiv.hDiv.{0, 0, 0} (HMul.hMul.{0, 0, 0} d s) B) 2)
+              (HPow.hPow.{0, 0, 0} (HDiv.hDiv.{0, 0, 0} (HMul.hMul.{0, 0, 0} d s) A) 2)))
+          v)
+        (HMul.hMul.{0, 0, 0}
+          (HMul.hMul.{0, 0, 0} 2
+            (HAdd.hAdd.{0, 0, 0}
+              (HMul.hMul.{0, 0, 0}
+                (HSub.hSub.{0, 0, 0} (HDiv.hDiv.{0, 0, 0} (HMul.hMul.{0, 0, 0} d c) A)
+                  (HDiv.hDiv.{0, 0, 0} (HMul.hMul.{0, 0, 0} (HPow.hPow.{0, 0, 0} d 2) (HPow.hPow.{0, 0, 0} s 2))
+                    (HPow.hPow.{0, 0, 0} A 3)))
+                (HPow.hPow.{0, 0, 0} (HDiv.hDiv.{0, 0, 0} (HMul.hMul.{0, 0, 0} d s) B) 3))
+              (HMul.hMul.{0, 0, 0} (HPow.hPow.{0, 0, 0} (HDiv.hDiv.{0, 0, 0} (HMul.hMul.{0, 0, 0} d s) A) 3)
+                (HSub.hSub.{0, 0, 0} (HDiv.hDiv.{0, 0, 0} (HMul.hMul.{0, 0, 0} (Neg.neg.{0} d) c) B)
+                  (HDiv.hDiv.{0, 0, 0} (HMul.hMul.{0, 0, 0} (HPow.hPow.{0, 0, 0} d 2) (HPow.hPow.{0, 0, 0} s 2))
+                    (HPow.hPow.{0, 0, 0} B 3))))))
+          u))
+      0) :
+  Eq.{1}
+    (HAdd.hAdd.{0, 0, 0} (HMul.hMul.{0, 0, 0} (HMul.hMul.{0, 0, 0} s c) v)
+      (HMul.hMul.{0, 0, 0} (HAdd.hAdd.{0, 0, 0} 1 (HPow.hPow.{0, 0, 0} c 2)) u))
+    0
+Resonance.PinnedODE.sine_affine_on_interval {h : Real → Real} {a b : Real} (hh : ContDiff.{0, 0, 0} Real 2 h)
+  (hc : ∀ (x : Real), Membership.mem.{0, 0} (Set.Ioo.{0} a b) x → Ne.{1} (Real.cos x) 0)
+  (he :
+    ∀ (x : Real),
+      Membership.mem.{0, 0} (Set.Ioo.{0} a b) x →
+        Eq.{1}
+          (HAdd.hAdd.{0, 0, 0} (HMul.hMul.{0, 0, 0} (Real.cos x) (iteratedDeriv.{0, 0} 2 h x))
+            (HMul.hMul.{0, 0, 0} (Real.sin x) (deriv.{0, 0} h x)))
+          0) :
+  ∃ A B,
+    ∀ (x : Real),
+      Membership.mem.{0, 0} (Set.Ioo.{0} a b) x →
+        Eq.{1} (h x) (HAdd.hAdd.{0, 0, 0} (HMul.hMul.{0, 0, 0} A (Real.sin x)) B)
+Resonance.PinnedODE.sine_affine_on_closed_interval {h : Real → Real} {a b : Real} (hab : LT.lt.{0} a b)
+  (hh : ContDiff.{0, 0, 0} Real 2 h)
+  (hc : ∀ (x : Real), Membership.mem.{0, 0} (Set.Ioo.{0} a b) x → Ne.{1} (Real.cos x) 0)
+  (he :
+    ∀ (x : Real),
+      Membership.mem.{0, 0} (Set.Ioo.{0} a b) x →
+        Eq.{1}
+          (HAdd.hAdd.{0, 0, 0} (HMul.hMul.{0, 0, 0} (Real.cos x) (iteratedDeriv.{0, 0} 2 h x))
+            (HMul.hMul.{0, 0, 0} (Real.sin x) (deriv.{0, 0} h x)))
+          0) :
+  ∃ A B,
+    ∀ (x : Real),
+      Membership.mem.{0, 0} (Set.Icc.{0} a b) x →
+        Eq.{1} (h x) (HAdd.hAdd.{0, 0, 0} (HMul.hMul.{0, 0, 0} A (Real.sin x)) B)
+Resonance.PinnedODE.sine_solution_on_halfcircle {h : Real → Real} (hh : ContDiff.{0, 0, 0} Real 2 h)
+  (h0 : Eq.{1} (h 0) 0) (hπ : Eq.{1} (h Real.pi) 0)
+  (he :
+    ∀ (x : Real),
+      Membership.mem.{0, 0} (Set.Ioo.{0} 0 Real.pi) x →
+        Ne.{1} (Real.cos x) 0 →
+          Eq.{1}
+            (HAdd.hAdd.{0, 0, 0} (HMul.hMul.{0, 0, 0} (Real.cos x) (iteratedDeriv.{0, 0} 2 h x))
+              (HMul.hMul.{0, 0, 0} (Real.sin x) (deriv.{0, 0} h x)))
+            0) :
+  ∃ A, ∀ (x : Real), Membership.mem.{0, 0} (Set.Icc.{0} 0 Real.pi) x → Eq.{1} (h x) (HMul.hMul.{0, 0, 0} A (Real.sin x))
+Resonance.PinnedClassification.transverse_nth_identity (φ y : Real → Real) (x : Real) (n : Nat) (hn : LT.lt.{0} 0 n)
+  (hφ : ContDiff.{0, 0, 0} Real (↑n) φ) (hy : ContDiffAt.{0, 0, 0} Real (↑n) y 0)
+  (hi : Resonance.PinnedClassification.transverseIdentity φ x y) :
+  Eq.{1} (iteratedDeriv.{0, 0} n (Function.comp.{1, 1, 1} φ y) 0)
+    (HAdd.hAdd.{0, 0, 0} (iteratedDeriv.{0, 0} n (fun t => φ (HAdd.hAdd.{0, 0, 0} (Neg.neg.{0} x) t)) 0)
+      (iteratedDeriv.{0, 0} n (fun t => φ (HSub.hSub.{0, 0, 0} (HAdd.hAdd.{0, 0, 0} (HMul.hMul.{0, 0, 0} 2 x) (y t)) t))
+        0))
+Resonance.PinnedClassification.transverse_second_identity (φ y : Real → Real) (x : Real)
+  (hφ : ContDiff.{0, 0, 0} Real 2 φ) (hy : ContDiffAt.{0, 0, 0} Real 2 y 0)
+  (hi : Resonance.PinnedClassification.transverseIdentity φ x y) :
+  Eq.{1}
+    (HAdd.hAdd.{0, 0, 0}
+      (HMul.hMul.{0, 0, 0} (HPow.hPow.{0, 0, 0} (deriv.{0, 0} y 0) 2) (iteratedDeriv.{0, 0} 2 φ (y 0)))
+      (HMul.hMul.{0, 0, 0} (iteratedDeriv.{0, 0} 2 y 0) (deriv.{0, 0} φ (y 0))))
+    (HAdd.hAdd.{0, 0, 0} (iteratedDeriv.{0, 0} 2 φ (Neg.neg.{0} x))
+      (HAdd.hAdd.{0, 0, 0}
+        (HMul.hMul.{0, 0, 0} (HPow.hPow.{0, 0, 0} (HSub.hSub.{0, 0, 0} (deriv.{0, 0} y 0) 1) 2)
+          (iteratedDeriv.{0, 0} 2 φ (HAdd.hAdd.{0, 0, 0} (HMul.hMul.{0, 0, 0} 2 x) (y 0))))
+        (HMul.hMul.{0, 0, 0} (iteratedDeriv.{0, 0} 2 y 0)
+          (deriv.{0, 0} φ (HAdd.hAdd.{0, 0, 0} (HMul.hMul.{0, 0, 0} 2 x) (y 0))))))
+Resonance.PinnedClassification.transverse_first_identity (φ y : Real → Real) (x : Real)
+  (hφ : ContDiff.{0, 0, 0} Real 1 φ) (hy : ContDiffAt.{0, 0, 0} Real 1 y 0)
+  (hi : Resonance.PinnedClassification.transverseIdentity φ x y) :
+  Eq.{1} (HMul.hMul.{0, 0, 0} (deriv.{0, 0} φ (y 0)) (deriv.{0, 0} y 0))
+    (HAdd.hAdd.{0, 0, 0} (deriv.{0, 0} φ (Neg.neg.{0} x))
+      (HMul.hMul.{0, 0, 0} (deriv.{0, 0} φ (HAdd.hAdd.{0, 0, 0} (HMul.hMul.{0, 0, 0} 2 x) (y 0)))
+        (HSub.hSub.{0, 0, 0} (deriv.{0, 0} y 0) 1)))
+Resonance.PinnedClassification.transverse_third_identity (φ y : Real → Real) (x : Real)
+  (hφ : ContDiff.{0, 0, 0} Real 3 φ) (hy : ContDiffAt.{0, 0, 0} Real 3 y 0)
+  (hi : Resonance.PinnedClassification.transverseIdentity φ x y) :
+  Eq.{1}
+    (HAdd.hAdd.{0, 0, 0}
+      (HAdd.hAdd.{0, 0, 0}
+        (HMul.hMul.{0, 0, 0} (HPow.hPow.{0, 0, 0} (deriv.{0, 0} y 0) 3) (iteratedDeriv.{0, 0} 3 φ (y 0)))
+        (HMul.hMul.{0, 0, 0}
+          (HMul.hMul.{0, 0, 0} (HMul.hMul.{0, 0, 0} 3 (iteratedDeriv.{0, 0} 2 y 0)) (deriv.{0, 0} y 0))
+          (iteratedDeriv.{0, 0} 2 φ (y 0))))
+      (HMul.hMul.{0, 0, 0} (iteratedDeriv.{0, 0} 3 y 0) (deriv.{0, 0} φ (y 0))))
+    (HAdd.hAdd.{0, 0, 0} (iteratedDeriv.{0, 0} 3 φ (Neg.neg.{0} x))
+      (HAdd.hAdd.{0, 0, 0}
+        (HAdd.hAdd.{0, 0, 0}
+          (HMul.hMul.{0, 0, 0} (HPow.hPow.{0, 0, 0} (HSub.hSub.{0, 0, 0} (deriv.{0, 0} y 0) 1) 3)
+            (iteratedDeriv.{0, 0} 3 φ (HAdd.hAdd.{0, 0, 0} (HMul.hMul.{0, 0, 0} 2 x) (y 0))))
+          (HMul.hMul.{0, 0, 0}
+            (HMul.hMul.{0, 0, 0} (HMul.hMul.{0, 0, 0} 3 (iteratedDeriv.{0, 0} 2 y 0))
+              (HSub.hSub.{0, 0, 0} (deriv.{0, 0} y 0) 1))
+            (iteratedDeriv.{0, 0} 2 φ (HAdd.hAdd.{0, 0, 0} (HMul.hMul.{0, 0, 0} 2 x) (y 0)))))
+        (HMul.hMul.{0, 0, 0} (iteratedDeriv.{0, 0} 3 y 0)
+          (deriv.{0, 0} φ (HAdd.hAdd.{0, 0, 0} (HMul.hMul.{0, 0, 0} 2 x) (y 0))))))
+Resonance.PinnedClassification.exists_symmetric_transverse {d x : Real} (hd0 : LT.lt.{0} 0 d)
+  (hdU : LT.lt.{0} d (1 / 2)) (hs : Ne.{1} (Real.sin x) 0) (hc : Ne.{1} (Real.cos x) 0) :
+  ∃ y,
+    And (Eq.{1} (y 0) (HSub.hSub.{0, 0, 0} Real.pi x))
+      (And (ContDiffAt.{0, 0, 0} Real Top.top.{0} y 0)
+        (And (Resonance.PinnedClassification.transverseIdentity (Resonance.PinnedGeometry.omega d) x y)
+          (∀ (φ : Real → Real),
+            Resonance.PinnedClassification.smoothInvariant d φ →
+              Resonance.PinnedClassification.transverseIdentity φ x y)))
+Resonance.PinnedClassification.odd_symmetric_values {d x : Real} {φ : Real → Real} (hd0 : LT.lt.{0} 0 d)
+  (hdU : LT.lt.{0} d (1 / 2)) (hs : Ne.{1} (Real.sin x) 0) (hc : Ne.{1} (Real.cos x) 0)
+  (hi : Resonance.PinnedClassification.smoothInvariant d φ)
+  (ho : ∀ (t : Real), Eq.{1} (φ (Neg.neg.{0} t)) (Neg.neg.{0} (φ t)))
+  (hp : Function.Periodic.{0, 0} φ (HMul.hMul.{0, 0, 0} 2 Real.pi)) :
+  And (Eq.{1} (φ (HSub.hSub.{0, 0, 0} Real.pi x)) (Neg.neg.{0} (φ x)))
+    (Eq.{1} (φ (HAdd.hAdd.{0, 0, 0} Real.pi x)) (φ x))
+Resonance.PinnedClassification.odd_symmetric_local_identity {d x : Real} {φ : Real → Real} (hd0 : LT.lt.{0} 0 d)
+  (hdU : LT.lt.{0} d (1 / 2)) (hs : Ne.{1} (Real.sin x) 0) (hc : Ne.{1} (Real.cos x) 0)
+  (hi : Resonance.PinnedClassification.smoothInvariant d φ)
+  (ho : ∀ (t : Real), Eq.{1} (φ (Neg.neg.{0} t)) (Neg.neg.{0} (φ t)))
+  (hp : Function.Periodic.{0, 0} φ (HMul.hMul.{0, 0, 0} 2 Real.pi)) :
+  And (Filter.EventuallyEq.{0, 0} (nhds.{0} x) (fun t => φ (HSub.hSub.{0, 0, 0} Real.pi t)) fun t => Neg.neg.{0} (φ t))
+    (Filter.EventuallyEq.{0, 0} (nhds.{0} x) (fun t => φ (HAdd.hAdd.{0, 0, 0} Real.pi t)) φ)
+Resonance.PinnedClassification.odd_symmetric_jets {d x : Real} {φ : Real → Real} (hd0 : LT.lt.{0} 0 d)
+  (hdU : LT.lt.{0} d (1 / 2)) (hs : Ne.{1} (Real.sin x) 0) (hc : Ne.{1} (Real.cos x) 0)
+  (hi : Resonance.PinnedClassification.smoothInvariant d φ)
+  (ho : ∀ (t : Real), Eq.{1} (φ (Neg.neg.{0} t)) (Neg.neg.{0} (φ t)))
+  (hp : Function.Periodic.{0, 0} φ (HMul.hMul.{0, 0, 0} 2 Real.pi)) (n : Nat) :
+  And
+    (Eq.{1}
+      (HMul.hMul.{0, 0, 0} (HPow.hPow.{0, 0, 0} (-1) n) (iteratedDeriv.{0, 0} n φ (HSub.hSub.{0, 0, 0} Real.pi x)))
+      (Neg.neg.{0} (iteratedDeriv.{0, 0} n φ x)))
+    (And (Eq.{1} (iteratedDeriv.{0, 0} n φ (HAdd.hAdd.{0, 0, 0} Real.pi x)) (iteratedDeriv.{0, 0} n φ x))
+      (Eq.{1} (HMul.hMul.{0, 0, 0} (HPow.hPow.{0, 0, 0} (-1) n) (iteratedDeriv.{0, 0} n φ (Neg.neg.{0} x)))
+        (Neg.neg.{0} (iteratedDeriv.{0, 0} n φ x))))
+Resonance.PinnedClassification.odd_second_derivative_generic {d x : Real} {φ : Real → Real} (hd0 : LT.lt.{0} 0 d)
+  (hdU : LT.lt.{0} d (1 / 2)) (hs : Ne.{1} (Real.sin x) 0) (hc : Ne.{1} (Real.cos x) 0)
+  (hφ : ContDiff.{0, 0, 0} Real 2 φ) (hi : Resonance.PinnedClassification.smoothInvariant d φ)
+  (ho : ∀ (t : Real), Eq.{1} (φ (Neg.neg.{0} t)) (Neg.neg.{0} (φ t)))
+  (hp : Function.Periodic.{0, 0} φ (HMul.hMul.{0, 0, 0} 2 Real.pi)) : Eq.{1} (iteratedDeriv.{0, 0} 2 φ x) 0
+Resonance.PinnedClassification.generic_symmetric_dense :
+  Dense.{0} (setOf.{0} fun x => And (Ne.{1} (Real.sin x) 0) (Ne.{1} (Real.cos x) 0))
+Resonance.PinnedClassification.odd_second_derivative_zero {d : Real} {φ : Real → Real} (hd0 : LT.lt.{0} 0 d)
+  (hdU : LT.lt.{0} d (1 / 2)) (hφ : ContDiff.{0, 0, 0} Real 2 φ)
+  (hi : Resonance.PinnedClassification.smoothInvariant d φ)
+  (ho : ∀ (t : Real), Eq.{1} (φ (Neg.neg.{0} t)) (Neg.neg.{0} (φ t)))
+  (hp : Function.Periodic.{0, 0} φ (HMul.hMul.{0, 0, 0} 2 Real.pi)) (x : Real) : Eq.{1} (iteratedDeriv.{0, 0} 2 φ x) 0
+Resonance.PinnedClassification.odd_invariant_eq_zero {d : Real} {φ : Real → Real} (hd0 : LT.lt.{0} 0 d)
+  (hdU : LT.lt.{0} d (1 / 2)) (hφ : ContDiff.{0, 0, 0} Real 2 φ)
+  (hi : Resonance.PinnedClassification.smoothInvariant d φ)
+  (ho : ∀ (t : Real), Eq.{1} (φ (Neg.neg.{0} t)) (Neg.neg.{0} (φ t)))
+  (hp : Function.Periodic.{0, 0} φ (HMul.hMul.{0, 0, 0} 2 Real.pi)) (x : Real) : Eq.{1} (φ x) 0
+Resonance.PinnedClassification.even_reflection_jets {φ : Real → Real}
+  (he : ∀ (t : Real), Eq.{1} (φ (Neg.neg.{0} t)) (φ t))
+  (hp : Function.Periodic.{0, 0} φ (HMul.hMul.{0, 0, 0} 2 Real.pi)) (x : Real) (n : Nat) :
+  And
+    (Eq.{1} (HMul.hMul.{0, 0, 0} (HPow.hPow.{0, 0, 0} (-1) n) (iteratedDeriv.{0, 0} n φ (Neg.neg.{0} x)))
+      (iteratedDeriv.{0, 0} n φ x))
+    (Eq.{1} (iteratedDeriv.{0, 0} n φ (HAdd.hAdd.{0, 0, 0} Real.pi x))
+      (HMul.hMul.{0, 0, 0} (HPow.hPow.{0, 0, 0} (-1) n) (iteratedDeriv.{0, 0} n φ (HSub.hSub.{0, 0, 0} Real.pi x))))
+Resonance.PinnedClassification.even_derivative_velocity_relation {d x : Real} {φ : Real → Real} (hd0 : LT.lt.{0} 0 d)
+  (hdU : LT.lt.{0} d (1 / 2)) (hs : Ne.{1} (Real.sin x) 0) (hc : Ne.{1} (Real.cos x) 0)
+  (hφ : ContDiff.{0, 0, 0} Real 1 φ) (hi : Resonance.PinnedClassification.smoothInvariant d φ)
+  (he : ∀ (t : Real), Eq.{1} (φ (Neg.neg.{0} t)) (φ t))
+  (hp : Function.Periodic.{0, 0} φ (HMul.hMul.{0, 0, 0} 2 Real.pi)) :
+  Eq.{1} (HMul.hMul.{0, 0, 0} (Resonance.PinnedGeometry.velocity d (HSub.hSub.{0, 0, 0} Real.pi x)) (deriv.{0, 0} φ x))
+    (HMul.hMul.{0, 0, 0} (Resonance.PinnedGeometry.velocity d x) (deriv.{0, 0} φ (HSub.hSub.{0, 0, 0} Real.pi x)))
+Resonance.PinnedClassification.velocity_ne_zero {d x : Real} (hd0 : LT.lt.{0} 0 d) (hdU : LT.lt.{0} d (1 / 2))
+  (hs : Ne.{1} (Real.sin x) 0) : Ne.{1} (Resonance.PinnedGeometry.velocity d x) 0
+Resonance.PinnedClassification.even_quotient_reflection {d x : Real} {φ : Real → Real} (hd0 : LT.lt.{0} 0 d)
+  (hdU : LT.lt.{0} d (1 / 2)) (hs : Ne.{1} (Real.sin x) 0) (hc : Ne.{1} (Real.cos x) 0)
+  (hφ : ContDiff.{0, 0, 0} Real 1 φ) (hi : Resonance.PinnedClassification.smoothInvariant d φ)
+  (he : ∀ (t : Real), Eq.{1} (φ (Neg.neg.{0} t)) (φ t))
+  (hp : Function.Periodic.{0, 0} φ (HMul.hMul.{0, 0, 0} 2 Real.pi)) :
+  Eq.{1} (Resonance.PinnedClassification.evenQuotient d φ (HSub.hSub.{0, 0, 0} Real.pi x))
+    (Resonance.PinnedClassification.evenQuotient d φ x)
+Resonance.PinnedClassification.velocity_contDiff {d : Real} (hd0 : LT.lt.{0} 0 d) (hdU : LT.lt.{0} d (1 / 2))
+  (n : WithTop.{0} ENat) : ContDiff.{0, 0, 0} Real n (Resonance.PinnedGeometry.velocity d)
+Resonance.PinnedClassification.even_quotient_contDiffAt {d x : Real} {φ : Real → Real} (hd0 : LT.lt.{0} 0 d)
+  (hdU : LT.lt.{0} d (1 / 2)) (hs : Ne.{1} (Real.sin x) 0) (hφ : ContDiff.{0, 0, 0} Real 3 φ) :
+  ContDiffAt.{0, 0, 0} Real 2 (Resonance.PinnedClassification.evenQuotient d φ) x
+Resonance.PinnedClassification.quotient_product_jets {d x : Real} {φ : Real → Real} (hd0 : LT.lt.{0} 0 d)
+  (hdU : LT.lt.{0} d (1 / 2)) (hs : Ne.{1} (Real.sin x) 0) (hφ : ContDiff.{0, 0, 0} Real 3 φ) :
+  And
+    (Eq.{1} (iteratedDeriv.{0, 0} 2 φ x)
+      (HAdd.hAdd.{0, 0, 0}
+        (HMul.hMul.{0, 0, 0} (deriv.{0, 0} (Resonance.PinnedGeometry.velocity d) x)
+          (Resonance.PinnedClassification.evenQuotient d φ x))
+        (HMul.hMul.{0, 0, 0} (Resonance.PinnedGeometry.velocity d x)
+          (deriv.{0, 0} (Resonance.PinnedClassification.evenQuotient d φ) x))))
+    (Eq.{1} (iteratedDeriv.{0, 0} 3 φ x)
+      (HAdd.hAdd.{0, 0, 0}
+        (HAdd.hAdd.{0, 0, 0}
+          (HMul.hMul.{0, 0, 0} (iteratedDeriv.{0, 0} 2 (Resonance.PinnedGeometry.velocity d) x)
+            (Resonance.PinnedClassification.evenQuotient d φ x))
+          (HMul.hMul.{0, 0, 0} (HMul.hMul.{0, 0, 0} 2 (deriv.{0, 0} (Resonance.PinnedGeometry.velocity d) x))
+            (deriv.{0, 0} (Resonance.PinnedClassification.evenQuotient d φ) x)))
+        (HMul.hMul.{0, 0, 0} (Resonance.PinnedGeometry.velocity d x)
+          (iteratedDeriv.{0, 0} 2 (Resonance.PinnedClassification.evenQuotient d φ) x))))
+Resonance.PinnedClassification.even_quotient_reflection_jets {d x : Real} {φ : Real → Real} (hd0 : LT.lt.{0} 0 d)
+  (hdU : LT.lt.{0} d (1 / 2)) (hs : Ne.{1} (Real.sin x) 0) (hc : Ne.{1} (Real.cos x) 0)
+  (hφ : ContDiff.{0, 0, 0} Real 1 φ) (hi : Resonance.PinnedClassification.smoothInvariant d φ)
+  (he : ∀ (t : Real), Eq.{1} (φ (Neg.neg.{0} t)) (φ t))
+  (hp : Function.Periodic.{0, 0} φ (HMul.hMul.{0, 0, 0} 2 Real.pi)) (n : Nat) :
+  Eq.{1}
+    (HMul.hMul.{0, 0, 0} (HPow.hPow.{0, 0, 0} (-1) n)
+      (iteratedDeriv.{0, 0} n (Resonance.PinnedClassification.evenQuotient d φ) (HSub.hSub.{0, 0, 0} Real.pi x)))
+    (iteratedDeriv.{0, 0} n (Resonance.PinnedClassification.evenQuotient d φ) x)
+Resonance.PinnedClassification.omega_periodic (d : Real) :
+  Function.Periodic.{0, 0} (Resonance.PinnedGeometry.omega d) (HMul.hMul.{0, 0, 0} 2 Real.pi)
+Resonance.PinnedClassification.omega_iterated_succ {d : Real} (hd0 : LT.lt.{0} 0 d) (hdU : LT.lt.{0} d (1 / 2))
+  (n : Nat) :
+  Eq.{1} (iteratedDeriv.{0, 0} (HAdd.hAdd.{0, 0, 0} n 1) (Resonance.PinnedGeometry.omega d))
+    (iteratedDeriv.{0, 0} n (Resonance.PinnedGeometry.velocity d))
+Resonance.PinnedClassification.even_transverse_third_reduced {φ y : Real → Real} {x : Real}
+  (hφ : ContDiff.{0, 0, 0} Real 3 φ) (hy : ContDiffAt.{0, 0, 0} Real 3 y 0)
+  (hy0 : Eq.{1} (y 0) (HSub.hSub.{0, 0, 0} Real.pi x)) (hi : Resonance.PinnedClassification.transverseIdentity φ x y)
+  (he : ∀ (t : Real), Eq.{1} (φ (Neg.neg.{0} t)) (φ t))
+  (hp : Function.Periodic.{0, 0} φ (HMul.hMul.{0, 0, 0} 2 Real.pi)) :
+  Eq.{1}
+    (HAdd.hAdd.{0, 0, 0}
+      (HAdd.hAdd.{0, 0, 0}
+        (HAdd.hAdd.{0, 0, 0}
+          (HMul.hMul.{0, 0, 0}
+            (HAdd.hAdd.{0, 0, 0} (HPow.hPow.{0, 0, 0} (deriv.{0, 0} y 0) 3)
+              (HPow.hPow.{0, 0, 0} (HSub.hSub.{0, 0, 0} (deriv.{0, 0} y 0) 1) 3))
+            (iteratedDeriv.{0, 0} 3 φ (HSub.hSub.{0, 0, 0} Real.pi x)))
+          (HMul.hMul.{0, 0, 0} (HMul.hMul.{0, 0, 0} 3 (iteratedDeriv.{0, 0} 2 y 0))
+            (iteratedDeriv.{0, 0} 2 φ (HSub.hSub.{0, 0, 0} Real.pi x))))
+        (HMul.hMul.{0, 0, 0} (HMul.hMul.{0, 0, 0} 2 (iteratedDeriv.{0, 0} 3 y 0))
+          (deriv.{0, 0} φ (HSub.hSub.{0, 0, 0} Real.pi x))))
+      (iteratedDeriv.{0, 0} 3 φ x))
+    0
+Resonance.PinnedClassification.symmetric_branch_energy_jets {d x : Real} {y : Real → Real} (hd0 : LT.lt.{0} 0 d)
+  (hdU : LT.lt.{0} d (1 / 2)) (hy : ContDiffAt.{0, 0, 0} Real 2 y 0)
+  (hy0 : Eq.{1} (y 0) (HSub.hSub.{0, 0, 0} Real.pi x))
+  (hi : Resonance.PinnedClassification.transverseIdentity (Resonance.PinnedGeometry.omega d) x y) :
+  And
+    (Eq.{1}
+      (HMul.hMul.{0, 0, 0} (HMul.hMul.{0, 0, 0} 2 (Resonance.PinnedGeometry.velocity d (HSub.hSub.{0, 0, 0} Real.pi x)))
+        (deriv.{0, 0} y 0))
+      (HSub.hSub.{0, 0, 0} (Resonance.PinnedGeometry.velocity d (HSub.hSub.{0, 0, 0} Real.pi x))
+        (Resonance.PinnedGeometry.velocity d x)))
+    (Eq.{1}
+      (HMul.hMul.{0, 0, 0} (HMul.hMul.{0, 0, 0} 2 (Resonance.PinnedGeometry.velocity d (HSub.hSub.{0, 0, 0} Real.pi x)))
+        (iteratedDeriv.{0, 0} 2 y 0))
+      (HAdd.hAdd.{0, 0, 0} (deriv.{0, 0} (Resonance.PinnedGeometry.velocity d) x)
+        (HMul.hMul.{0, 0, 0} (HSub.hSub.{0, 0, 0} 1 (HMul.hMul.{0, 0, 0} 2 (deriv.{0, 0} y 0)))
+          (deriv.{0, 0} (Resonance.PinnedGeometry.velocity d) (HSub.hSub.{0, 0, 0} Real.pi x)))))
+Resonance.PinnedClassification.even_quotient_original_ode {d x : Real} {φ : Real → Real} (hd0 : LT.lt.{0} 0 d)
+  (hdU : LT.lt.{0} d (1 / 2)) (hs : Ne.{1} (Real.sin x) 0) (hc : Ne.{1} (Real.cos x) 0)
+  (hφ : ContDiff.{0, 0, 0} Real 3 φ) (hi : Resonance.PinnedClassification.smoothInvariant d φ)
+  (he : ∀ (t : Real), Eq.{1} (φ (Neg.neg.{0} t)) (φ t))
+  (hp : Function.Periodic.{0, 0} φ (HMul.hMul.{0, 0, 0} 2 Real.pi)) :
+  Eq.{1}
+    (HAdd.hAdd.{0, 0, 0}
+      (HMul.hMul.{0, 0, 0}
+        (HMul.hMul.{0, 0, 0}
+          (HMul.hMul.{0, 0, 0} (Resonance.PinnedGeometry.velocity d x)
+            (Resonance.PinnedGeometry.velocity d (HSub.hSub.{0, 0, 0} Real.pi x)))
+          (HSub.hSub.{0, 0, 0}
+            (HPow.hPow.{0, 0, 0} (Resonance.PinnedGeometry.velocity d (HSub.hSub.{0, 0, 0} Real.pi x)) 2)
+            (HPow.hPow.{0, 0, 0} (Resonance.PinnedGeometry.velocity d x) 2)))
+        (iteratedDeriv.{0, 0} 2 (Resonance.PinnedClassification.evenQuotient d φ) x))
+      (HMul.hMul.{0, 0, 0}
+        (HMul.hMul.{0, 0, 0} 2
+          (HAdd.hAdd.{0, 0, 0}
+            (HMul.hMul.{0, 0, 0} (deriv.{0, 0} (Resonance.PinnedGeometry.velocity d) x)
+              (HPow.hPow.{0, 0, 0} (Resonance.PinnedGeometry.velocity d (HSub.hSub.{0, 0, 0} Real.pi x)) 3))
+            (HMul.hMul.{0, 0, 0} (HPow.hPow.{0, 0, 0} (Resonance.PinnedGeometry.velocity d x) 3)
+              (deriv.{0, 0} (Resonance.PinnedGeometry.velocity d) (HSub.hSub.{0, 0, 0} Real.pi x)))))
+        (deriv.{0, 0} (Resonance.PinnedClassification.evenQuotient d φ) x)))
+    0
+Resonance.PinnedClassification.velocity_deriv_formula {d : Real} (hd0 : LT.lt.{0} 0 d) (hdU : LT.lt.{0} d (1 / 2))
+  (x : Real) :
+  Eq.{1} (deriv.{0, 0} (Resonance.PinnedGeometry.velocity d) x)
+    (HSub.hSub.{0, 0, 0} (HDiv.hDiv.{0, 0, 0} (HMul.hMul.{0, 0, 0} d (Real.cos x)) (Resonance.PinnedGeometry.omega d x))
+      (HDiv.hDiv.{0, 0, 0} (HMul.hMul.{0, 0, 0} (HPow.hPow.{0, 0, 0} d 2) (HPow.hPow.{0, 0, 0} (Real.sin x) 2))
+        (HPow.hPow.{0, 0, 0} (Resonance.PinnedGeometry.omega d x) 3)))
+Resonance.PinnedClassification.even_quotient_trigonometric_ode {d x : Real} {φ : Real → Real} (hd0 : LT.lt.{0} 0 d)
+  (hdU : LT.lt.{0} d (1 / 2)) (hs : Ne.{1} (Real.sin x) 0) (hc : Ne.{1} (Real.cos x) 0)
+  (hφ : ContDiff.{0, 0, 0} Real 3 φ) (hi : Resonance.PinnedClassification.smoothInvariant d φ)
+  (he : ∀ (t : Real), Eq.{1} (φ (Neg.neg.{0} t)) (φ t))
+  (hp : Function.Periodic.{0, 0} φ (HMul.hMul.{0, 0, 0} 2 Real.pi)) :
+  Eq.{1}
+    (HAdd.hAdd.{0, 0, 0}
+      (HMul.hMul.{0, 0, 0} (HMul.hMul.{0, 0, 0} (Real.sin x) (Real.cos x))
+        (iteratedDeriv.{0, 0} 2 (Resonance.PinnedClassification.evenQuotient d φ) x))
+      (HMul.hMul.{0, 0, 0} (HAdd.hAdd.{0, 0, 0} 1 (HPow.hPow.{0, 0, 0} (Real.cos x) 2))
+        (deriv.{0, 0} (Resonance.PinnedClassification.evenQuotient d φ) x)))
+    0
+Resonance.PinnedClassification.regular_even_quotient_contDiff {d : Real} {φ : Real → Real} (hd0 : LT.lt.{0} 0 d)
+  (hdU : LT.lt.{0} d (1 / 2)) (hφ : ContDiff.{0, 0, 0} Real 3 φ) :
+  ContDiff.{0, 0, 0} Real 2 (Resonance.PinnedClassification.regularEvenQuotient d φ)
+Resonance.PinnedClassification.regular_quotient_eq_sine_mul {d x : Real} {φ : Real → Real} (hd0 : LT.lt.{0} 0 d)
+  (hdU : LT.lt.{0} d (1 / 2)) (hs : Ne.{1} (Real.sin x) 0) :
+  Eq.{1} (Resonance.PinnedClassification.regularEvenQuotient d φ x)
+    (HMul.hMul.{0, 0, 0} (Real.sin x) (Resonance.PinnedClassification.evenQuotient d φ x))
+Resonance.PinnedClassification.regular_even_quotient_ode {d x : Real} {φ : Real → Real} (hd0 : LT.lt.{0} 0 d)
+  (hdU : LT.lt.{0} d (1 / 2)) (hs : Ne.{1} (Real.sin x) 0) (hc : Ne.{1} (Real.cos x) 0)
+  (hφ : ContDiff.{0, 0, 0} Real 3 φ) (hi : Resonance.PinnedClassification.smoothInvariant d φ)
+  (he : ∀ (t : Real), Eq.{1} (φ (Neg.neg.{0} t)) (φ t))
+  (hp : Function.Periodic.{0, 0} φ (HMul.hMul.{0, 0, 0} 2 Real.pi)) :
+  Eq.{1}
+    (HAdd.hAdd.{0, 0, 0}
+      (HMul.hMul.{0, 0, 0} (Real.cos x)
+        (iteratedDeriv.{0, 0} 2 (Resonance.PinnedClassification.regularEvenQuotient d φ) x))
+      (HMul.hMul.{0, 0, 0} (Real.sin x) (deriv.{0, 0} (Resonance.PinnedClassification.regularEvenQuotient d φ) x)))
+    0
+Resonance.PinnedClassification.even_invariant_halfcircle {d : Real} {φ : Real → Real} (hd0 : LT.lt.{0} 0 d)
+  (hdU : LT.lt.{0} d (1 / 2)) (hφ : ContDiff.{0, 0, 0} Real 3 φ)
+  (hi : Resonance.PinnedClassification.smoothInvariant d φ) (he : ∀ (t : Real), Eq.{1} (φ (Neg.neg.{0} t)) (φ t))
+  (hp : Function.Periodic.{0, 0} φ (HMul.hMul.{0, 0, 0} 2 Real.pi)) :
+  ∃ A B,
+    ∀ (x : Real),
+      Membership.mem.{0, 0} (Set.Icc.{0} 0 Real.pi) x →
+        Eq.{1} (φ x) (HAdd.hAdd.{0, 0, 0} A (HMul.hMul.{0, 0, 0} B (Resonance.PinnedGeometry.omega d x)))
+Resonance.PinnedClassification.periodic_even_eq_of_halfcircle {f g : Real → Real}
+  (hf : ∀ (t : Real), Eq.{1} (f (Neg.neg.{0} t)) (f t)) (hg : ∀ (t : Real), Eq.{1} (g (Neg.neg.{0} t)) (g t))
+  (hfp : Function.Periodic.{0, 0} f (HMul.hMul.{0, 0, 0} 2 Real.pi))
+  (hgp : Function.Periodic.{0, 0} g (HMul.hMul.{0, 0, 0} 2 Real.pi))
+  (heq : Set.EqOn.{0, 0} f g (Set.Icc.{0} 0 Real.pi)) : Eq.{1} f g
+Resonance.PinnedClassification.even_invariant_classification {d : Real} {φ : Real → Real} (hd0 : LT.lt.{0} 0 d)
+  (hdU : LT.lt.{0} d (1 / 2)) (hφ : ContDiff.{0, 0, 0} Real 3 φ)
+  (hi : Resonance.PinnedClassification.smoothInvariant d φ) (he : ∀ (t : Real), Eq.{1} (φ (Neg.neg.{0} t)) (φ t))
+  (hp : Function.Periodic.{0, 0} φ (HMul.hMul.{0, 0, 0} 2 Real.pi)) :
+  ∃ A B, ∀ (x : Real), Eq.{1} (φ x) (HAdd.hAdd.{0, 0, 0} A (HMul.hMul.{0, 0, 0} B (Resonance.PinnedGeometry.omega d x)))
+Resonance.PinnedClassification.smoothInvariant_reflect {d : Real} {φ : Real → Real}
+  (hi : Resonance.PinnedClassification.smoothInvariant d φ) :
+  Resonance.PinnedClassification.smoothInvariant d fun x => φ (Neg.neg.{0} x)
+Resonance.PinnedClassification.periodic_reflect {φ : Real → Real} {T : Real} (hp : Function.Periodic.{0, 0} φ T) :
+  Function.Periodic.{0, 0} (fun x => φ (Neg.neg.{0} x)) T
+Resonance.PinnedClassification.smooth_invariant_classification {d : Real} {φ : Real → Real} (hd0 : LT.lt.{0} 0 d)
+  (hdU : LT.lt.{0} d (1 / 2)) (hφ : ContDiff.{0, 0, 0} Real 3 φ)
+  (hi : Resonance.PinnedClassification.smoothInvariant d φ)
+  (hp : Function.Periodic.{0, 0} φ (HMul.hMul.{0, 0, 0} 2 Real.pi)) :
+  ∃ A B, ∀ (x : Real), Eq.{1} (φ x) (HAdd.hAdd.{0, 0, 0} A (HMul.hMul.{0, 0, 0} B (Resonance.PinnedGeometry.omega d x)))
+Resonance.PinnedClassification.complex_smooth_invariant_classification {d : Real} {φ : Real → Complex}
+  (hd0 : LT.lt.{0} 0 d) (hdU : LT.lt.{0} d (1 / 2)) (hφ : ContDiff.{0, 0, 0} Real 3 φ)
+  (hi : Resonance.PinnedClassification.complexSmoothInvariant d φ)
+  (hp : Function.Periodic.{0, 0} φ (HMul.hMul.{0, 0, 0} 2 Real.pi)) :
+  ∃ A B,
+    ∀ (x : Real), Eq.{1} (φ x) (HAdd.hAdd.{0, 0, 0} A (HMul.hMul.{0, 0, 0} B ↑(Resonance.PinnedGeometry.omega d x)))
+Resonance.PinnedClassification.affine_omega_original_identity (d A B x y z : Real)
+  (he : Eq.{1} (Resonance.PinnedGeometry.energyDefect d x y z) 0) :
+  Eq.{1}
+    (HAdd.hAdd.{0, 0, 0} (HAdd.hAdd.{0, 0, 0} A (HMul.hMul.{0, 0, 0} B (Resonance.PinnedGeometry.omega d x)))
+      (HAdd.hAdd.{0, 0, 0} A (HMul.hMul.{0, 0, 0} B (Resonance.PinnedGeometry.omega d y))))
+    (HAdd.hAdd.{0, 0, 0} (HAdd.hAdd.{0, 0, 0} A (HMul.hMul.{0, 0, 0} B (Resonance.PinnedGeometry.omega d z)))
+      (HAdd.hAdd.{0, 0, 0} A
+        (HMul.hMul.{0, 0, 0} B (Resonance.PinnedGeometry.omega d (HSub.hSub.{0, 0, 0} (HAdd.hAdd.{0, 0, 0} x y) z)))))
+Resonance.PinnedClassification.smooth_invariant_iff_affine_omega {d : Real} {φ : Real → Real} (hd0 : LT.lt.{0} 0 d)
+  (hdU : LT.lt.{0} d (1 / 2)) (hφ : ContDiff.{0, 0, 0} Real 3 φ)
+  (hp : Function.Periodic.{0, 0} φ (HMul.hMul.{0, 0, 0} 2 Real.pi)) :
+  Iff (Resonance.PinnedClassification.smoothInvariant d φ)
+    (∃ A B,
+      ∀ (x : Real), Eq.{1} (φ x) (HAdd.hAdd.{0, 0, 0} A (HMul.hMul.{0, 0, 0} B (Resonance.PinnedGeometry.omega d x))))
+Resonance.PinnedClassification.complex_affine_omega_original_identity (d x y z : Real) (A B : Complex)
+  (he : Eq.{1} (Resonance.PinnedGeometry.energyDefect d x y z) 0) :
+  Eq.{1}
+    (HAdd.hAdd.{0, 0, 0} (HAdd.hAdd.{0, 0, 0} A (HMul.hMul.{0, 0, 0} B ↑(Resonance.PinnedGeometry.omega d x)))
+      (HAdd.hAdd.{0, 0, 0} A (HMul.hMul.{0, 0, 0} B ↑(Resonance.PinnedGeometry.omega d y))))
+    (HAdd.hAdd.{0, 0, 0} (HAdd.hAdd.{0, 0, 0} A (HMul.hMul.{0, 0, 0} B ↑(Resonance.PinnedGeometry.omega d z)))
+      (HAdd.hAdd.{0, 0, 0} A
+        (HMul.hMul.{0, 0, 0} B ↑(Resonance.PinnedGeometry.omega d (HSub.hSub.{0, 0, 0} (HAdd.hAdd.{0, 0, 0} x y) z)))))
+Resonance.PinnedClassification.complex_smooth_invariant_iff_affine_omega {d : Real} {φ : Real → Complex}
+  (hd0 : LT.lt.{0} 0 d) (hdU : LT.lt.{0} d (1 / 2)) (hφ : ContDiff.{0, 0, 0} Real 3 φ)
+  (hp : Function.Periodic.{0, 0} φ (HMul.hMul.{0, 0, 0} 2 Real.pi)) :
+  Iff (Resonance.PinnedClassification.complexSmoothInvariant d φ)
+    (∃ A B,
+      ∀ (x : Real), Eq.{1} (φ x) (HAdd.hAdd.{0, 0, 0} A (HMul.hMul.{0, 0, 0} B ↑(Resonance.PinnedGeometry.omega d x))))
+Resonance.PinnedSmoothing.comp_integrable_of_map_domination.{u_1, u_2} {Z : Type u_1} {Y : Type u_2}
+  [MeasurableSpace.{u_1} Z] [MeasurableSpace.{u_2} Y] {μ : MeasureTheory.Measure.{u_1} Z}
+  {ν : MeasureTheory.Measure.{u_2} Y} {T : Z → Y} {C : ENNReal} (hT : AEMeasurable.{u_1, u_2} T μ)
+  (hdom : LE.le.{u_2} (MeasureTheory.Measure.map.{u_1, u_2} T μ) (HSMul.hSMul.{0, u_2, u_2} C ν))
+  (hC : Ne.{1} C Top.top.{0}) {f : Y → Complex} (hf : MeasureTheory.Integrable.{0, u_2} f ν) :
+  MeasureTheory.Integrable.{0, u_1} (Function.comp.{u_1 + 1, u_2 + 1, 1} f T) μ
+Resonance.PinnedSmoothing.lintegral_comp_enorm_le.{u_1, u_2} {Z : Type u_1} {Y : Type u_2} [MeasurableSpace.{u_1} Z]
+  [MeasurableSpace.{u_2} Y] {μ : MeasureTheory.Measure.{u_1} Z} {ν : MeasureTheory.Measure.{u_2} Y} {T : Z → Y}
+  {C : ENNReal} (hT : AEMeasurable.{u_1, u_2} T μ)
+  (hdom : LE.le.{u_2} (MeasureTheory.Measure.map.{u_1, u_2} T μ) (HSMul.hSMul.{0, u_2, u_2} C ν))
+  (hC : Ne.{1} C Top.top.{0}) {f : Y → Complex} (hf : MeasureTheory.Integrable.{0, u_2} f ν) :
+  LE.le.{0} (∫⁻ (z : Z), ENorm.enorm.{0} (f (T z)) ∂μ) (HMul.hMul.{0, 0, 0} C (∫⁻ (y : Y), ENorm.enorm.{0} (f y) ∂ν))
+Resonance.PinnedSmoothing.weighted_comp_integrable.{u_1, u_2} {Z : Type u_1} {Y : Type u_2} [MeasurableSpace.{u_1} Z]
+  [MeasurableSpace.{u_2} Y] {μ : MeasureTheory.Measure.{u_1} Z} {ν : MeasureTheory.Measure.{u_2} Y} {T : Z → Y}
+  {C : ENNReal} (hT : AEMeasurable.{u_1, u_2} T μ)
+  (hdom : LE.le.{u_2} (MeasureTheory.Measure.map.{u_1, u_2} T μ) (HSMul.hSMul.{0, u_2, u_2} C ν))
+  (hC : Ne.{1} C Top.top.{0}) {f : Y → Complex} (hf : MeasureTheory.Integrable.{0, u_2} f ν) {χ : Z → Real}
+  (hχ : MeasureTheory.AEStronglyMeasurable.{u_1, 0} χ μ) {B : Real}
+  (hB : ∀ᵐ (z : Z) ∂μ, LE.le.{0} (Norm.norm.{0} (χ z)) B) :
+  MeasureTheory.Integrable.{0, u_1} (fun z => HSMul.hSMul.{0, 0, 0} (χ z) (f (T z))) μ
+Resonance.PinnedSmoothing.enorm_integral_weighted_comp_le.{u_1, u_2} {Z : Type u_1} {Y : Type u_2}
+  [MeasurableSpace.{u_1} Z] [MeasurableSpace.{u_2} Y] {μ : MeasureTheory.Measure.{u_1} Z}
+  {ν : MeasureTheory.Measure.{u_2} Y} {T : Z → Y} {C : ENNReal} (hT : AEMeasurable.{u_1, u_2} T μ)
+  (hdom : LE.le.{u_2} (MeasureTheory.Measure.map.{u_1, u_2} T μ) (HSMul.hSMul.{0, u_2, u_2} C ν))
+  (hC : Ne.{1} C Top.top.{0}) {f : Y → Complex} (hf : MeasureTheory.Integrable.{0, u_2} f ν) {χ : Z → Real} {B : Real}
+  (hB : ∀ᵐ (z : Z) ∂μ, LE.le.{0} (Norm.norm.{0} (χ z)) B) :
+  LE.le.{0} (ENorm.enorm.{0} (∫ (z : Z), HSMul.hSMul.{0, 0, 0} (χ z) (f (T z)) ∂μ))
+    (HMul.hMul.{0, 0, 0} (HMul.hMul.{0, 0, 0} (ENNReal.ofReal B) C) (∫⁻ (y : Y), ENorm.enorm.{0} (f y) ∂ν))
+Resonance.PinnedSmoothing.compact_parameter_integral_hasDerivAt {I J : Set.{0} Real} (hI : IsOpen.{0} I)
+  (hJ : IsCompact.{0} J) {F F' : Prod.{0, 0} Real Real → Complex}
+  (hF : ContinuousOn.{0, 0} F (SProd.sprod.{0, 0, 0} I J)) (hF' : ContinuousOn.{0, 0} F' (SProd.sprod.{0, 0, 0} I J))
+  (hder :
+    ∀ (x : Real),
+      Membership.mem.{0, 0} I x →
+        ∀ (z : Real),
+          Membership.mem.{0, 0} J z → HasDerivAt.{0, 0} (fun a => F (Prod.mk.{0, 0} a z)) (F' (Prod.mk.{0, 0} x z)) x)
+  {x₀ : Real} (hx₀ : Membership.mem.{0, 0} I x₀) :
+  HasDerivAt.{0, 0} (fun x => ∫ (z : Real) in J, F (Prod.mk.{0, 0} x z)) (∫ (z : Real) in J, F' (Prod.mk.{0, 0} x₀ z))
+    x₀
+Resonance.PinnedSmoothing.weighted_average_difference_bound.{u_1, u_2} {Z : Type u_1} {Y : Type u_2}
+  [MeasurableSpace.{u_1} Z] [MeasurableSpace.{u_2} Y] {μ : MeasureTheory.Measure.{u_1} Z}
+  {ν : MeasureTheory.Measure.{u_2} Y} {T : Z → Y} {C : ENNReal} (hT : AEMeasurable.{u_1, u_2} T μ)
+  (hdom : LE.le.{u_2} (MeasureTheory.Measure.map.{u_1, u_2} T μ) (HSMul.hSMul.{0, u_2, u_2} C ν))
+  (hC : Ne.{1} C Top.top.{0}) {f g : Y → Complex} (hf : MeasureTheory.Integrable.{0, u_2} f ν)
+  (hg : MeasureTheory.Integrable.{0, u_2} g ν) {χ : Z → Real} (hχ : MeasureTheory.AEStronglyMeasurable.{u_1, 0} χ μ)
+  {B : Real} (hB : ∀ᵐ (z : Z) ∂μ, LE.le.{0} (Norm.norm.{0} (χ z)) B) :
+  LE.le.{0}
+    (ENorm.enorm.{0}
+      (HSub.hSub.{0, 0, 0} (∫ (z : Z), HSMul.hSMul.{0, 0, 0} (χ z) (f (T z)) ∂μ)
+        (∫ (z : Z), HSMul.hSMul.{0, 0, 0} (χ z) (g (T z)) ∂μ)))
+    (HMul.hMul.{0, 0, 0} (HMul.hMul.{0, 0, 0} (ENNReal.ofReal B) C)
+      (MeasureTheory.eLpNorm.{u_2, 0} (HSub.hSub.{u_2, u_2, u_2} f g) 1 ν))
+Resonance.PinnedSmoothing.weighted_averages_tendstoUniformlyOn.{u_1, u_2, u_3} {X : Type u_1} {Z : Type u_2}
+  {Y : Type u_3} [MeasurableSpace.{u_2} Z] [MeasurableSpace.{u_3} Y] {μ : MeasureTheory.Measure.{u_2} Z}
+  {ν : MeasureTheory.Measure.{u_3} Y} {s : Set.{u_1} X} {T : X → Z → Y} {χ : X → Z → Real} {C : ENNReal}
+  (hC : Ne.{1} C Top.top.{0}) {B : Real}
+  (hT : ∀ (x : X), Membership.mem.{u_1, u_1} s x → AEMeasurable.{u_2, u_3} (T x) μ)
+  (hdom :
+    ∀ (x : X),
+      Membership.mem.{u_1, u_1} s x →
+        LE.le.{u_3} (MeasureTheory.Measure.map.{u_2, u_3} (T x) μ) (HSMul.hSMul.{0, u_3, u_3} C ν))
+  (hχ : ∀ (x : X), Membership.mem.{u_1, u_1} s x → MeasureTheory.AEStronglyMeasurable.{u_2, 0} (χ x) μ)
+  (hB : ∀ (x : X), Membership.mem.{u_1, u_1} s x → ∀ᵐ (z : Z) ∂μ, LE.le.{0} (Norm.norm.{0} (χ x z)) B)
+  {f : Nat → Y → Complex} {g : Y → Complex} (hf : ∀ (n : Nat), MeasureTheory.Integrable.{0, u_3} (f n) ν)
+  (hg : MeasureTheory.Integrable.{0, u_3} g ν)
+  (hlim :
+    Filter.Tendsto.{0, 0} (fun n => MeasureTheory.eLpNorm.{u_3, 0} (HSub.hSub.{u_3, u_3, u_3} (f n) g) 1 ν)
+      Filter.atTop.{0} (nhds.{0} 0)) :
+  TendstoUniformlyOn.{u_1, 0, 0} (fun n x => ∫ (z : Z), HSMul.hSMul.{0, 0, 0} (χ x z) (f n (T x z)) ∂μ)
+    (fun x => ∫ (z : Z), HSMul.hSMul.{0, 0, 0} (χ x z) (g (T x z)) ∂μ) Filter.atTop.{0} s
+Resonance.PinnedSmoothing.source_derivative_transfer {J : Set.{0} Real} (hJ : IsOpen.{0} J) {a b : Real}
+  (hab : LE.le.{0} a b) (hsub : HasSubset.Subset.{0} (Set.Icc.{0} a b) J) {H χ X : Real → Real}
+  (hH : ContDiffOn.{0, 0, 0} Real (↑Top.top.{0}) H J) (hχ : ContDiffOn.{0, 0, 0} Real (↑Top.top.{0}) χ J)
+  (hX : ContDiffOn.{0, 0, 0} Real (↑Top.top.{0}) X J)
+  (hZ : ∀ (z : Real), Membership.mem.{0, 0} J z → Ne.{1} (deriv.{0, 0} H z) 0) (hχa : Eq.{1} (χ a) 0)
+  (hχb : Eq.{1} (χ b) 0) {f : Real → Complex} (hf : ContDiff.{0, 0, 0} Real (↑Top.top.{0}) f) :
+  Eq.{1}
+    (∫ (z : Real) in Set.Icc.{0} a b, HSMul.hSMul.{0, 0, 0} (HMul.hMul.{0, 0, 0} (χ z) (X z)) (deriv.{0, 0} f (H z)))
+    (Neg.neg.{0}
+      (∫ (z : Real) in Set.Icc.{0} a b,
+        HSMul.hSMul.{0, 0, 0}
+          (deriv.{0, 0} (fun t => HDiv.hDiv.{0, 0, 0} (HMul.hMul.{0, 0, 0} (χ t) (X t)) (deriv.{0, 0} H t)) z)
+          (f (H z))))
+Resonance.PinnedSmoothing.exists_smooth_L1_approximation {ν : MeasureTheory.Measure.{0} Real}
+  [MeasureTheory.IsFiniteMeasureOnCompacts.{0} ν] {f : Real → Complex} (hf : MeasureTheory.Integrable.{0, 0} f ν) :
+  ∃ fₙ,
+    And
+      (∀ (n : Nat),
+        And (HasCompactSupport.{0, 0} (fₙ n))
+          (And (ContDiff.{0, 0, 0} Real (↑Top.top.{0}) (fₙ n)) (MeasureTheory.Integrable.{0, 0} (fₙ n) ν)))
+      (Filter.Tendsto.{0, 0} (fun n => MeasureTheory.eLpNorm.{0, 0} (HSub.hSub.{0, 0, 0} (fₙ n) f) 1 ν) Filter.atTop.{0}
+        (nhds.{0} 0))
+Resonance.PinnedSmoothing.source_average_hasDerivAt_of_smooth_identity.{u_1} {Z : Type u_1} [MeasurableSpace.{u_1} Z]
+  {μ : MeasureTheory.Measure.{u_1} Z} {ν : MeasureTheory.Measure.{0} Real}
+  [MeasureTheory.IsFiniteMeasureOnCompacts.{0} ν] {I : Set.{0} Real} (hI : IsOpen.{0} I) {T χ ψ : Real → Z → Real}
+  {C : ENNReal} (hC : Ne.{1} C Top.top.{0}) {Bχ Bψ : Real}
+  (hT : ∀ (x : Real), Membership.mem.{0, 0} I x → AEMeasurable.{u_1, 0} (T x) μ)
+  (hdom :
+    ∀ (x : Real),
+      Membership.mem.{0, 0} I x → LE.le.{0} (MeasureTheory.Measure.map.{u_1, 0} (T x) μ) (HSMul.hSMul.{0, 0, 0} C ν))
+  (hχ : ∀ (x : Real), Membership.mem.{0, 0} I x → MeasureTheory.AEStronglyMeasurable.{u_1, 0} (χ x) μ)
+  (hψ : ∀ (x : Real), Membership.mem.{0, 0} I x → MeasureTheory.AEStronglyMeasurable.{u_1, 0} (ψ x) μ)
+  (hbχ : ∀ (x : Real), Membership.mem.{0, 0} I x → ∀ᵐ (z : Z) ∂μ, LE.le.{0} (Norm.norm.{0} (χ x z)) Bχ)
+  (hbψ : ∀ (x : Real), Membership.mem.{0, 0} I x → ∀ᵐ (z : Z) ∂μ, LE.le.{0} (Norm.norm.{0} (ψ x z)) Bψ)
+  (hidentity :
+    ∀ (g : Real → Complex),
+      HasCompactSupport.{0, 0} g →
+        ContDiff.{0, 0, 0} Real (↑Top.top.{0}) g →
+          ∀ (x : Real),
+            Membership.mem.{0, 0} I x →
+              HasDerivAt.{0, 0} (fun a => ∫ (z : Z), HSMul.hSMul.{0, 0, 0} (χ a z) (g (T a z)) ∂μ)
+                (∫ (z : Z), HSMul.hSMul.{0, 0, 0} (ψ x z) (g (T x z)) ∂μ) x)
+  {f : Real → Complex} (hf : MeasureTheory.Integrable.{0, 0} f ν) {x : Real} (hx : Membership.mem.{0, 0} I x) :
+  HasDerivAt.{0, 0} (fun a => ∫ (z : Z), HSMul.hSMul.{0, 0, 0} (χ a z) (f (T a z)) ∂μ)
+    (∫ (z : Z), HSMul.hSMul.{0, 0, 0} (ψ x z) (f (T x z)) ∂μ) x
+Resonance.PinnedSmoothing.contDiffOn_partialX {S : Set.{0} (Prod.{0, 0} Real Real)} (hS : IsOpen.{0} S)
+  {H : Prod.{0, 0} Real Real → Real} (hH : ContDiffOn.{0, 0, 0} Real (↑Top.top.{0}) H S) :
+  ContDiffOn.{0, 0, 0} Real (↑Top.top.{0}) (Resonance.PinnedSmoothing.partialX H) S
+Resonance.PinnedSmoothing.contDiffOn_partialZ {S : Set.{0} (Prod.{0, 0} Real Real)} (hS : IsOpen.{0} S)
+  {H : Prod.{0, 0} Real Real → Real} (hH : ContDiffOn.{0, 0, 0} Real (↑Top.top.{0}) H S) :
+  ContDiffOn.{0, 0, 0} Real (↑Top.top.{0}) (Resonance.PinnedSmoothing.partialZ H) S
+Resonance.PinnedSmoothing.contDiffOn_transferWeight {S : Set.{0} (Prod.{0, 0} Real Real)} (hS : IsOpen.{0} S)
+  {H χ : Prod.{0, 0} Real Real → Real} (hH : ContDiffOn.{0, 0, 0} Real (↑Top.top.{0}) H S)
+  (hχ : ContDiffOn.{0, 0, 0} Real (↑Top.top.{0}) χ S)
+  (hZ : ∀ (p : Prod.{0, 0} Real Real), Membership.mem.{0, 0} S p → Ne.{1} (Resonance.PinnedSmoothing.partialZ H p) 0) :
+  ContDiffOn.{0, 0, 0} Real (↑Top.top.{0}) (Resonance.PinnedSmoothing.transferWeight H χ) S
+Resonance.PinnedSmoothing.transferWeight_zero_of_eventually_zero {H χ : Prod.{0, 0} Real Real → Real}
+  {p : Prod.{0, 0} Real Real} (hχ : Filter.EventuallyEq.{0, 0} (nhds.{0} p) χ fun x => 0) :
+  Eq.{1} (Resonance.PinnedSmoothing.transferWeight H χ p) 0
+Resonance.PinnedSmoothing.transferWeight_zero_on_open {O : Set.{0} (Prod.{0, 0} Real Real)} (hO : IsOpen.{0} O)
+  {H χ : Prod.{0, 0} Real Real → Real} (hχ : Set.EqOn.{0, 0} χ 0 O) :
+  Set.EqOn.{0, 0} (Resonance.PinnedSmoothing.transferWeight H χ) 0 O
+Resonance.PinnedSmoothing.contDiffOn_iteratedWeight {S : Set.{0} (Prod.{0, 0} Real Real)} (hS : IsOpen.{0} S)
+  {H χ : Prod.{0, 0} Real Real → Real} (hH : ContDiffOn.{0, 0, 0} Real (↑Top.top.{0}) H S)
+  (hχ : ContDiffOn.{0, 0, 0} Real (↑Top.top.{0}) χ S)
+  (hZ : ∀ (p : Prod.{0, 0} Real Real), Membership.mem.{0, 0} S p → Ne.{1} (Resonance.PinnedSmoothing.partialZ H p) 0)
+  (n : Nat) : ContDiffOn.{0, 0, 0} Real (↑Top.top.{0}) (Resonance.PinnedSmoothing.iteratedWeight H χ n) S
+Resonance.PinnedSmoothing.iteratedWeight_zero_on_open {O : Set.{0} (Prod.{0, 0} Real Real)} (hO : IsOpen.{0} O)
+  {H χ : Prod.{0, 0} Real Real → Real} (hχ : Set.EqOn.{0, 0} χ 0 O) (n : Nat) :
+  Set.EqOn.{0, 0} (Resonance.PinnedSmoothing.iteratedWeight H χ n) 0 O
+Resonance.PinnedSmoothing.partialX_hasDerivAt {H : Prod.{0, 0} Real Real → Real} {x z : Real}
+  (hH : DifferentiableAt.{0, 0, 0} Real H (Prod.mk.{0, 0} x z)) :
+  HasDerivAt.{0, 0} (fun a => H (Prod.mk.{0, 0} a z)) (Resonance.PinnedSmoothing.partialX H (Prod.mk.{0, 0} x z)) x
+Resonance.PinnedSmoothing.partialZ_hasDerivAt {H : Prod.{0, 0} Real Real → Real} {x z : Real}
+  (hH : DifferentiableAt.{0, 0, 0} Real H (Prod.mk.{0, 0} x z)) :
+  HasDerivAt.{0, 0} (fun a => H (Prod.mk.{0, 0} x a)) (Resonance.PinnedSmoothing.partialZ H (Prod.mk.{0, 0} x z)) z
+Resonance.PinnedSmoothing.contDiffOn_source_section {I J : Set.{0} Real} {H : Prod.{0, 0} Real Real → Real}
+  (hH : ContDiffOn.{0, 0, 0} Real (↑Top.top.{0}) H (SProd.sprod.{0, 0, 0} I J)) {x : Real}
+  (hx : Membership.mem.{0, 0} I x) : ContDiffOn.{0, 0, 0} Real (↑Top.top.{0}) (fun z => H (Prod.mk.{0, 0} x z)) J
+Resonance.PinnedSmoothing.actual_smooth_average_derivative {I J : Set.{0} Real} (hI : IsOpen.{0} I) (hJ : IsOpen.{0} J)
+  {a b : Real} (hab : LE.le.{0} a b) (hsub : HasSubset.Subset.{0} (Set.Icc.{0} a b) J)
+  {H χ : Prod.{0, 0} Real Real → Real} (hH : ContDiffOn.{0, 0, 0} Real (↑Top.top.{0}) H (SProd.sprod.{0, 0, 0} I J))
+  (hχ : ContDiffOn.{0, 0, 0} Real (↑Top.top.{0}) χ (SProd.sprod.{0, 0, 0} I J))
+  (hZ :
+    ∀ (p : Prod.{0, 0} Real Real),
+      Membership.mem.{0, 0} (SProd.sprod.{0, 0, 0} I J) p → Ne.{1} (Resonance.PinnedSmoothing.partialZ H p) 0)
+  (hχedge :
+    ∀ (x : Real),
+      Membership.mem.{0, 0} I x → And (Eq.{1} (χ (Prod.mk.{0, 0} x a)) 0) (Eq.{1} (χ (Prod.mk.{0, 0} x b)) 0))
+  {f : Real → Complex} (hf : ContDiff.{0, 0, 0} Real (↑Top.top.{0}) f) {x : Real} (hx : Membership.mem.{0, 0} I x) :
+  HasDerivAt.{0, 0}
+    (fun y =>
+      ∫ (z : Real) in Set.Icc.{0} a b, HSMul.hSMul.{0, 0, 0} (χ (Prod.mk.{0, 0} y z)) (f (H (Prod.mk.{0, 0} y z))))
+    (∫ (z : Real) in Set.Icc.{0} a b,
+      HSMul.hSMul.{0, 0, 0} (Resonance.PinnedSmoothing.transferWeight H χ (Prod.mk.{0, 0} x z))
+        (f (H (Prod.mk.{0, 0} x z))))
+    x
+Resonance.PinnedAveraging.contDiffOn_of_derivative_chain {I : Set.{0} Real} (hI : IsOpen.{0} I)
+  {A : Nat → Real → Complex}
+  (hA : ∀ (n : Nat) (x : Real), Membership.mem.{0, 0} I x → HasDerivAt.{0, 0} (A n) (A (HAdd.hAdd.{0, 0, 0} n 1) x) x)
+  (n : Nat) : ContDiffOn.{0, 0, 0} Real (↑Top.top.{0}) (A n) I
+Resonance.PinnedAveraging.actual_L1_average_contDiffOn {I I₀ J K Z₀ : Set.{0} Real} (hI : IsOpen.{0} I)
+  (hI₀ : IsOpen.{0} I₀) (hJ : IsOpen.{0} J) (hK : IsCompact.{0} K) (hIK : HasSubset.Subset.{0} I K)
+  (hKI : HasSubset.Subset.{0} K I₀) {a b : Real} (hab : LE.le.{0} a b) (hsub : HasSubset.Subset.{0} (Set.Icc.{0} a b) J)
+  (hZ₀ : IsOpen.{0} Z₀) (ha₀ : Membership.mem.{0, 0} Z₀ a) (hb₀ : Membership.mem.{0, 0} Z₀ b)
+  {H χ : Prod.{0, 0} Real Real → Real} (hH : ContDiffOn.{0, 0, 0} Real (↑Top.top.{0}) H (SProd.sprod.{0, 0, 0} I₀ J))
+  (hχ : ContDiffOn.{0, 0, 0} Real (↑Top.top.{0}) χ (SProd.sprod.{0, 0, 0} I₀ J))
+  (hZ :
+    ∀ (p : Prod.{0, 0} Real Real),
+      Membership.mem.{0, 0} (SProd.sprod.{0, 0, 0} I₀ J) p → Ne.{1} (Resonance.PinnedSmoothing.partialZ H p) 0)
+  (hzero : Set.EqOn.{0, 0} χ 0 (SProd.sprod.{0, 0, 0} I₀ Z₀)) {ν : MeasureTheory.Measure.{0} Real}
+  [MeasureTheory.IsFiniteMeasureOnCompacts.{0} ν] {C : ENNReal} (hC : Ne.{1} C Top.top.{0})
+  (hmap :
+    ∀ (x : Real),
+      Membership.mem.{0, 0} I x →
+        AEMeasurable.{0, 0} (fun z => H (Prod.mk.{0, 0} x z))
+          (MeasureTheory.Measure.restrict.{0} MeasureTheory.MeasureSpace.volume.{0} (Set.Icc.{0} a b)))
+  (hdom :
+    ∀ (x : Real),
+      Membership.mem.{0, 0} I x →
+        LE.le.{0}
+          (MeasureTheory.Measure.map.{0, 0} (fun z => H (Prod.mk.{0, 0} x z))
+            (MeasureTheory.Measure.restrict.{0} MeasureTheory.MeasureSpace.volume.{0} (Set.Icc.{0} a b)))
+          (HSMul.hSMul.{0, 0, 0} C ν))
+  {f : Real → Complex} (hf : MeasureTheory.Integrable.{0, 0} f ν) :
+  ContDiffOn.{0, 0, 0} Real (↑Top.top.{0})
+    (fun x =>
+      ∫ (z : Real) in Set.Icc.{0} a b, HSMul.hSMul.{0, 0, 0} (χ (Prod.mk.{0, 0} x z)) (f (H (Prod.mk.{0, 0} x z))))
+    I
+Resonance.PinnedLocalSmooth.compact_chart_source_data {H : Prod.{0, 0} Real Real → Real} {x z r κ : Real}
+  (hr : LT.lt.{0} 0 r) (hκ : LT.lt.{0} 0 κ)
+  (hs : ContDiffOn.{0, 0, 0} Real (↑Top.top.{0}) H (SProd.sprod.{0, 0, 0} (Metric.ball.{0} x r) (Metric.ball.{0} z r)))
+  (hb :
+    ∀ (p : Prod.{0, 0} Real Real),
+      Membership.mem.{0, 0} (SProd.sprod.{0, 0, 0} (Metric.ball.{0} x r) (Metric.ball.{0} z r)) p →
+        LE.le.{0} κ (abs.{0} (Resonance.PinnedSmoothing.partialZ H p))) :
+  ∃ L,
+    And (LT.lt.{0} 0 L)
+      (∀ (a : Real),
+        Membership.mem.{0, 0} (Metric.ball.{0} x (HDiv.hDiv.{0, 0, 0} r 4)) a →
+          And
+            (AEMeasurable.{0, 0} (fun t => H (Prod.mk.{0, 0} a t))
+              (MeasureTheory.Measure.restrict.{0} MeasureTheory.MeasureSpace.volume.{0}
+                (Set.Icc.{0} (HSub.hSub.{0, 0, 0} z (HDiv.hDiv.{0, 0, 0} r 4))
+                  (HAdd.hAdd.{0, 0, 0} z (HDiv.hDiv.{0, 0, 0} r 4)))))
+            (LE.le.{0}
+              (MeasureTheory.Measure.map.{0, 0} (fun t => H (Prod.mk.{0, 0} a t))
+                (MeasureTheory.Measure.restrict.{0} MeasureTheory.MeasureSpace.volume.{0}
+                  (Set.Icc.{0} (HSub.hSub.{0, 0, 0} z (HDiv.hDiv.{0, 0, 0} r 4))
+                    (HAdd.hAdd.{0, 0, 0} z (HDiv.hDiv.{0, 0, 0} r 4)))))
+              (HSMul.hSMul.{0, 0, 0} (Inv.inv.{0} (ENNReal.ofReal κ))
+                (MeasureTheory.Measure.restrict.{0} MeasureTheory.MeasureSpace.volume.{0}
+                  (Set.Icc.{0} (Neg.neg.{0} L) L)))))
+Resonance.PinnedLocalSmooth.bump_average_contDiffOn {H : Prod.{0, 0} Real Real → Real} {x z r κ : Real}
+  (hr : LT.lt.{0} 0 r) (hκ : LT.lt.{0} 0 κ)
+  (hs : ContDiffOn.{0, 0, 0} Real (↑Top.top.{0}) H (SProd.sprod.{0, 0, 0} (Metric.ball.{0} x r) (Metric.ball.{0} z r)))
+  (hb :
+    ∀ (p : Prod.{0, 0} Real Real),
+      Membership.mem.{0, 0} (SProd.sprod.{0, 0, 0} (Metric.ball.{0} x r) (Metric.ball.{0} z r)) p →
+        LE.le.{0} κ (abs.{0} (Resonance.PinnedSmoothing.partialZ H p)))
+  {ρ : Real → Real} (hρ : ContDiff.{0, 0, 0} Real (↑Top.top.{0}) ρ)
+  (hρsupp : HasSubset.Subset.{0} (tsupport.{0, 0} ρ) (Metric.ball.{0} z (HDiv.hDiv.{0, 0, 0} r 8))) {f : Real → Complex}
+  (hf : MeasureTheory.LocallyIntegrable.{0, 0} f MeasureTheory.MeasureSpace.volume.{0}) :
+  ContDiffOn.{0, 0, 0} Real (↑Top.top.{0})
+    (fun a =>
+      ∫ (t : Real) in
+        Set.Icc.{0} (HSub.hSub.{0, 0, 0} z (HDiv.hDiv.{0, 0, 0} r 4)) (HAdd.hAdd.{0, 0, 0} z (HDiv.hDiv.{0, 0, 0} r 4)),
+        HSMul.hSMul.{0, 0, 0} (ρ t) (f (H (Prod.mk.{0, 0} a t))))
+    (Metric.ball.{0} x (HDiv.hDiv.{0, 0, 0} r 4))
+Resonance.PinnedLocalSmooth.chart_weighted_source_integrable {H : Prod.{0, 0} Real Real → Real} {x z r κ : Real}
+  (hr : LT.lt.{0} 0 r) (hκ : LT.lt.{0} 0 κ)
+  (hs : ContDiffOn.{0, 0, 0} Real (↑Top.top.{0}) H (SProd.sprod.{0, 0, 0} (Metric.ball.{0} x r) (Metric.ball.{0} z r)))
+  (hb :
+    ∀ (p : Prod.{0, 0} Real Real),
+      Membership.mem.{0, 0} (SProd.sprod.{0, 0, 0} (Metric.ball.{0} x r) (Metric.ball.{0} z r)) p →
+        LE.le.{0} κ (abs.{0} (Resonance.PinnedSmoothing.partialZ H p)))
+  {ρ : Real → Real} (hρ : Continuous.{0, 0} ρ) {f : Real → Complex}
+  (hf : MeasureTheory.LocallyIntegrable.{0, 0} f MeasureTheory.MeasureSpace.volume.{0}) {a : Real}
+  (ha : Membership.mem.{0, 0} (Metric.ball.{0} x (HDiv.hDiv.{0, 0, 0} r 4)) a) :
+  MeasureTheory.IntegrableOn.{0, 0} (fun t => HSMul.hSMul.{0, 0, 0} (ρ t) (f (H (Prod.mk.{0, 0} a t))))
+    (Set.Icc.{0} (HSub.hSub.{0, 0, 0} z (HDiv.hDiv.{0, 0, 0} r 4)) (HAdd.hAdd.{0, 0, 0} z (HDiv.hDiv.{0, 0, 0} r 4)))
+    MeasureTheory.MeasureSpace.volume.{0}
+Resonance.PinnedLocalSmooth.exists_normalized_source_bump {z r : Real} (hr : LT.lt.{0} 0 r) :
+  ∃ ρ,
+    And (ContDiff.{0, 0, 0} Real (↑Top.top.{0}) ρ)
+      (And (HasCompactSupport.{0, 0} ρ)
+        (And (HasSubset.Subset.{0} (tsupport.{0, 0} ρ) (Metric.ball.{0} z (HDiv.hDiv.{0, 0, 0} r 8)))
+          (Eq.{1}
+            (∫ (t : Real) in
+              Set.Icc.{0} (HSub.hSub.{0, 0, 0} z (HDiv.hDiv.{0, 0, 0} r 4))
+                (HAdd.hAdd.{0, 0, 0} z (HDiv.hDiv.{0, 0, 0} r 4)),
+              ρ t)
+            1)))
+Resonance.PinnedRepresentatives.chart_smooth_representative {H : Prod.{0, 0} Real Real → Real} {x z r κ : Real}
+  (hr : LT.lt.{0} 0 r) (hκ : LT.lt.{0} 0 κ)
+  (hs : ContDiffOn.{0, 0, 0} Real (↑Top.top.{0}) H (SProd.sprod.{0, 0, 0} (Metric.ball.{0} x r) (Metric.ball.{0} z r)))
+  (hb :
+    ∀ (p : Prod.{0, 0} Real Real),
+      Membership.mem.{0, 0} (SProd.sprod.{0, 0, 0} (Metric.ball.{0} x r) (Metric.ball.{0} z r)) p →
+        And (LE.le.{0} κ (abs.{0} (Resonance.PinnedSmoothing.partialZ H p)))
+          (LE.le.{0} κ (abs.{0} (HSub.hSub.{0, 0, 0} (Resonance.PinnedSmoothing.partialZ H p) 1))))
+  {f : Real → Complex} (hf : MeasureTheory.LocallyIntegrable.{0, 0} f MeasureTheory.MeasureSpace.volume.{0})
+  (hi :
+    ∀ᵐ (p :
+      Prod.{0, 0} Real
+        Real) ∂MeasureTheory.Measure.restrict.{0} MeasureTheory.MeasureSpace.volume.{0}
+        (SProd.sprod.{0, 0, 0} (Metric.ball.{0} x r) (Metric.ball.{0} z r)),
+      Eq.{1} (HAdd.hAdd.{0, 0, 0} (f p.1) (f (H p)))
+        (HAdd.hAdd.{0, 0, 0} (f p.2) (f (HSub.hSub.{0, 0, 0} (HAdd.hAdd.{0, 0, 0} p.1 (H p)) p.2)))) :
+  ∃ F,
+    And (ContDiffOn.{0, 0, 0} Real (↑Top.top.{0}) F (Metric.ball.{0} x (HDiv.hDiv.{0, 0, 0} r 4)))
+      (Filter.EventuallyEq.{0, 0}
+        (MeasureTheory.ae.{0, 0}
+          (MeasureTheory.Measure.restrict.{0} MeasureTheory.MeasureSpace.volume.{0}
+            (Metric.ball.{0} x (HDiv.hDiv.{0, 0, 0} r 4))))
+        f F)
+Resonance.PinnedRepresentatives.liftedInvariant_local_smooth_representative {d : Real} (hd0 : LT.lt.{0} 0 d)
+  (hdU : LT.lt.{0} d (1 / 2)) (f : Real → Complex) (hf : Measurable.{0, 0} f)
+  (hi : Resonance.PinnedMeasure.liftedInvariant d f) (x : Real) :
+  ∃ r,
+    And (LT.lt.{0} 0 r)
+      (∃ F,
+        And (ContDiffOn.{0, 0, 0} Real (↑Top.top.{0}) F (Metric.ball.{0} x r))
+          (Filter.EventuallyEq.{0, 0}
+            (MeasureTheory.ae.{0, 0}
+              (MeasureTheory.Measure.restrict.{0} MeasureTheory.MeasureSpace.volume.{0} (Metric.ball.{0} x r)))
+            f F))
+Resonance.PinnedGlobalRegularity.smooth_representative_of_local {f : Real → Complex}
+  (hloc :
+    ∀ (x : Real),
+      ∃ r,
+        And (LT.lt.{0} 0 r)
+          (∃ F,
+            And (ContDiffOn.{0, 0, 0} Real (↑Top.top.{0}) F (Metric.ball.{0} x r))
+              (Filter.EventuallyEq.{0, 0}
+                (MeasureTheory.ae.{0, 0}
+                  (MeasureTheory.Measure.restrict.{0} MeasureTheory.MeasureSpace.volume.{0} (Metric.ball.{0} x r)))
+                f F))) :
+  ∃ g,
+    And (ContDiff.{0, 0, 0} Real (↑Top.top.{0}) g)
+      (Filter.EventuallyEq.{0, 0} (MeasureTheory.ae.{0, 0} MeasureTheory.MeasureSpace.volume.{0}) f g)
+Resonance.PinnedGlobalRegularity.periodic_of_ae_periodic {f g : Real → Complex} {T : Real}
+  (hf : Function.Periodic.{0, 0} f T) (hg : Continuous.{0, 0} g)
+  (he : Filter.EventuallyEq.{0, 0} (MeasureTheory.ae.{0, 0} MeasureTheory.MeasureSpace.volume.{0}) f g) :
+  Function.Periodic.{0, 0} g T
+Resonance.PinnedGlobalRegularity.liftedInvariant_smooth_representative {d : Real} (hd0 : LT.lt.{0} 0 d)
+  (hdU : LT.lt.{0} d (1 / 2)) (f : Real → Complex) (hf : Measurable.{0, 0} f)
+  (hi : Resonance.PinnedMeasure.liftedInvariant d f) :
+  ∃ g,
+    And (ContDiff.{0, 0, 0} Real (↑Top.top.{0}) g)
+      (Filter.EventuallyEq.{0, 0} (MeasureTheory.ae.{0, 0} MeasureTheory.MeasureSpace.volume.{0}) f g)
+Resonance.PinnedGlobalRegularity.circleInvariant_smooth_periodic_representative {d : Real} (hd0 : LT.lt.{0} 0 d)
+  (hdU : LT.lt.{0} d (1 / 2)) (φ : Resonance.PinnedPeriodicity.Circle → Complex) (hφ : Measurable.{0, 0} φ)
+  (hi : Resonance.PinnedPeriodicity.circleInvariant d φ) :
+  ∃ g,
+    And (ContDiff.{0, 0, 0} Real (↑Top.top.{0}) g)
+      (And
+        (Filter.EventuallyEq.{0, 0} (MeasureTheory.ae.{0, 0} MeasureTheory.MeasureSpace.volume.{0})
+          (Resonance.PinnedPeriodicity.periodicLift φ) g)
+        (Function.Periodic.{0, 0} g (HMul.hMul.{0, 0, 0} 2 Real.pi)))
+Resonance.PinnedInvariantTransfer.specified_uniform_chart {d x y z : Real} (hd0 : LT.lt.{0} 0 d)
+  (hdU : LT.lt.{0} d (1 / 2)) (he : Eq.{1} (Resonance.PinnedGeometry.energyDefect d x y z) 0)
+  (hyz : Ne.{1} (Resonance.PinnedGeometry.velocity d y) (Resonance.PinnedGeometry.velocity d z))
+  (hyw :
+    Ne.{1} (Resonance.PinnedGeometry.velocity d y)
+      (Resonance.PinnedGeometry.velocity d (HSub.hSub.{0, 0, 0} (HAdd.hAdd.{0, 0, 0} x y) z)))
+  (hzw :
+    Ne.{1} (Resonance.PinnedGeometry.velocity d z)
+      (Resonance.PinnedGeometry.velocity d (HSub.hSub.{0, 0, 0} (HAdd.hAdd.{0, 0, 0} x y) z))) :
+  ∃ H r κ,
+    And (LT.lt.{0} 0 r)
+      (And (LT.lt.{0} 0 κ)
+        (And (Eq.{1} (H (Prod.mk.{0, 0} x z)) y)
+          (And
+            (ContDiffOn.{0, 0, 0} Real (↑Top.top.{0}) H
+              (SProd.sprod.{0, 0, 0} (Metric.ball.{0} x r) (Metric.ball.{0} z r)))
+            (∀ (p : Prod.{0, 0} Real Real),
+              Membership.mem.{0, 0} (SProd.sprod.{0, 0, 0} (Metric.ball.{0} x r) (Metric.ball.{0} z r)) p →
+                And (Eq.{1} (Resonance.PinnedGeometry.energyDefect d p.1 (H p) p.2) 0)
+                  (And
+                    (LE.le.{0} κ
+                      (abs.{0}
+                        (HSub.hSub.{0, 0, 0} (Resonance.PinnedGeometry.velocity d (H p))
+                          (Resonance.PinnedGeometry.velocity d
+                            (HSub.hSub.{0, 0, 0} (HAdd.hAdd.{0, 0, 0} p.1 (H p)) p.2)))))
+                    (And (LE.le.{0} κ (abs.{0} (Resonance.PinnedCharts.zDifferential H p)))
+                      (LE.le.{0} κ (abs.{0} (HSub.hSub.{0, 0, 0} (Resonance.PinnedCharts.zDifferential H p) 1)))))))))
+Resonance.PinnedInvariantTransfer.ae_comp_of_map_domination.{u_1} {E : Type u_1} {f g : Real → E}
+  (hfg : Filter.EventuallyEq.{0, u_1} (MeasureTheory.ae.{0, 0} MeasureTheory.MeasureSpace.volume.{0}) f g)
+  {ζ : MeasureTheory.Measure.{0} Real} {T : Real → Real} (hT : AEMeasurable.{0, 0} T ζ) {C : ENNReal}
+  (hdom :
+    LE.le.{0} (MeasureTheory.Measure.map.{0, 0} T ζ) (HSMul.hSMul.{0, 0, 0} C MeasureTheory.MeasureSpace.volume.{0})) :
+  Filter.EventuallyEq.{0, u_1} (MeasureTheory.ae.{0, 0} ζ) (fun t => f (T t)) fun t => g (T t)
+Resonance.PinnedInvariantTransfer.chart_source_ae_congr.{u_1} {E : Type u_1} {f g : Real → E}
+  (hfg : Filter.EventuallyEq.{0, u_1} (MeasureTheory.ae.{0, 0} MeasureTheory.MeasureSpace.volume.{0}) f g)
+  {H : Prod.{0, 0} Real Real → Real} {x z r κ : Real} (hκ : LT.lt.{0} 0 κ)
+  (hs : ContDiffOn.{0, 0, 0} Real (↑Top.top.{0}) H (SProd.sprod.{0, 0, 0} (Metric.ball.{0} x r) (Metric.ball.{0} z r)))
+  (hb :
+    ∀ (p : Prod.{0, 0} Real Real),
+      Membership.mem.{0, 0} (SProd.sprod.{0, 0, 0} (Metric.ball.{0} x r) (Metric.ball.{0} z r)) p →
+        And (LE.le.{0} κ (abs.{0} (Resonance.PinnedCharts.zDifferential H p)))
+          (LE.le.{0} κ (abs.{0} (HSub.hSub.{0, 0, 0} (Resonance.PinnedCharts.zDifferential H p) 1))))
+  (a : Real) (ha : Membership.mem.{0, 0} (Metric.ball.{0} x r) a) (i : Fin 3) :
+  Filter.EventuallyEq.{0, u_1}
+    (MeasureTheory.ae.{0, 0}
+      (MeasureTheory.Measure.restrict.{0} MeasureTheory.MeasureSpace.volume.{0} (Metric.ball.{0} z r)))
+    (fun t => f (Resonance.PinnedMeasurable.sourceLeg H i a t)) fun t =>
+    g (Resonance.PinnedMeasurable.sourceLeg H i a t)
+Resonance.PinnedInvariantTransfer.chart_relation_ae_congr {f g : Real → Complex}
+  (hfg : Filter.EventuallyEq.{0, 0} (MeasureTheory.ae.{0, 0} MeasureTheory.MeasureSpace.volume.{0}) f g)
+  {H : Prod.{0, 0} Real Real → Real} {x z r κ : Real} (hκ : LT.lt.{0} 0 κ)
+  (hs : ContDiffOn.{0, 0, 0} Real (↑Top.top.{0}) H (SProd.sprod.{0, 0, 0} (Metric.ball.{0} x r) (Metric.ball.{0} z r)))
+  (hb :
+    ∀ (p : Prod.{0, 0} Real Real),
+      Membership.mem.{0, 0} (SProd.sprod.{0, 0, 0} (Metric.ball.{0} x r) (Metric.ball.{0} z r)) p →
+        And (LE.le.{0} κ (abs.{0} (Resonance.PinnedCharts.zDifferential H p)))
+          (LE.le.{0} κ (abs.{0} (HSub.hSub.{0, 0, 0} (Resonance.PinnedCharts.zDifferential H p) 1))))
+  (hi :
+    ∀ᵐ (p :
+      Prod.{0, 0} Real
+        Real) ∂MeasureTheory.Measure.restrict.{0} MeasureTheory.MeasureSpace.volume.{0}
+        (SProd.sprod.{0, 0, 0} (Metric.ball.{0} x r) (Metric.ball.{0} z r)),
+      Eq.{1} (HAdd.hAdd.{0, 0, 0} (f p.1) (f (H p)))
+        (HAdd.hAdd.{0, 0, 0} (f p.2) (f (HSub.hSub.{0, 0, 0} (HAdd.hAdd.{0, 0, 0} p.1 (H p)) p.2)))) :
+  ∀ᵐ (a : Real) ∂MeasureTheory.Measure.restrict.{0} MeasureTheory.MeasureSpace.volume.{0} (Metric.ball.{0} x r),
+    ∀ᵐ (t : Real) ∂MeasureTheory.Measure.restrict.{0} MeasureTheory.MeasureSpace.volume.{0} (Metric.ball.{0} z r),
+      Eq.{1} (HAdd.hAdd.{0, 0, 0} (g a) (g (H (Prod.mk.{0, 0} a t))))
+        (HAdd.hAdd.{0, 0, 0} (g t) (g (HSub.hSub.{0, 0, 0} (HAdd.hAdd.{0, 0, 0} a (H (Prod.mk.{0, 0} a t))) t)))
+Resonance.PinnedInvariantTransfer.continuous_chart_relation_of_ae {g : Real → Complex} (hg : Continuous.{0, 0} g)
+  {H : Prod.{0, 0} Real Real → Real} {x z r : Real}
+  (hs : ContinuousOn.{0, 0} H (SProd.sprod.{0, 0, 0} (Metric.ball.{0} x r) (Metric.ball.{0} z r)))
+  (hi :
+    ∀ᵐ (a : Real) ∂MeasureTheory.Measure.restrict.{0} MeasureTheory.MeasureSpace.volume.{0} (Metric.ball.{0} x r),
+      ∀ᵐ (t : Real) ∂MeasureTheory.Measure.restrict.{0} MeasureTheory.MeasureSpace.volume.{0} (Metric.ball.{0} z r),
+        Eq.{1} (HAdd.hAdd.{0, 0, 0} (g a) (g (H (Prod.mk.{0, 0} a t))))
+          (HAdd.hAdd.{0, 0, 0} (g t) (g (HSub.hSub.{0, 0, 0} (HAdd.hAdd.{0, 0, 0} a (H (Prod.mk.{0, 0} a t))) t))))
+  (a : Real) :
+  Membership.mem.{0, 0} (Metric.ball.{0} x r) a →
+    ∀ (t : Real),
+      Membership.mem.{0, 0} (Metric.ball.{0} z r) t →
+        Eq.{1} (HAdd.hAdd.{0, 0, 0} (g a) (g (H (Prod.mk.{0, 0} a t))))
+          (HAdd.hAdd.{0, 0, 0} (g t) (g (HSub.hSub.{0, 0, 0} (HAdd.hAdd.{0, 0, 0} a (H (Prod.mk.{0, 0} a t))) t)))
+Resonance.PinnedInvariantTransfer.liftedInvariant_continuous_representative {d : Real} {f g : Real → Complex}
+  (hd0 : LT.lt.{0} 0 d) (hdU : LT.lt.{0} d (1 / 2)) (hi : Resonance.PinnedMeasure.liftedInvariant d f)
+  (hfg : Filter.EventuallyEq.{0, 0} (MeasureTheory.ae.{0, 0} MeasureTheory.MeasureSpace.volume.{0}) f g)
+  (hg : Continuous.{0, 0} g) : Resonance.PinnedClassification.complexSmoothInvariant d g
+Resonance.PinnedInvariantTransfer.circleInvariant_continuous_representative {d : Real}
+  {φ : Resonance.PinnedPeriodicity.Circle → Complex} {g : Real → Complex} (hd0 : LT.lt.{0} 0 d)
+  (hdU : LT.lt.{0} d (1 / 2)) (hi : Resonance.PinnedPeriodicity.circleInvariant d φ)
+  (hfg :
+    Filter.EventuallyEq.{0, 0} (MeasureTheory.ae.{0, 0} MeasureTheory.MeasureSpace.volume.{0})
+      (Resonance.PinnedPeriodicity.periodicLift φ) g)
+  (hg : Continuous.{0, 0} g) : Resonance.PinnedClassification.complexSmoothInvariant d g
+Resonance.PinnedInvariantTransfer.circleInvariant_classification_of_smooth_representative {d : Real}
+  {φ : Resonance.PinnedPeriodicity.Circle → Complex} {g : Real → Complex} (hd0 : LT.lt.{0} 0 d)
+  (hdU : LT.lt.{0} d (1 / 2)) (hi : Resonance.PinnedPeriodicity.circleInvariant d φ)
+  (hfg :
+    Filter.EventuallyEq.{0, 0} (MeasureTheory.ae.{0, 0} MeasureTheory.MeasureSpace.volume.{0})
+      (Resonance.PinnedPeriodicity.periodicLift φ) g)
+  (hg : ContDiff.{0, 0, 0} Real 3 g) (hp : Function.Periodic.{0, 0} g (HMul.hMul.{0, 0, 0} 2 Real.pi)) :
+  ∃ A B,
+    Filter.EventuallyEq.{0, 0} (MeasureTheory.ae.{0, 0} MeasureTheory.MeasureSpace.volume.{0})
+      (Resonance.PinnedPeriodicity.periodicLift φ) fun x =>
+      HAdd.hAdd.{0, 0, 0} A (HMul.hMul.{0, 0, 0} B ↑(Resonance.PinnedGeometry.omega d x))
+Resonance.PinnedInvariantTransfer.measurable_circleInvariant_classification {d : Real} (hd0 : LT.lt.{0} 0 d)
+  (hdU : LT.lt.{0} d (1 / 2)) (φ : Resonance.PinnedPeriodicity.Circle → Complex) (hφ : Measurable.{0, 0} φ)
+  (hi : Resonance.PinnedPeriodicity.circleInvariant d φ) :
+  ∃ A B,
+    Filter.EventuallyEq.{0, 0} (MeasureTheory.ae.{0, 0} MeasureTheory.MeasureSpace.volume.{0})
+      (Resonance.PinnedPeriodicity.periodicLift φ) fun x =>
+      HAdd.hAdd.{0, 0, 0} A (HMul.hMul.{0, 0, 0} B ↑(Resonance.PinnedGeometry.omega d x))
+Resonance.PinnedCircleAE.circle_ae_lift {f g : Resonance.PinnedPeriodicity.Circle → Complex}
+  (h : Filter.EventuallyEq.{0, 0} (MeasureTheory.ae.{0, 0} Resonance.PinnedCircleAE.circleVolume) f g) :
+  Filter.EventuallyEq.{0, 0} (MeasureTheory.ae.{0, 0} MeasureTheory.MeasureSpace.volume.{0})
+    (Resonance.PinnedPeriodicity.periodicLift f) (Resonance.PinnedPeriodicity.periodicLift g)
+Resonance.PinnedCircleAE.circle_aemeasurable_lift {φ : Resonance.PinnedPeriodicity.Circle → Complex}
+  (hφ : AEMeasurable.{0, 0} φ Resonance.PinnedCircleAE.circleVolume) :
+  AEMeasurable.{0, 0} (Resonance.PinnedPeriodicity.periodicLift φ) MeasureTheory.MeasureSpace.volume.{0}
+Resonance.PinnedCircleAE.circle_ae_of_lift_ae {f g : Resonance.PinnedPeriodicity.Circle → Complex}
+  (hf : Measurable.{0, 0} f) (hg : Measurable.{0, 0} g)
+  (h :
+    Filter.EventuallyEq.{0, 0} (MeasureTheory.ae.{0, 0} MeasureTheory.MeasureSpace.volume.{0})
+      (Resonance.PinnedPeriodicity.periodicLift f) (Resonance.PinnedPeriodicity.periodicLift g)) :
+  Filter.EventuallyEq.{0, 0} (MeasureTheory.ae.{0, 0} Resonance.PinnedCircleAE.circleVolume) f g
+Resonance.PinnedAERegularity.measurable_chart_relation_joint {g : Real → Complex} (hg : Measurable.{0, 0} g)
+  {H : Prod.{0, 0} Real Real → Real} {x z r : Real}
+  (hs : ContinuousOn.{0, 0} H (SProd.sprod.{0, 0, 0} (Metric.ball.{0} x r) (Metric.ball.{0} z r)))
+  (hi :
+    ∀ᵐ (a : Real) ∂MeasureTheory.Measure.restrict.{0} MeasureTheory.MeasureSpace.volume.{0} (Metric.ball.{0} x r),
+      ∀ᵐ (t : Real) ∂MeasureTheory.Measure.restrict.{0} MeasureTheory.MeasureSpace.volume.{0} (Metric.ball.{0} z r),
+        Eq.{1} (HAdd.hAdd.{0, 0, 0} (g a) (g (H (Prod.mk.{0, 0} a t))))
+          (HAdd.hAdd.{0, 0, 0} (g t) (g (HSub.hSub.{0, 0, 0} (HAdd.hAdd.{0, 0, 0} a (H (Prod.mk.{0, 0} a t))) t)))) :
+  ∀ᵐ (p :
+    Prod.{0, 0} Real
+      Real) ∂MeasureTheory.Measure.restrict.{0} MeasureTheory.MeasureSpace.volume.{0}
+      (SProd.sprod.{0, 0, 0} (Metric.ball.{0} x r) (Metric.ball.{0} z r)),
+    Eq.{1} (HAdd.hAdd.{0, 0, 0} (g p.1) (g (H p)))
+      (HAdd.hAdd.{0, 0, 0} (g p.2) (g (HSub.hSub.{0, 0, 0} (HAdd.hAdd.{0, 0, 0} p.1 (H p)) p.2)))
+Resonance.PinnedAERegularity.liftedInvariant_AE_smooth_representative {d : Real} (hd0 : LT.lt.{0} 0 d)
+  (hdU : LT.lt.{0} d (1 / 2)) (f : Real → Complex) (hf : AEMeasurable.{0, 0} f MeasureTheory.MeasureSpace.volume.{0})
+  (hi : Resonance.PinnedMeasure.liftedInvariant d f) :
+  ∃ g,
+    And (ContDiff.{0, 0, 0} Real (↑Top.top.{0}) g)
+      (Filter.EventuallyEq.{0, 0} (MeasureTheory.ae.{0, 0} MeasureTheory.MeasureSpace.volume.{0}) f g)
+Resonance.PinnedAERegularity.circleInvariant_AE_smooth_periodic_representative {d : Real} (hd0 : LT.lt.{0} 0 d)
+  (hdU : LT.lt.{0} d (1 / 2)) (φ : Resonance.PinnedPeriodicity.Circle → Complex)
+  (hφ : AEMeasurable.{0, 0} φ Resonance.PinnedCircleAE.circleVolume)
+  (hi : Resonance.PinnedPeriodicity.circleInvariant d φ) :
+  ∃ g,
+    And (ContDiff.{0, 0, 0} Real (↑Top.top.{0}) g)
+      (And
+        (Filter.EventuallyEq.{0, 0} (MeasureTheory.ae.{0, 0} MeasureTheory.MeasureSpace.volume.{0})
+          (Resonance.PinnedPeriodicity.periodicLift φ) g)
+        (Function.Periodic.{0, 0} g (HMul.hMul.{0, 0, 0} 2 Real.pi)))
+Resonance.PinnedEndToEnd.circleDispersion_coe (d x : Real) :
+  Eq.{1} (Resonance.PinnedEndToEnd.circleDispersion d ↑x)
+    (Real.sqrt (HSub.hSub.{0, 0, 0} 1 (HMul.hMul.{0, 0, 0} (HMul.hMul.{0, 0, 0} 2 d) (Real.cos x))))
+Resonance.PinnedEndToEnd.circleDispersion_continuous {d : Real} (hd0 : LT.lt.{0} 0 d) (hdU : LT.lt.{0} d (1 / 2)) :
+  Continuous.{0, 0} (Resonance.PinnedEndToEnd.circleDispersion d)
+Resonance.PinnedEndToEnd.aemeasurable_circleInvariant_lift_classification {d : Real} (hd0 : LT.lt.{0} 0 d)
+  (hdU : LT.lt.{0} d (1 / 2)) (φ : Resonance.PinnedPeriodicity.Circle → Complex)
+  (hφ : AEMeasurable.{0, 0} φ Resonance.PinnedCircleAE.circleVolume)
+  (hi : Resonance.PinnedPeriodicity.circleInvariant d φ) :
+  ∃ A B,
+    Filter.EventuallyEq.{0, 0} (MeasureTheory.ae.{0, 0} MeasureTheory.MeasureSpace.volume.{0})
+      (Resonance.PinnedPeriodicity.periodicLift φ) fun x =>
+      HAdd.hAdd.{0, 0, 0} A
+        (HMul.hMul.{0, 0, 0} B
+          ↑(Real.sqrt (HSub.hSub.{0, 0, 0} 1 (HMul.hMul.{0, 0, 0} (HMul.hMul.{0, 0, 0} 2 d) (Real.cos x)))))
+Resonance.PinnedEndToEnd.aemeasurable_circleInvariant_classification {d : Real} (hd0 : LT.lt.{0} 0 d)
+  (hdU : LT.lt.{0} d (1 / 2)) (φ : Resonance.PinnedPeriodicity.Circle → Complex)
+  (hφ : AEMeasurable.{0, 0} φ Resonance.PinnedCircleAE.circleVolume)
+  (hi : Resonance.PinnedPeriodicity.circleInvariant d φ) :
+  ∃ A B,
+    Filter.EventuallyEq.{0, 0} (MeasureTheory.ae.{0, 0} Resonance.PinnedCircleAE.circleVolume) φ fun k =>
+      HAdd.hAdd.{0, 0, 0} A (HMul.hMul.{0, 0, 0} B ↑(Resonance.PinnedEndToEnd.circleDispersion d k))
+Resonance.PinnedEndToEnd.measurable_circleInvariant_classification {d : Real} (hd0 : LT.lt.{0} 0 d)
+  (hdU : LT.lt.{0} d (1 / 2)) (φ : Resonance.PinnedPeriodicity.Circle → Complex) (hφ : Measurable.{0, 0} φ)
+  (hi : Resonance.PinnedPeriodicity.circleInvariant d φ) :
+  ∃ A B,
+    Filter.EventuallyEq.{0, 0} (MeasureTheory.ae.{0, 0} Resonance.PinnedCircleAE.circleVolume) φ fun k =>
+      HAdd.hAdd.{0, 0, 0} A (HMul.hMul.{0, 0, 0} B ↑(Resonance.PinnedEndToEnd.circleDispersion d k))
+Resonance.PinnedEndToEnd.affine_dispersion_full_resonance (d : Real) (A B : Complex) (x y z : Real)
+  (he : Eq.{1} (Resonance.PinnedGeometry.energyDefect d x y z) 0) :
+  Eq.{1}
+    (HAdd.hAdd.{0, 0, 0}
+      (HAdd.hAdd.{0, 0, 0} A (HMul.hMul.{0, 0, 0} B ↑(Resonance.PinnedEndToEnd.circleDispersion d ↑x)))
+      (HAdd.hAdd.{0, 0, 0} A (HMul.hMul.{0, 0, 0} B ↑(Resonance.PinnedEndToEnd.circleDispersion d ↑y))))
+    (HAdd.hAdd.{0, 0, 0}
+      (HAdd.hAdd.{0, 0, 0} A (HMul.hMul.{0, 0, 0} B ↑(Resonance.PinnedEndToEnd.circleDispersion d ↑z)))
+      (HAdd.hAdd.{0, 0, 0} A
+        (HMul.hMul.{0, 0, 0} B
+          ↑(Resonance.PinnedEndToEnd.circleDispersion d (HSub.hSub.{0, 0, 0} (HAdd.hAdd.{0, 0, 0} ↑x ↑y) ↑z)))))
+Resonance.PinnedMeasureNormalization.areaFactor_ne_zero : Ne.{1} Resonance.PinnedMeasureNormalization.areaFactor 0
+Resonance.PinnedMeasureNormalization.areaFactor_pos : LT.lt.{0} 0 Resonance.PinnedMeasureNormalization.areaFactor
+Resonance.PinnedMeasureNormalization.areaFactor_finite :
+  LT.lt.{0} (↑Resonance.PinnedMeasureNormalization.areaFactor) Top.top.{0}
+Resonance.PinnedMeasureNormalization.euclideanArea_eq_smul :
+  Eq.{1} (MeasureTheory.Measure.euclideanHausdorffMeasure.{0} 2)
+    (HSMul.hSMul.{0, 0, 0} (↑Resonance.PinnedMeasureNormalization.areaFactor)
+      (MeasureTheory.Measure.hausdorffMeasure.{0} 2))
+Resonance.PinnedMeasureNormalization.euclideanLiftedRegularCoarea_eq_smul (d : Real) :
+  Eq.{1} (Resonance.PinnedMeasureNormalization.euclideanLiftedRegularCoarea d)
+    (HSMul.hSMul.{0, 0, 0} (↑Resonance.PinnedMeasureNormalization.areaFactor)
+      (Resonance.PinnedMeasure.liftedRegularCoarea d))
+Resonance.PinnedMeasureNormalization.euclideanCellCoarea_eq_smul (d : Real) :
+  Eq.{1} (Resonance.PinnedMeasureNormalization.euclideanCellCoarea d)
+    (HSMul.hSMul.{0, 0, 0} (↑Resonance.PinnedMeasureNormalization.areaFactor)
+      (Resonance.PinnedPeriodicity.cellCoarea d))
+Resonance.PinnedMeasureNormalization.euclideanCircleRegularCoarea_eq_smul (d : Real) :
+  Eq.{1} (Resonance.PinnedMeasureNormalization.euclideanCircleRegularCoarea d)
+    (HSMul.hSMul.{0, 0, 0} (↑Resonance.PinnedMeasureNormalization.areaFactor)
+      (Resonance.PinnedPeriodicity.circleRegularCoarea d))
+Resonance.PinnedMeasureNormalization.lifted_coarea_mutually_absolutelyContinuous (d : Real) :
+  And
+    (MeasureTheory.Measure.AbsolutelyContinuous.{0}
+      (Resonance.PinnedMeasureNormalization.euclideanLiftedRegularCoarea d)
+      (Resonance.PinnedMeasure.liftedRegularCoarea d))
+    (MeasureTheory.Measure.AbsolutelyContinuous.{0} (Resonance.PinnedMeasure.liftedRegularCoarea d)
+      (Resonance.PinnedMeasureNormalization.euclideanLiftedRegularCoarea d))
+Resonance.PinnedMeasureNormalization.circle_coarea_mutually_absolutelyContinuous (d : Real) :
+  And
+    (MeasureTheory.Measure.AbsolutelyContinuous.{0}
+      (Resonance.PinnedMeasureNormalization.euclideanCircleRegularCoarea d)
+      (Resonance.PinnedPeriodicity.circleRegularCoarea d))
+    (MeasureTheory.Measure.AbsolutelyContinuous.{0} (Resonance.PinnedPeriodicity.circleRegularCoarea d)
+      (Resonance.PinnedMeasureNormalization.euclideanCircleRegularCoarea d))
+Resonance.PinnedMeasureNormalization.lifted_coarea_ae_iff (d : Real) (p : Resonance.PinnedMeasure.Ambient → Prop) :
+  Iff
+    (∀ᵐ (k : Resonance.PinnedMeasure.Ambient) ∂ Resonance.PinnedMeasureNormalization.euclideanLiftedRegularCoarea d,
+      p k)
+    (∀ᵐ (k : Resonance.PinnedMeasure.Ambient) ∂ Resonance.PinnedMeasure.liftedRegularCoarea d, p k)
+Resonance.PinnedMeasureNormalization.circle_coarea_ae_iff (d : Real)
+  (p : Resonance.PinnedPeriodicity.CircleMomenta → Prop) :
+  Iff
+    (∀ᵐ (k : Resonance.PinnedPeriodicity.CircleMomenta) ∂
+      Resonance.PinnedMeasureNormalization.euclideanCircleRegularCoarea d, p k)
+    (∀ᵐ (k : Resonance.PinnedPeriodicity.CircleMomenta) ∂ Resonance.PinnedPeriodicity.circleRegularCoarea d, p k)
+Resonance.PinnedMeasureNormalization.euclideanCircleInvariant_iff (d : Real)
+  (φ : Resonance.PinnedPeriodicity.Circle → Complex) :
+  Iff (Resonance.PinnedMeasureNormalization.euclideanCircleInvariant d φ)
+    (Resonance.PinnedPeriodicity.circleInvariant d φ)
+Resonance.PinnedClassificationFinal.circleHaar_univ :
+  Eq.{1} (Resonance.PinnedClassificationFinal.circleHaar Set.univ.{0}) 1
+Resonance.PinnedClassificationFinal.circleHaar_ae_iff (p : Resonance.PinnedPeriodicity.Circle → Prop) :
+  Iff (∀ᵐ (k : Resonance.PinnedPeriodicity.Circle) ∂ Resonance.PinnedClassificationFinal.circleHaar, p k)
+    (∀ᵐ (k : Resonance.PinnedPeriodicity.Circle) ∂ Resonance.PinnedCircleAE.circleVolume, p k)
+Resonance.PinnedClassificationFinal.circleHaar_mutually_absolutelyContinuous :
+  And
+    (MeasureTheory.Measure.AbsolutelyContinuous.{0} Resonance.PinnedClassificationFinal.circleHaar
+      Resonance.PinnedCircleAE.circleVolume)
+    (MeasureTheory.Measure.AbsolutelyContinuous.{0} Resonance.PinnedCircleAE.circleVolume
+      Resonance.PinnedClassificationFinal.circleHaar)
+Resonance.PinnedClassificationFinal.circleHaar_aemeasurable_iff (φ : Resonance.PinnedPeriodicity.Circle → Complex) :
+  Iff (AEMeasurable.{0, 0} φ Resonance.PinnedClassificationFinal.circleHaar)
+    (AEMeasurable.{0, 0} φ Resonance.PinnedCircleAE.circleVolume)
+Resonance.PinnedClassificationFinal.omega_zero_ne_pi {d : Real} (hd0 : LT.lt.{0} 0 d) (hdU : LT.lt.{0} d (1 / 2)) :
+  Ne.{1} (Resonance.PinnedGeometry.omega d 0) (Resonance.PinnedGeometry.omega d Real.pi)
+Resonance.PinnedClassificationFinal.affine_coefficients_unique {d : Real} (hd0 : LT.lt.{0} 0 d)
+  (hdU : LT.lt.{0} d (1 / 2)) {A B C D : Complex}
+  (he :
+    ∀ (x : Real),
+      Eq.{1} (HAdd.hAdd.{0, 0, 0} A (HMul.hMul.{0, 0, 0} B ↑(Resonance.PinnedGeometry.omega d x)))
+        (HAdd.hAdd.{0, 0, 0} C (HMul.hMul.{0, 0, 0} D ↑(Resonance.PinnedGeometry.omega d x)))) :
+  And (Eq.{1} A C) (Eq.{1} B D)
+Resonance.PinnedClassificationFinal.affine_lift_continuous {d : Real} (hd0 : LT.lt.{0} 0 d) (hdU : LT.lt.{0} d (1 / 2))
+  (A B : Complex) :
+  Continuous.{0, 0} fun x => HAdd.hAdd.{0, 0, 0} A (HMul.hMul.{0, 0, 0} B ↑(Resonance.PinnedGeometry.omega d x))
+Resonance.PinnedClassificationFinal.affine_coefficients_unique_ae {d : Real} (hd0 : LT.lt.{0} 0 d)
+  (hdU : LT.lt.{0} d (1 / 2)) {A B C D : Complex}
+  (he :
+    Filter.EventuallyEq.{0, 0} (MeasureTheory.ae.{0, 0} MeasureTheory.MeasureSpace.volume.{0})
+      (fun x => HAdd.hAdd.{0, 0, 0} A (HMul.hMul.{0, 0, 0} B ↑(Resonance.PinnedGeometry.omega d x))) fun x =>
+      HAdd.hAdd.{0, 0, 0} C (HMul.hMul.{0, 0, 0} D ↑(Resonance.PinnedGeometry.omega d x))) :
+  And (Eq.{1} A C) (Eq.{1} B D)
+Resonance.PinnedClassificationFinal.affine_circle_coefficients_unique_ae {d : Real} (hd0 : LT.lt.{0} 0 d)
+  (hdU : LT.lt.{0} d (1 / 2)) {A B C D : Complex}
+  (he :
+    Filter.EventuallyEq.{0, 0} (MeasureTheory.ae.{0, 0} Resonance.PinnedClassificationFinal.circleHaar)
+      (fun k => HAdd.hAdd.{0, 0, 0} A (HMul.hMul.{0, 0, 0} B ↑(Resonance.PinnedEndToEnd.circleDispersion d k))) fun k =>
+      HAdd.hAdd.{0, 0, 0} C (HMul.hMul.{0, 0, 0} D ↑(Resonance.PinnedEndToEnd.circleDispersion d k))) :
+  And (Eq.{1} A C) (Eq.{1} B D)
+Resonance.PinnedClassificationFinal.euclidean_coarea_classification_unique {d : Real} (hd0 : LT.lt.{0} 0 d)
+  (hdU : LT.lt.{0} d (1 / 2)) (φ : Resonance.PinnedPeriodicity.Circle → Complex)
+  (hφ : AEMeasurable.{0, 0} φ Resonance.PinnedClassificationFinal.circleHaar)
+  (hi : Resonance.PinnedMeasureNormalization.euclideanCircleInvariant d φ) :
+  ExistsUnique.{1} fun AB =>
+    Filter.EventuallyEq.{0, 0} (MeasureTheory.ae.{0, 0} Resonance.PinnedClassificationFinal.circleHaar) φ fun k =>
+      HAdd.hAdd.{0, 0, 0} AB.1 (HMul.hMul.{0, 0, 0} AB.2 ↑(Resonance.PinnedEndToEnd.circleDispersion d k))
+Resonance.PinnedClassificationFinal.affine_lift_smooth {d : Real} (hd0 : LT.lt.{0} 0 d) (hdU : LT.lt.{0} d (1 / 2))
+  (A B : Complex) :
+  ContDiff.{0, 0, 0} Real ↑Top.top.{0} fun x =>
+    HAdd.hAdd.{0, 0, 0} A (HMul.hMul.{0, 0, 0} B ↑(Resonance.PinnedGeometry.omega d x))
+Resonance.PinnedClassificationFinal.affine_lift_periodic (d : Real) (A B : Complex) :
+  Function.Periodic.{0, 0}
+    (fun x => HAdd.hAdd.{0, 0, 0} A (HMul.hMul.{0, 0, 0} B ↑(Resonance.PinnedGeometry.omega d x)))
+    Resonance.PinnedPeriodicity.period
+Resonance.PinnedClassificationFinal.euclidean_coarea_unique_smooth_representative {d : Real} (hd0 : LT.lt.{0} 0 d)
+  (hdU : LT.lt.{0} d (1 / 2)) (φ : Resonance.PinnedPeriodicity.Circle → Complex)
+  (hφ : AEMeasurable.{0, 0} φ Resonance.PinnedClassificationFinal.circleHaar)
+  (hi : Resonance.PinnedMeasureNormalization.euclideanCircleInvariant d φ) :
+  ExistsUnique.{1} fun g =>
+    And (ContDiff.{0, 0, 0} Real (↑Top.top.{0}) g)
+      (And (Function.Periodic.{0, 0} g Resonance.PinnedPeriodicity.period)
+        (Filter.EventuallyEq.{0, 0} (MeasureTheory.ae.{0, 0} MeasureTheory.MeasureSpace.volume.{0})
+          (Resonance.PinnedPeriodicity.periodicLift φ) g))
+Resonance.PinnedClassificationFinal.affine_representative_all_resonances (d : Real) (A B : Complex) (x y z : Real)
+  (he : Eq.{1} (Resonance.PinnedGeometry.energyDefect d x y z) 0) :
+  Eq.{1}
+    (HAdd.hAdd.{0, 0, 0} (HAdd.hAdd.{0, 0, 0} A (HMul.hMul.{0, 0, 0} B ↑(Resonance.PinnedGeometry.omega d x)))
+      (HAdd.hAdd.{0, 0, 0} A (HMul.hMul.{0, 0, 0} B ↑(Resonance.PinnedGeometry.omega d y))))
+    (HAdd.hAdd.{0, 0, 0} (HAdd.hAdd.{0, 0, 0} A (HMul.hMul.{0, 0, 0} B ↑(Resonance.PinnedGeometry.omega d z)))
+      (HAdd.hAdd.{0, 0, 0} A
+        (HMul.hMul.{0, 0, 0} B ↑(Resonance.PinnedGeometry.omega d (HSub.hSub.{0, 0, 0} (HAdd.hAdd.{0, 0, 0} x y) z)))))
+Resonance.PinnedClassificationFinal.affine_representative_euclidean_invariant {d : Real} (hd0 : LT.lt.{0} 0 d)
+  (hdU : LT.lt.{0} d (1 / 2)) (A B : Complex) :
+  Resonance.PinnedMeasureNormalization.euclideanCircleInvariant d fun k =>
+    HAdd.hAdd.{0, 0, 0} A (HMul.hMul.{0, 0, 0} B ↑(Resonance.PinnedEndToEnd.circleDispersion d k))
+Resonance.PinnedClassificationFinal.affine_coefficients_real_of_ae {d : Real} (hd0 : LT.lt.{0} 0 d)
+  (hdU : LT.lt.{0} d (1 / 2)) {A B : Complex}
+  (hreal :
+    ∀ᵐ (k : Resonance.PinnedPeriodicity.Circle) ∂ Resonance.PinnedClassificationFinal.circleHaar,
+      Eq.{1}
+        (Complex.im (HAdd.hAdd.{0, 0, 0} A (HMul.hMul.{0, 0, 0} B ↑(Resonance.PinnedEndToEnd.circleDispersion d k))))
+        0) :
+  And (Eq.{1} (Complex.im A) 0) (Eq.{1} (Complex.im B) 0)
+Resonance.PinnedClassificationFinal.euclidean_coarea_classification_real {d : Real} (hd0 : LT.lt.{0} 0 d)
+  (hdU : LT.lt.{0} d (1 / 2)) (φ : Resonance.PinnedPeriodicity.Circle → Real)
+  (hφ : AEMeasurable.{0, 0} φ Resonance.PinnedClassificationFinal.circleHaar)
+  (hi : Resonance.PinnedMeasureNormalization.euclideanCircleInvariant d fun k => ↑(φ k)) :
+  ExistsUnique.{1} fun AB =>
+    Filter.EventuallyEq.{0, 0} (MeasureTheory.ae.{0, 0} Resonance.PinnedClassificationFinal.circleHaar) φ fun k =>
+      HAdd.hAdd.{0, 0, 0} AB.1 (HMul.hMul.{0, 0, 0} AB.2 (Resonance.PinnedEndToEnd.circleDispersion d k))
+Resonance.PinnedClassificationFinal.euclidean_coarea_classification_unique {d : Real}
+  (hd0 : @LT.lt.{0} Real Real.instLT (@OfNat.ofNat.{0} Real (nat_lit 0) (@Zero.toOfNat0.{0} Real Real.instZero)) d)
+  (hdU :
+    @LT.lt.{0} Real Real.instLT d
+      (@HDiv.hDiv.{0, 0, 0} Real Real Real (@instHDiv.{0} Real (@DivInvMonoid.toDiv.{0} Real Real.instDivInvMonoid))
+        (@OfNat.ofNat.{0} Real (nat_lit 1) (@One.toOfNat1.{0} Real Real.instOne))
+        (@OfNat.ofNat.{0} Real (nat_lit 2) (@instOfNatAtLeastTwo.{0} Real (nat_lit 2) Real.instNatCast ⋯))))
+  (φ : Resonance.PinnedPeriodicity.Circle → Complex)
+  (hφ :
+    @AEMeasurable.{0, 0} Resonance.PinnedPeriodicity.Circle Complex Complex.measurableSpace
+      (@QuotientAddGroup.measurableSpace.{0} Real (@AddCommGroup.toAddGroup.{0} Real Real.instAddCommGroup)
+        Real.measurableSpace
+        (@AddSubgroup.zmultiples.{0} Real (@AddCommGroup.toAddGroup.{0} Real Real.instAddCommGroup)
+          Resonance.PinnedPeriodicity.period))
+      φ Resonance.PinnedClassificationFinal.circleHaar)
+  (hi : Resonance.PinnedMeasureNormalization.euclideanCircleInvariant d φ) :
+  @ExistsUnique.{1} (Prod.{0, 0} Complex Complex) fun AB =>
+    @Filter.EventuallyEq.{0, 0} Resonance.PinnedPeriodicity.Circle Complex
+      (@MeasureTheory.ae.{0, 0} Resonance.PinnedPeriodicity.Circle
+        (@MeasureTheory.Measure.{0} Resonance.PinnedPeriodicity.Circle
+          (@QuotientAddGroup.measurableSpace.{0} Real (@AddCommGroup.toAddGroup.{0} Real Real.instAddCommGroup)
+            Real.measurableSpace
+            (@AddSubgroup.zmultiples.{0} Real (@AddCommGroup.toAddGroup.{0} Real Real.instAddCommGroup)
+              Resonance.PinnedPeriodicity.period)))
+        (@MeasureTheory.Measure.instFunLike.{0} Resonance.PinnedPeriodicity.Circle
+          (@QuotientAddGroup.measurableSpace.{0} Real (@AddCommGroup.toAddGroup.{0} Real Real.instAddCommGroup)
+            Real.measurableSpace
+            (@AddSubgroup.zmultiples.{0} Real (@AddCommGroup.toAddGroup.{0} Real Real.instAddCommGroup)
+              Resonance.PinnedPeriodicity.period)))
+        ⋯ Resonance.PinnedClassificationFinal.circleHaar)
+      φ fun k =>
+      @HAdd.hAdd.{0, 0, 0} Complex Complex Complex (@instHAdd.{0} Complex Complex.instAdd)
+        (@Prod.fst.{0, 0} Complex Complex AB)
+        (@HMul.hMul.{0, 0, 0} Complex Complex Complex (@instHMul.{0} Complex Complex.instMul)
+          (@Prod.snd.{0, 0} Complex Complex AB) ↑(Resonance.PinnedEndToEnd.circleDispersion d k))
+Resonance.PinnedClassificationFinal.euclidean_coarea_unique_smooth_representative {d : Real}
+  (hd0 : @LT.lt.{0} Real Real.instLT (@OfNat.ofNat.{0} Real (nat_lit 0) (@Zero.toOfNat0.{0} Real Real.instZero)) d)
+  (hdU :
+    @LT.lt.{0} Real Real.instLT d
+      (@HDiv.hDiv.{0, 0, 0} Real Real Real (@instHDiv.{0} Real (@DivInvMonoid.toDiv.{0} Real Real.instDivInvMonoid))
+        (@OfNat.ofNat.{0} Real (nat_lit 1) (@One.toOfNat1.{0} Real Real.instOne))
+        (@OfNat.ofNat.{0} Real (nat_lit 2) (@instOfNatAtLeastTwo.{0} Real (nat_lit 2) Real.instNatCast ⋯))))
+  (φ : Resonance.PinnedPeriodicity.Circle → Complex)
+  (hφ :
+    @AEMeasurable.{0, 0} Resonance.PinnedPeriodicity.Circle Complex Complex.measurableSpace
+      (@QuotientAddGroup.measurableSpace.{0} Real (@AddCommGroup.toAddGroup.{0} Real Real.instAddCommGroup)
+        Real.measurableSpace
+        (@AddSubgroup.zmultiples.{0} Real (@AddCommGroup.toAddGroup.{0} Real Real.instAddCommGroup)
+          Resonance.PinnedPeriodicity.period))
+      φ Resonance.PinnedClassificationFinal.circleHaar)
+  (hi : Resonance.PinnedMeasureNormalization.euclideanCircleInvariant d φ) :
+  @ExistsUnique.{1} (Real → Complex) fun g =>
+    And
+      (@ContDiff.{0, 0, 0} Real (@DenselyNormedField.toNontriviallyNormedField.{0} Real Real.denselyNormedField) Real
+        Real.normedAddCommGroup
+        (@InnerProductSpace.toNormedSpace.{0, 0} Real Real Real.instRCLike
+          (@NormedAddCommGroup.toSeminormedAddCommGroup.{0} Real Real.normedAddCommGroup)
+          (@RCLike.toInnerProductSpaceReal.{0} Real Real.instRCLike))
+        Complex Complex.instNormedAddCommGroup
+        (@InnerProductSpace.toNormedSpace.{0, 0} Real Complex Real.instRCLike
+          (@NormedAddCommGroup.toSeminormedAddCommGroup.{0} Complex Complex.instNormedAddCommGroup)
+          instInnerProductSpaceRealComplex)
+        (@WithTop.some.{0} ENat (@Top.top.{0} ENat instTopENat)) g)
+      (And (@Function.Periodic.{0, 0} Real Complex Real.instAdd g Resonance.PinnedPeriodicity.period)
+        (@Filter.EventuallyEq.{0, 0} Real Complex
+          (@MeasureTheory.ae.{0, 0} Real
+            (@MeasureTheory.Measure.{0} Real (@MeasureTheory.MeasureSpace.toMeasurableSpace.{0} Real Real.measureSpace))
+            (@MeasureTheory.Measure.instFunLike.{0} Real
+              (@MeasureTheory.MeasureSpace.toMeasurableSpace.{0} Real Real.measureSpace))
+            ⋯ (@MeasureTheory.MeasureSpace.volume.{0} Real Real.measureSpace))
+          (Resonance.PinnedPeriodicity.periodicLift φ) g))
+Resonance.PinnedClassificationFinal.euclidean_coarea_classification_real {d : Real}
+  (hd0 : @LT.lt.{0} Real Real.instLT (@OfNat.ofNat.{0} Real (nat_lit 0) (@Zero.toOfNat0.{0} Real Real.instZero)) d)
+  (hdU :
+    @LT.lt.{0} Real Real.instLT d
+      (@HDiv.hDiv.{0, 0, 0} Real Real Real (@instHDiv.{0} Real (@DivInvMonoid.toDiv.{0} Real Real.instDivInvMonoid))
+        (@OfNat.ofNat.{0} Real (nat_lit 1) (@One.toOfNat1.{0} Real Real.instOne))
+        (@OfNat.ofNat.{0} Real (nat_lit 2) (@instOfNatAtLeastTwo.{0} Real (nat_lit 2) Real.instNatCast ⋯))))
+  (φ : Resonance.PinnedPeriodicity.Circle → Real)
+  (hφ :
+    @AEMeasurable.{0, 0} Resonance.PinnedPeriodicity.Circle Real Real.measurableSpace
+      (@QuotientAddGroup.measurableSpace.{0} Real (@AddCommGroup.toAddGroup.{0} Real Real.instAddCommGroup)
+        Real.measurableSpace
+        (@AddSubgroup.zmultiples.{0} Real (@AddCommGroup.toAddGroup.{0} Real Real.instAddCommGroup)
+          Resonance.PinnedPeriodicity.period))
+      φ Resonance.PinnedClassificationFinal.circleHaar)
+  (hi : Resonance.PinnedMeasureNormalization.euclideanCircleInvariant d fun k => ↑(φ k)) :
+  @ExistsUnique.{1} (Prod.{0, 0} Real Real) fun AB =>
+    @Filter.EventuallyEq.{0, 0} Resonance.PinnedPeriodicity.Circle Real
+      (@MeasureTheory.ae.{0, 0} Resonance.PinnedPeriodicity.Circle
+        (@MeasureTheory.Measure.{0} Resonance.PinnedPeriodicity.Circle
+          (@QuotientAddGroup.measurableSpace.{0} Real (@AddCommGroup.toAddGroup.{0} Real Real.instAddCommGroup)
+            Real.measurableSpace
+            (@AddSubgroup.zmultiples.{0} Real (@AddCommGroup.toAddGroup.{0} Real Real.instAddCommGroup)
+              Resonance.PinnedPeriodicity.period)))
+        (@MeasureTheory.Measure.instFunLike.{0} Resonance.PinnedPeriodicity.Circle
+          (@QuotientAddGroup.measurableSpace.{0} Real (@AddCommGroup.toAddGroup.{0} Real Real.instAddCommGroup)
+            Real.measurableSpace
+            (@AddSubgroup.zmultiples.{0} Real (@AddCommGroup.toAddGroup.{0} Real Real.instAddCommGroup)
+              Resonance.PinnedPeriodicity.period)))
+        ⋯ Resonance.PinnedClassificationFinal.circleHaar)
+      φ fun k =>
+      @HAdd.hAdd.{0, 0, 0} Real Real Real (@instHAdd.{0} Real Real.instAdd) (@Prod.fst.{0, 0} Real Real AB)
+        (@HMul.hMul.{0, 0, 0} Real Real Real (@instHMul.{0} Real Real.instMul) (@Prod.snd.{0, 0} Real Real AB)
+          (Resonance.PinnedEndToEnd.circleDispersion d k))
+Resonance.PinnedClassificationFinal.affine_representative_all_resonances (d : Real) (A B : Complex) (x y z : Real)
+  (he :
+    @Eq.{1} Real (Resonance.PinnedGeometry.energyDefect d x y z)
+      (@OfNat.ofNat.{0} Real (nat_lit 0) (@Zero.toOfNat0.{0} Real Real.instZero))) :
+  @Eq.{1} Complex
+    (@HAdd.hAdd.{0, 0, 0} Complex Complex Complex (@instHAdd.{0} Complex Complex.instAdd)
+      (@HAdd.hAdd.{0, 0, 0} Complex Complex Complex (@instHAdd.{0} Complex Complex.instAdd) A
+        (@HMul.hMul.{0, 0, 0} Complex Complex Complex (@instHMul.{0} Complex Complex.instMul) B
+          ↑(Resonance.PinnedGeometry.omega d x)))
+      (@HAdd.hAdd.{0, 0, 0} Complex Complex Complex (@instHAdd.{0} Complex Complex.instAdd) A
+        (@HMul.hMul.{0, 0, 0} Complex Complex Complex (@instHMul.{0} Complex Complex.instMul) B
+          ↑(Resonance.PinnedGeometry.omega d y))))
+    (@HAdd.hAdd.{0, 0, 0} Complex Complex Complex (@instHAdd.{0} Complex Complex.instAdd)
+      (@HAdd.hAdd.{0, 0, 0} Complex Complex Complex (@instHAdd.{0} Complex Complex.instAdd) A
+        (@HMul.hMul.{0, 0, 0} Complex Complex Complex (@instHMul.{0} Complex Complex.instMul) B
+          ↑(Resonance.PinnedGeometry.omega d z)))
+      (@HAdd.hAdd.{0, 0, 0} Complex Complex Complex (@instHAdd.{0} Complex Complex.instAdd) A
+        (@HMul.hMul.{0, 0, 0} Complex Complex Complex (@instHMul.{0} Complex Complex.instMul) B
+          ↑(Resonance.PinnedGeometry.omega d
+              (@HSub.hSub.{0, 0, 0} Real Real Real (@instHSub.{0} Real Real.instSub)
+                (@HAdd.hAdd.{0, 0, 0} Real Real Real (@instHAdd.{0} Real Real.instAdd) x y) z)))))
+Resonance.PinnedClassificationFinal.affine_representative_euclidean_invariant {d : Real}
+  (hd0 : @LT.lt.{0} Real Real.instLT (@OfNat.ofNat.{0} Real (nat_lit 0) (@Zero.toOfNat0.{0} Real Real.instZero)) d)
+  (hdU :
+    @LT.lt.{0} Real Real.instLT d
+      (@HDiv.hDiv.{0, 0, 0} Real Real Real (@instHDiv.{0} Real (@DivInvMonoid.toDiv.{0} Real Real.instDivInvMonoid))
+        (@OfNat.ofNat.{0} Real (nat_lit 1) (@One.toOfNat1.{0} Real Real.instOne))
+        (@OfNat.ofNat.{0} Real (nat_lit 2) (@instOfNatAtLeastTwo.{0} Real (nat_lit 2) Real.instNatCast ⋯))))
+  (A B : Complex) :
+  Resonance.PinnedMeasureNormalization.euclideanCircleInvariant d fun k =>
+    @HAdd.hAdd.{0, 0, 0} Complex Complex Complex (@instHAdd.{0} Complex Complex.instAdd) A
+      (@HMul.hMul.{0, 0, 0} Complex Complex Complex (@instHMul.{0} Complex Complex.instMul) B
+        ↑(Resonance.PinnedEndToEnd.circleDispersion d k))

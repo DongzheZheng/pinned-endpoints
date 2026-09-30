@@ -1,0 +1,63 @@
+{
+  "repository": "https://github.com/veridiscoverLab/resonance-kinetic-lean",
+  "commit": "7afa3fa2d2c3c46023cd863ab26ac32352995578",
+  "root_module": "Resonance.PinnedClassificationFinal",
+  "project_module_count": 21,
+  "source_theorem_count": 232,
+  "local_lean_execution": false,
+  "server_lean_execution": true,
+  "new_proof_assistant_verification": true,
+  "upstream_manifest_sha256": "823f36d3fbab78f78272582cf5b411a419344f504b731835bbbb6523cba72c54",
+  "unchanged_upstream_files": {
+    "Resonance/PinnedGeometry.lean": "6e3471f62e8377b9ac391201e3b9432f476bcb89b22c5bd2b579a0213a2e7de4",
+    "Resonance/PinnedCharts.lean": "a59ab8c4bb2b6c6a0cbd8ad2b1afefb189572d0455047dc0ebd3e473d10d9dc7",
+    "Resonance/PinnedMeasure.lean": "f39f931d68e87380c5d95c22bb665504cec04c5aed6be7fdd53aaed7ff35569a",
+    "Resonance/PinnedJacobian.lean": "cb46c6fc3b87a9c06041a98145787b38baa54b1e77faea84c88aa496ec8aa506",
+    "Resonance/PinnedPeriodicity.lean": "262a0a1c9b5e3de0e799a84a82ac4ffa058419ffec2d6a34ee24a0f8b557938b",
+    "Resonance/PinnedMeasurable.lean": "9b26f3ac182182a0194bb29c26d33d3ea7e8e60ae740a87830fb8cffc380bf4b",
+    "Resonance/PinnedElimination.lean": "b5b9983e3a69f9070109869bbb7d9b66bacc86c24b62f063be036476dd218ea7",
+    "Resonance/PinnedODE.lean": "ecdc4978a8203248775eaec3dc1c6350c0539b6db2b141f1548c55a79007adce",
+    "Resonance/PinnedClassification.lean": "8e8aae9456f8d20a48a19f24381b494230610baad4624f67dc1a481151706a6e",
+    "Resonance/PinnedSmoothing.lean": "208bd06c82d72a09350da19782be220cff1abe25d5799a047fc3d3314126229e",
+    "Resonance/PinnedAveraging.lean": "ced6d1fcce74ada6b5f31955a70f6eb388f208f26957c6cfea26d32fc113f6e5",
+    "Resonance/PinnedLocalSmooth.lean": "9c38f4c880a43d6cb8218369cc865d373cb6753fe77dc50bee68263451be5a17",
+    "Resonance/PinnedRepresentatives.lean": "0a9551508fa3880b36db1ecf57fa36263a4a4822505243b050f9120f6fa848b5",
+    "Resonance/PinnedGlobalRegularity.lean": "3b2686484defe272817890d797b602d4fcabd5c054e773da2e323744aea2d24f",
+    "Resonance/PinnedInvariantTransfer.lean": "26b55402d5d3fd9df739ef6a817f2f1af8da294dd61e4108bbbde62e01db67bb",
+    "Resonance/PinnedCircleAE.lean": "8ff6157dc4244f51be8b1a5c9aa6dba0f2d7624b3ea0436720ae1b6070496395",
+    "Resonance/PinnedAERegularity.lean": "9b8d467351066f41d7638184d7f3f6bf2516609dabad842cdeb4c5fcebe1ff8c",
+    "Resonance/PinnedEndToEnd.lean": "889db49eed46181d80af2d4bc3bf32cf1d8833bea907969b07f266c8bcee20bc",
+    "Resonance/PinnedMeasureNormalization.lean": "23de1115243c76dbb095b20c667dff2036ab5ccd68a3c22f3559562ba1e5ac4f",
+    "Resonance/PinnedClassificationFinal.lean": "151a2d20e9d1758795b61f1362de00ab3223d9b0565a8865d809957f130e406a",
+    "lakefile.toml": "c01c65c72f99b81c38d4b43539fc1bd5bc8e01156eb00a86e40e38f7a56cbcd0",
+    "lake-manifest.json": "14fa517a368f6f657556121f19a47963024756e72ffa0807fe9359e0521ede65",
+    "lean-toolchain": "651c8accb402b0c071cd336e9d3dc0a55516b1bfb434ddc4801f14936785b1d2"
+  },
+  "generated_file": "Resonance.lean (only imports the selected module closure)",
+  "verifier_change": "EXPECTED_MODULES 690 -> 21; add Linux + PINNED_LEAN_SERVER=1 guard before Lean execution and record five main-root axiom outputs; matching source-only tests.",
+  "closure_level": "Original 21-module import closure with the shared Collision module trimmed at declaration level. The 20 Pinned modules are byte-identical to the frozen upstream commit; no claim of global declaration-minimality.",
+  "modified_upstream_files": {
+    "Resonance/Collision.lean": {
+      "upstream_sha256": "dd83fac398d22f137a3253641edc98bd958ccac6cb292162c4fa5ba86848f769",
+      "extracted_sha256": "3ea248048b4a3dff7409ca752cd3a1448b3baac42a378287a2cb85ba48554b60",
+      "retained_definition": "Resonance.Collision.pinnedDispersion",
+      "retained_definition_verbatim": true,
+      "removed_explicit_theorems": 24,
+      "reason": "Remove all unused quartet/entropy algebra and three-dimensional momentum/energy declarations."
+    }
+  },
+  "verification_evidence_policy": "Historical records for the untrimmed package are not included and do not certify this changed snapshot. New server evidence must match this manifest and source hashes.",
+  "server_verification": {
+    "status": "PASS_FOR_FROZEN_DECLARATIONS_ONLY",
+    "host_alias": "cab75",
+    "result_file": "verification/server/result.json",
+    "manifest_sha256": "f4e50292bc58344a738958811b05927299d42197358ce2f9ee081596eeec4a2a",
+    "project_build_seconds": 56.708,
+    "listed_theorem_count": 232,
+    "actual_root_count": 349,
+    "actual_constant_count": 52659,
+    "fresh_replay": "not_requested",
+    "main_theorem_axioms": "All five main roots: propext, Classical.choice, Quot.sound",
+    "local_lean_executed": false
+  }
+}

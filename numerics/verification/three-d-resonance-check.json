@@ -1,0 +1,22 @@
+[
+  {
+    "d": 0.25,
+    "points": 10000,
+    "max_energy_residual": 5.551115123125783e-16,
+    "max_swap_symmetry_residual": 0.0,
+    "max_reflection_residual": 0.0,
+    "max_pairing_line_residual": 0.0,
+    "s_over_pi_min": 0.4136540654256825,
+    "s_over_pi_max": 0.5863459345743175
+  },
+  {
+    "d": 0.025,
+    "points": 10000,
+    "max_energy_residual": 4.440892098500626e-16,
+    "max_swap_symmetry_residual": 0.0,
+    "max_reflection_residual": 0.0,
+    "max_pairing_line_residual": 0.0,
+    "s_over_pi_min": 0.4920364423035953,
+    "s_over_pi_max": 0.5079635576964048
+  }
+]

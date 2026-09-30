@@ -1,0 +1,290 @@
+{
+  "status": "passed",
+  "rtol": 5e-08,
+  "atol": 5e-11,
+  "output_dir": "external QA directory: output/qa-clean-repo/numerics-results",
+  "qualification": "Numerical regression only; no certified continuum error or gap lower bound.",
+  "csv": [
+    {
+      "file": "ritz_spectra.csv",
+      "rows": 162,
+      "columns": [
+        "d",
+        "epsilon",
+        "M",
+        "n",
+        "convention",
+        "eigen_index",
+        "ritz",
+        "energy_residual"
+      ],
+      "comparisons": [
+        {
+          "column": "d",
+          "maximum_absolute_difference": 0.0
+        },
+        {
+          "column": "epsilon",
+          "maximum_absolute_difference": 0.0
+        },
+        {
+          "column": "M",
+          "maximum_absolute_difference": 0.0
+        },
+        {
+          "column": "n",
+          "maximum_absolute_difference": 0.0
+        },
+        {
+          "column": "eigen_index",
+          "maximum_absolute_difference": 0.0
+        },
+        {
+          "column": "ritz",
+          "maximum_absolute_difference": 0.0
+        },
+        {
+          "column": "energy_residual",
+          "maximum_absolute_difference": 0.0
+        }
+      ]
+    },
+    {
+      "file": "trial_quotients.csv",
+      "rows": 18,
+      "columns": [
+        "d",
+        "epsilon",
+        "M",
+        "n",
+        "trial",
+        "convention",
+        "quotient"
+      ],
+      "comparisons": [
+        {
+          "column": "d",
+          "maximum_absolute_difference": 0.0
+        },
+        {
+          "column": "epsilon",
+          "maximum_absolute_difference": 0.0
+        },
+        {
+          "column": "M",
+          "maximum_absolute_difference": 0.0
+        },
+        {
+          "column": "n",
+          "maximum_absolute_difference": 0.0
+        },
+        {
+          "column": "quotient",
+          "maximum_absolute_difference": 0.0
+        }
+      ]
+    },
+    {
+      "file": "linear_response_times.csv",
+      "rows": 4184,
+      "columns": [
+        "d",
+        "M",
+        "n",
+        "time_grid",
+        "t",
+        "tau",
+        "u",
+        "C2_normalized"
+      ],
+      "comparisons": [
+        {
+          "column": "d",
+          "maximum_absolute_difference": 0.0
+        },
+        {
+          "column": "M",
+          "maximum_absolute_difference": 0.0
+        },
+        {
+          "column": "n",
+          "maximum_absolute_difference": 0.0
+        },
+        {
+          "column": "t",
+          "maximum_absolute_difference": 0.0
+        },
+        {
+          "column": "tau",
+          "maximum_absolute_difference": 0.0
+        },
+        {
+          "column": "u",
+          "maximum_absolute_difference": 0.0
+        },
+        {
+          "column": "C2_normalized",
+          "maximum_absolute_difference": 0.0
+        }
+      ]
+    },
+    {
+      "file": "linear_response_spectral_weights.csv",
+      "rows": 216,
+      "columns": [
+        "d",
+        "M",
+        "n",
+        "eigen_index",
+        "rate",
+        "rate_over_d",
+        "C2_normalized_weight",
+        "C2_raw_weight",
+        "mirror_antisymmetric_G_norm"
+      ],
+      "comparisons": [
+        {
+          "column": "d",
+          "maximum_absolute_difference": 0.0
+        },
+        {
+          "column": "M",
+          "maximum_absolute_difference": 0.0
+        },
+        {
+          "column": "n",
+          "maximum_absolute_difference": 0.0
+        },
+        {
+          "column": "eigen_index",
+          "maximum_absolute_difference": 0.0
+        },
+        {
+          "column": "rate",
+          "maximum_absolute_difference": 0.0
+        },
+        {
+          "column": "rate_over_d",
+          "maximum_absolute_difference": 0.0
+        },
+        {
+          "column": "C2_normalized_weight",
+          "maximum_absolute_difference": 0.0
+        },
+        {
+          "column": "C2_raw_weight",
+          "maximum_absolute_difference": 0.0
+        },
+        {
+          "column": "mirror_antisymmetric_G_norm",
+          "maximum_absolute_difference": 0.0
+        }
+      ]
+    }
+  ],
+  "reconstruction": [
+    {
+      "array": "d",
+      "maximum_absolute_difference": 0.0
+    },
+    {
+      "array": "M",
+      "maximum_absolute_difference": 0.0
+    },
+    {
+      "array": "n",
+      "maximum_absolute_difference": 0.0
+    },
+    {
+      "array": "eta",
+      "maximum_absolute_difference": 0.0
+    },
+    {
+      "array": "mass_count",
+      "maximum_absolute_difference": 0.0
+    },
+    {
+      "array": "x",
+      "maximum_absolute_difference": 0.0
+    },
+    {
+      "array": "tau",
+      "maximum_absolute_difference": 0.0
+    },
+    {
+      "array": "equilibrium",
+      "maximum_absolute_difference": 0.0
+    },
+    {
+      "array": "W_plus",
+      "maximum_absolute_difference": 0.0
+    },
+    {
+      "array": "W_minus",
+      "maximum_absolute_difference": 0.0
+    },
+    {
+      "array": "relative_distortion",
+      "maximum_absolute_difference": 0.0
+    },
+    {
+      "array": "coefficients",
+      "maximum_absolute_difference": 0.0
+    },
+    {
+      "array": "mass",
+      "maximum_absolute_difference": 0.0
+    },
+    {
+      "array": "dissipation",
+      "maximum_absolute_difference": 0.0
+    },
+    {
+      "array": "rates",
+      "maximum_absolute_difference": 0.0
+    },
+    {
+      "array": "initial_coefficients",
+      "maximum_absolute_difference": 0.0
+    },
+    {
+      "array": "normalized_weights",
+      "maximum_absolute_difference": 0.0
+    },
+    {
+      "array": "projection_coefficients",
+      "maximum_absolute_difference": 0.0
+    },
+    {
+      "array": "C2",
+      "maximum_absolute_difference": 0.0
+    },
+    {
+      "array": "quadratic_entropy_ratio",
+      "maximum_absolute_difference": 0.0
+    }
+  ],
+  "eigenvector_sign_dependent_arrays_excluded": [
+    "eigenvectors",
+    "spectral_amplitudes"
+  ],
+  "regenerated_figures": [
+    "collision_memory_picture.pdf",
+    "collision_memory_picture.png",
+    "resonance_geometry_3d.pdf",
+    "resonance_geometry_3d.png",
+    "preparation_memory_3d.pdf",
+    "preparation_memory_3d.png",
+    "weak_time_response.pdf",
+    "weak_time_response.png",
+    "weak_physical_memory.pdf",
+    "weak_physical_memory.png"
+  ],
+  "checked_at_utc": "2026-09-30",
+  "python_environment": "Python 3.14.2; locked requirements.txt",
+  "maximum_csv_absolute_difference": 0.0,
+  "maximum_reconstruction_absolute_difference": 0.0,
+  "all_five_regenerated_pngs_byte_identical": true,
+  "visual_review": "All five regenerated figures inspected; no clipping or overlapping labels observed.",
+  "local_lean_executed": false
+}

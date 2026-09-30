@@ -1,0 +1,15 @@
+'Resonance.PinnedClassificationFinal.euclidean_coarea_classification_unique' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'Resonance.PinnedClassificationFinal.euclidean_coarea_unique_smooth_representative' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'Resonance.PinnedClassificationFinal.euclidean_coarea_classification_real' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'Resonance.PinnedClassificationFinal.affine_representative_all_resonances' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'Resonance.PinnedClassificationFinal.affine_representative_euclidean_invariant' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]

@@ -1,0 +1,159 @@
+{
+  "schema_version": 1,
+  "utc": "20260930T020528.490922Z",
+  "status": "PASS_FOR_FROZEN_DECLARATIONS_ONLY",
+  "verification_mode": "default",
+  "whole_paper_end_to_end_verified": false,
+  "source_equivalence": true,
+  "historical_evidence_used_as_runtime_result": false,
+  "fresh_replay": "not_requested",
+  "commands": [
+    {
+      "argv": [
+        "lake",
+        "env",
+        "lean",
+        "--version"
+      ],
+      "log": "logs/toolchain.log",
+      "status": "PASS",
+      "exit_code": 0,
+      "elapsed_seconds": 0.407
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/home/dzheng/remote_builds/brezis-op6-lean-release-20260927/.lake/packages/mathlib",
+        "rev-parse",
+        "HEAD"
+      ],
+      "log": "logs/mathlib-revision.log",
+      "status": "PASS",
+      "exit_code": 0,
+      "elapsed_seconds": 0.001
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "/home/dzheng/remote_builds/brezis-op6-lean-release-20260927/.lake/packages/mathlib",
+        "status",
+        "--porcelain",
+        "--untracked-files=no"
+      ],
+      "log": "logs/mathlib-status.log",
+      "status": "PASS",
+      "exit_code": 0,
+      "elapsed_seconds": 0.005
+    },
+    {
+      "argv": [
+        "lake",
+        "build",
+        "Resonance"
+      ],
+      "log": "logs/build.log",
+      "status": "PASS",
+      "exit_code": 0,
+      "elapsed_seconds": 56.708
+    },
+    {
+      "argv": [
+        "lake",
+        "env",
+        "lean",
+        "PrivateInventory.lean"
+      ],
+      "log": "logs/private-inventory.log",
+      "status": "PASS",
+      "exit_code": 0,
+      "elapsed_seconds": 3.866
+    },
+    {
+      "argv": [
+        "lake",
+        "env",
+        "lean",
+        "CheckTypes.lean"
+      ],
+      "log": "logs/theorem-types.log",
+      "status": "PASS",
+      "exit_code": 0,
+      "elapsed_seconds": 3.721
+    },
+    {
+      "argv": [
+        "lake",
+        "env",
+        "lean",
+        "CheckAxioms.lean"
+      ],
+      "log": "logs/actual-proof-cone.log",
+      "status": "PASS",
+      "exit_code": 0,
+      "elapsed_seconds": 6.525
+    },
+    {
+      "argv": [
+        "lake",
+        "env",
+        "lean",
+        "MainAxioms.lean"
+      ],
+      "log": "logs/main-axioms.log",
+      "status": "PASS",
+      "exit_code": 0,
+      "elapsed_seconds": 8.577
+    }
+  ],
+  "module_count": 21,
+  "listed_theorem_count": 232,
+  "manifest_sha256": "f4e50292bc58344a738958811b05927299d42197358ce2f9ee081596eeec4a2a",
+  "verifier_sha256": "9149a391c6457d43af69f26f6798175cb6e023bcd20d4d69899b5c88e842c5ec",
+  "checker_sha256": "ea34a25543c1e7a9a43d5553f41f28dc7a38ddea759ea494b3512a5b3d8577be",
+  "project_build": "fresh directory; dependency package build caches may be reused",
+  "lean_version": "Lean (version 4.29.0, x86_64-unknown-linux-gnu, commit 98dc76e3c0a9b856c9b98726b713fb04fab16740, Release)",
+  "mathlib_revision": "8a178386ffc0f5fef0b77738bb5449d50efeea95",
+  "actual_proof_cone": {
+    "root_count": 349,
+    "constant_count": 52659,
+    "unsafe_count": 0,
+    "partial_count": 0,
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "listed_theorem_count": 232
+  },
+  "axiom_audit_method": "Union of transitive type/value dependencies of all imported Resonance theorem roots, including private and generated roots; not the exact per-theorem axiom set.",
+  "main_axioms_checker_sha256": "2b63e64fe9507d0cb3bea6d3bd8cc5223907d22d72dc0eec3500e9162adc14ac",
+  "main_root_axioms": {
+    "Resonance.PinnedClassificationFinal.euclidean_coarea_classification_unique": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Resonance.PinnedClassificationFinal.euclidean_coarea_unique_smooth_representative": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Resonance.PinnedClassificationFinal.euclidean_coarea_classification_real": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Resonance.PinnedClassificationFinal.affine_representative_all_resonances": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Resonance.PinnedClassificationFinal.affine_representative_euclidean_invariant": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ]
+  }
+}

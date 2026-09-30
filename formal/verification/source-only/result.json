@@ -1,0 +1,15 @@
+{
+  "schema_version": 1,
+  "utc": "20260930T020501.082146Z",
+  "status": "SOURCE_EQUIVALENCE_ONLY",
+  "verification_mode": "source-only",
+  "whole_paper_end_to_end_verified": false,
+  "source_equivalence": true,
+  "historical_evidence_used_as_runtime_result": false,
+  "fresh_replay": "not_requested",
+  "commands": [],
+  "module_count": 21,
+  "listed_theorem_count": 232,
+  "manifest_sha256": "f4e50292bc58344a738958811b05927299d42197358ce2f9ee081596eeec4a2a",
+  "verifier_sha256": "9149a391c6457d43af69f26f6798175cb6e023bcd20d4d69899b5c88e842c5ec"
+}

@@ -1,0 +1,32 @@
+{
+  "server": "cab75",
+  "remote_directory": "/home/dzheng/remote_builds/pinned_collision_only_20260930_020551",
+  "cab17": {
+    "cpu_count": 48,
+    "load1": 3.15,
+    "idle_percent": 92
+  },
+  "cab75": {
+    "cpu_count": 64,
+    "load1": 2.55,
+    "idle_percent": 98
+  },
+  "local_lean_executed": false,
+  "fresh_replay_requested": false,
+  "ssh_exit_code": 0,
+  "evidence_directory": "/home/dzheng/remote_builds/pinned_collision_only_20260930_020551/formal/.verification-runs/server-20260930T020528Z",
+  "result_status": "PASS_FOR_FROZEN_DECLARATIONS_ONLY",
+  "actual_proof_cone": {
+    "root_count": 349,
+    "constant_count": 52659,
+    "unsafe_count": 0,
+    "partial_count": 0,
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "listed_theorem_count": 232
+  },
+  "server_console_sha256": "59064b5c9796c8c4ef57edfbbf33340c0f2c0839a7e30e18c68e9f23ee8464d2"
+}

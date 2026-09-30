@@ -1,0 +1,12 @@
+.DS_Store
+._*
+__pycache__/
+*.py[cod]
+.venv/
+.lake/
+.verification-runs/
+generated/
+dist/
+*.olean
+*.ilean
+*.trace

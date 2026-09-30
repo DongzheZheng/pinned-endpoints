@@ -1,0 +1,44 @@
+{
+  "created_utc": "2026-09-29T18:45:11Z",
+  "quadrature": "exact nontrivial resonance s chart; midpoint u,v in (0,pi); diagonal zero extension",
+  "projection": "exact invariant span{1,(omega-1)/d} removed by mass Schur complement; invariants annihilated analytically in form",
+  "warning": "finite-dimensional Ritz values are variational upper bounds after exact integration, not lower bounds or certified gaps; numerical quadrature has unvalidated error",
+  "python_version": "3.14.2",
+  "numpy_version": "2.5.3",
+  "scipy_version": "1.18.1",
+  "matplotlib_version": "3.11.2",
+  "normalization": "ALS_q_entropy: (9pi/16) D_prod(omega^-2); mass integral phi^2/omega^2 dm",
+  "plan": [
+    [
+      0.004,
+      14,
+      768
+    ],
+    [
+      0.008,
+      14,
+      768
+    ],
+    [
+      0.016,
+      14,
+      768
+    ],
+    [
+      0.032,
+      14,
+      768
+    ],
+    [
+      0.064,
+      14,
+      768
+    ],
+    [
+      0.1,
+      14,
+      768
+    ]
+  ],
+  "baseline": "The recorded original computation was filtered by rows and convention; see numerics/source-provenance.json."
+}

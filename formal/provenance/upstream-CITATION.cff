@@ -1,0 +1,19 @@
+cff-version: 1.2.0
+message: "Please cite this repository when using its formal proofs or verification artifacts."
+title: "Resonance Kinetics in Lean"
+type: software
+authors:
+  - name: "veridiscoverLab"
+    website: "https://github.com/veridiscoverLab"
+version: 0.1.0
+date-released: 2026-09-09
+repository-code: "https://github.com/veridiscoverLab/resonance-kinetic-lean"
+url: "https://github.com/veridiscoverLab/resonance-kinetic-lean"
+abstract: "Lean 4 formalizations of pinned-chain collision invariants, spectral gaps and closed forms, and the exact Onsager transport structure and linear decay of a truncated four-wave kinetic model."
+keywords:
+  - Lean
+  - formal verification
+  - collision invariants
+  - spectral gaps
+  - kinetic theory
+  - Onsager tensor

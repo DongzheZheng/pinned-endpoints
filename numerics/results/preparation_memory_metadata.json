@@ -1,0 +1,56 @@
+{
+  "created_utc": "2026-09-29T23:31:37Z",
+  "configuration": {
+    "d": 0.008,
+    "M": 14,
+    "n": 768,
+    "eta": 0.1,
+    "mass_count": 65536,
+    "wave_grid_points": 401,
+    "tau_interval": [
+      0.0,
+      3.0
+    ],
+    "tau_points": 121
+  },
+  "preparation": "W_plus/minus=N_d +/- eta*N_d^2*sin(2x); both exactly share rho0 and rho1",
+  "densities": {
+    "rho0_equilibrium": 1.0000480067211828,
+    "rho1_equilibrium": 1.0
+  },
+  "reconstruction": "c(t)=U exp(-Lambda*t) U.T M c0; g_plus/eta=N_d H c(t), H is the exact-invariant projected basis",
+  "entropy": "quadratic entropy deficit ratio ||g(t)||^2/||g(0)||^2 = C2(2t), not the finite-amplitude nonlinear entropy",
+  "warning": "one finite Galerkin reconstruction with unvalidated resonance quadrature; not nonlinear chain dynamics or a certified infinite-dimensional semigroup",
+  "checks": {
+    "energy_resonance_residual": 5.551115123125783e-16,
+    "mass_from_projected_basis_max_error": 3.885780586188048e-15,
+    "eigenvector_mass_orthogonality_max": 1.9984014443252818e-15,
+    "generalized_eigen_residual_relative": 8.615944503658291e-16,
+    "weight_sum_error": 4.440892098500626e-16,
+    "initial_shape_max_error": 1.5543122344752192e-15,
+    "odd_parity_max_error": 6.094014182167484e-13,
+    "quadratic_entropy_semigroup_identity_max_error": 1.3322676295501878e-15,
+    "initial_action_plus_error": 2.220446049250313e-16,
+    "initial_action_minus_error": 2.220446049250313e-16,
+    "initial_energy_plus_error": 0.0,
+    "initial_energy_minus_error": 0.0,
+    "linear_action_change_max": 1.7815525072386627e-18,
+    "linear_energy_change_max": 3.406960280915407e-19,
+    "positive_linear_occupation_min": 0.8954887614423371,
+    "existing_rates_relative_max_difference": 0.0,
+    "existing_C2_weights_absolute_max_difference": 0.0,
+    "existing_slow_C2_absolute_max_difference": 0.0
+  },
+  "data_sha256": "58641d26308e1c155fdc312b1a3e06c466d0f94f47042de42d0dd9e41042dc6c",
+  "runtime_seconds": 0.3042851670179516,
+  "python_version": "3.14.2",
+  "numpy_version": "2.5.3",
+  "scipy_version": "1.18.1",
+  "original_source_sha256": {
+    "scripts/preparation_memory.py": "94622b8f3997c637e4845f9e2b66f2cf92623099c149a11376c74ab34279bd92",
+    "numerics/endpoint_spectrum.py": "99b84d857f0ca84bda9cbf85dacad4e7a727a0f52516644dff841c9842fc5917",
+    "numerics/results/linear_response_spectral_weights.csv": "88206ea38860cd1f02484bc39e1ddd8de042c5b7be6d3c7d47fa9eaa3a9d774b",
+    "numerics/results/linear_response_times.csv": "92be246a328d21ec6dd46d7b88f61561cbed0d00254d509c5fad639cf17c8ca8"
+  },
+  "baseline": "Original reconstruction data preserved exactly; source hashes in original_source_sha256 refer to the pre-extraction source and CSVs. Focused file hashes are in numerics/source-provenance.json."
+}
